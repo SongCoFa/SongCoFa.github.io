@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <!--滾動頁面設定js教學  https://pjchender.blogspot.com/2015/04/jquery-2mousewheel.html -->
+    <style>
+        html, body{
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        h2{
+            font-family: 'Libre Franklin', sans-serif;
+        }
+        .transparency{
+            opacity: 0;
+        }
+        .spirit{
+            width: 100vw;
+            height: 100vh;
+            background-color: #666363;
+            position: absolute;
+        }
+        .court{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top:calc(50vh - 300px);
+            left:calc(50vw - 300px);
+        }
+        .b_size{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top:0;
+            left:0;                        
+        }
+        .court .ball1{
+            background-color: paleturquoise;
+            opacity: 0.3;
+            animation-name: change_color1;
+            animation-duration: 120s;
+            animation-iteration-count:infinite;
+            animation-fill-mode: both;
+            animation-direction: alternate-reverse;
+            border-radius: 280px 265px 275px 270px; 
+        }
+        .court .ball2{
+            background-color: palevioletred;
+            opacity: 0.3;
+            animation-name: change_color2;
+            animation-duration: 133s;
+            animation-iteration-count:infinite;
+            animation-fill-mode: both;
+            animation-direction: alternate-reverse;
+            border-radius: 260px 290px 265px 245px;
+        }
+        .court .ball3{
+            background-color: rgb(224, 233, 143);
+            opacity: 0.4;
+            animation-name: change_color3;
+            animation-duration: 30s;
+            animation-iteration-count:infinite;
+            animation-fill-mode: both;
+            animation-direction: alternate-reverse;
+            border-radius: 300px;
+        }
+        .t_size{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top:0;
+            left:0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+            color: rgb(205, 221, 236);
+            animation-duration: 0.5s;
+        }
+        .text1{
+            font-size: 90px;
+            line-height: 140px;
+        }
+        .text2{
+            font-size: 32px;
+            line-height: 64px;
+        }
+        .text3{
+            font-size: 90px;
+            line-height: 140px;
+        }
+        .text4{
+            font-size: 32px;
+            line-height: 64px;
+        }
+        
+        @keyframes change_color1{
+            25%{
+                transform: rotate(90deg);
+                background-color: rgb(190, 94, 190);
+            }
+            50%{
+                transform: rotate(180deg);
+                background-color: rgb(116, 146, 231);
+            }
+            75%{
+                transform: rotate(270deg);
+                background-color: rgb(101, 230, 123);
+            }
+            100%{
+                transform: rotate(360deg);
+                background-color: rgb(161, 179, 63);
+            }
+        }
+        @keyframes change_color2{
+            25%{
+                transform: rotate(-90deg);
+                background-color: rgb(70, 211, 236);
+            }
+            50%{
+                transform: rotate(-270deg);
+                background-color: rgb(56, 180, 39);
+            }
+            75%{
+                transform: rotate(-180deg);
+                background-color: rgb(172, 61, 42);
+            }
+            100%{
+                transform: rotate(-360deg);
+                background-color: rgb(219, 54, 192);
+            }
+        }
+        @keyframes change_color3{
+            25%{
+                background-color: rgb(198, 137, 226);
+            }
+            50%{
+                background-color: rgb(147, 216, 138);
+            }
+            75%{
+                background-color: rgb(99, 98, 197);
+            }
+            100%{
+                background-color: rgb(209, 151, 76);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="spirit">
+        <div class="court">
+            <div class="b_size ball1"></div>
+            <div class="b_size ball2"></div>
+            <div class="b_size ball3"></div>
+            <div class="t_size text1 transparency"><h2>Creative<br>Aim</h2></div>
+            <div class="t_size text2 "><h2>Bringing aesthetics<br>
+                into the daily life of people<br>
+                by the form of web pages</h2></div>
+            <div class="t_size text3 transparency"><h2>Design<br>Concept</h2></div>
+            <div class="t_size text4 transparency">
+                <h2>Enter the best code<br>
+                    Create the ultimate aesthetics<br>
+                    Don’t leave any error
+                </h2>
+            </div>            
+        </div>
+    </div>
+    <script>
+        var _txt1 = document.querySelector(".text1");
+        var _txt2 = document.querySelector(".text2");
+        var _txt3 = document.querySelector(".text3");
+        var _txt4 = document.querySelector(".text4");
+        var _sp1 = 0;
+        // function showtext(){
+        //     _sp1++;
+        //     if(_sp1 == 1){
+        //         _txt1.classList.toggle("transparency")
+        //         _txt2.classList.toggle("transparency")
+        //     }else if(_sp1 == 2){
+        //         _txt2.classList.toggle("transparency")
+        //         _txt3.classList.toggle("transparency")
+        //     }
+        //     else if(_sp1 == 3){
+        //         _txt3.classList.toggle("transparency")
+        //         _txt4.classList.toggle("transparency")
+        //     }else if(_sp1 == 4){
+        //         _txt4.classList.toggle("transparency")
+        //         _txt1.classList.toggle("transparency")
+        //         return _sp1 = 0
+        //     }
+        // };
+        // setInterval(showtext,5000);       
+    </script>    
+</body>
+</html>
