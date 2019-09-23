@@ -16,10 +16,33 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="btn"><a href="main.html" style="text-decoration: none;">Go</a></div>
+    <button class="btn" id="try">123</button>
+    <script>
+        var i = 0;
+        function a9527(){
+            i = i + 2                      
+            console.log(i)
+            console.log(ok(i))
+        };
+        function ok(){
+            if(i < 4){
+                return "ok"
+            }else if(i >= 8){
+                i = i - 8;
+                return "go_back";
+            }
+            else{
+                return "no"
+            }
+        };
+        var _btn = document.querySelector("#try");
+        _btn.onclick = a9527;
+    </script>
 </body>
 </html>

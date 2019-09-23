@@ -7,7 +7,9 @@ html{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
-
+h2,h3{
+    font-family: 'Be Vietnam', sans-serif;
+}
 body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
@@ -45,7 +47,7 @@ body {
     position: fixed;
     top:0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
 }
 .transparency{
     opacity: 0;
@@ -91,6 +93,7 @@ section, article {
 }
 #Logo_bar .list{
     display: block;
+    cursor: pointer;
 }
 #Logo_bar .cross1{
     top:23px;
@@ -128,7 +131,7 @@ section, article {
     position: fixed;
     top:40px;
     left: 40px;
-    z-index: 1;
+    z-index: 2;
 }
 .hm{
     width: 92px;
@@ -321,7 +324,7 @@ section, article {
     }
 }
 .SP{
-    background-color: #3b4150;
+    background-color: #272b35;
     top:100vh;
 }
 .court{
@@ -399,7 +402,7 @@ section, article {
     line-height: 64px;
 }
 .text3{
-    font-size: 90px;
+    font-size: 88px;
     line-height: 140px;
 }
 .text4{
@@ -473,38 +476,31 @@ section, article {
 .WK{
     top:200vh;
 }
-.w_color1{
-    animation-name: change_color4;
-    animation-duration: 57s;
-    animation-iteration-count:infinite;
-    animation-fill-mode: both;
-    animation-direction: alternate-reverse;
+.WK .transparency{
+    opacity: 0;
 }
-.w_color2{
-    opacity: 0.3;
-    animation-name: change_color5;
-    animation-duration: 27s;
-    animation-iteration-count:infinite;
-    animation-fill-mode: both;
-    animation-direction: alternate-reverse;
+.wkcolor{
+    background-color: #252629;
 }
-.b_center{
-    width: calc(100vw - 80px);
-    height: calc(100vh - 80px);
-    position: absolute;
-    top:40px;
-    left: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.start_site{
+    left: 100vw;
+    transition-duration: 3s;
 }
-.b_cover{
-    border-radius: 50%;
-    overflow: hidden;
+.WK .slide_in{
+    left: 0;
 }
-.b2_size{
-    width: 90px;
-    height: 90px;
+.wk_show_box .slide_in{
+    left: 0;
+}
+#works .slide_out{
+    left: -100vw;
+}
+#wk_showbox .slide_out{
+    left: -100vw;
+}
+.matte_full{
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .matte{
     background-size: cover;
@@ -517,26 +513,38 @@ section, article {
 .matte1{
     background-image: url(../img/MP/P1/P1e1.jpg);
     background-position: 50% 50%;
+    top: 0;
+    left: 0;
 }
 .matte2{
     background-image: url(../img/MP/P1/P1e2.jpg);
     background-position: 50% 50%;
+    top: 33vh;
+    left: 0;
 }
 .matte3{
     background-image: url(../img/MP/P1/P1e3.jpg);
     background-position: 50% 50%;
+    top: 67vh;
+    left: 0;
 }
 .matte4{
     background-image: url(../img/MP/P1/P1e4.jpg);
-    background-position: 50% 50%;
+    background-position: 50% 30%;
+    top: 0;
+    right: 0;
 }
 .matte5{
     background-image: url(../img/MP/P1/P1e5.jpg);
     background-position: 50% 50%;
+    top: 33vh;
+    right: 0;
 }
 .matte6{
     background-image: url(../img/MP/P1/P1e6.jpg);
-    background-position: 50% 50%;
+    background-position: 50% 5%;
+    top: 67vh;
+    right: 0;
 }
 .matte21f{
     background-image:url(../img/MP/P2/P2F.jpg);    
@@ -545,57 +553,160 @@ section, article {
 .matte21{
     background-image: url(../img/MP/P2/P1e1.jpg);
     background-position: 50% 50%;
+    top: 0;
+    left: 0;
 }
 .matte22{
     background-image: url(../img/MP/P2/P1e2.jpg);
     background-position: 50% 50%;
+    top: 33vh;
+    left: 0;
 }
 .matte23{
     background-image: url(../img/MP/P2/P1e3.jpg);
     background-position: 50% 50%;
+    top: 67vh;
+    left: 0;
 }
 .matte24{
     background-image: url(../img/MP/P2/P1e4.jpg);
     background-position: 50% 50%;
+    top: 0;
+    right: 0;
 }
 .matte25{
     background-image: url(../img/MP/P2/P1e5.jpg);
     background-position: 50% 50%;
+    top: 33vh;
+    right: 0;
 }
 .matte26{
     background-image: url(../img/MP/P2/P1e6.jpg);
     background-position: 50% 50%;
+    top: 67vh;
+    right: 0;
 }
-@keyframes change_color4{
-    25%{
-        background-color: rgba(143, 121, 151, 0.795);
-    }
+.wk_show_box{
+    background-color: rgb(12, 12, 22);
+    z-index: 1;
+    transition-duration: 0.5s;
+    opacity: 1;
+}
+.wk_show1{
+    width: 60vw;
+    height: 100vh;
+    position: absolute;
+    left:20vw;
+}
+.wk_show2{
+    width: 20vw;
+    height: 33vh;
+    position: absolute;
+}
+.wk_show3{
+    width: 20vw;
+    height: 34vh;
+    position: absolute;
+}
+.wk_btn_box1{
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    bottom: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.wk_btn_box2{
+    width: 600px;
+    height: 100px;
+    position: absolute;
+    bottom: 40px;
+    left: calc(50vw - 300px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1;
+}
+.wk_btn_size{
+    width: 150px;
+    height: 270px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.wk_btn1{    
+    background-image: url(../img/icon/arrow_left_icon.png);
+}
+.wk_btn2{    
+    background-image: url(../img/icon/arrow_right_icon.png);
+}
+.wk_btn3{
+    font-size: 70px;
+    color: #E3E4EE;
+    opacity: 1;
+    animation-name: wk_btn_shine;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    cursor: pointer;
+}
+.wk_btn:hover{
+    animation-iteration-count: 1;
+}
+@keyframes wk_btn_shine{
     50%{
-        background-color: rgba(137, 151, 111, 0.76);
-    }
-    75%{
-        background-color: rgba(104, 134, 148, 0.747);
+        opacity: 0;
     }
     100%{
-        background-color: rgba(122, 107, 88, 0.753);
-    }
-}
-@keyframes change_color5{
-    25%{
-        background-color: rgb(159, 223, 235);
-    }
-    50%{
-        background-color: rgb(155, 216, 144);
-    }
-    75%{
-        background-color: rgb(219, 154, 141);
-    }
-    100%{
-        background-color: rgb(221, 157, 211);
+        opacity: 1;
     }
 }
 .ST{
     top:300vh;
+}
+.ab_size{
+    width: 65vw;
+    height: 63vh;
+    position: absolute;
+    left: 17.5vw;
+    bottom: 15vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.name{
+    background-image: url(../img/about_me/name.png);
+}
+.skill{
+    background-image: url(../img/about_me/about_me.png);
+}
+.letter{
+    background-image: url(../img/about_me/letter.png);
+}
+.ab_box{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgb(45, 45, 48);
+    transition-duration: 1s;
+    left: -100vw;
+}
+#story .ab_box_show{
+    left: 0;
+}
+.ab_click{
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top:calc(50vh - 230px);
+    left: calc(50vw - 220px);
+    background-image: url(../img/about_me/ab_click.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
 }
 .s_color{
     background-color: rgb(45, 45, 48);
@@ -605,13 +716,19 @@ section, article {
     border-radius: 50%;
     position: relative;
 }
-.b3_size{
+.b2_size{
     width: 45px;
     height: 45px;
+    border-radius: 50%;
+}
+.b2_size:hover{
+    background-color: #A3CEDD;
 }
 .bt{
     position: absolute;
     transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition-duration: 1s;
 }
 .b1t{
     top:0;
@@ -633,6 +750,42 @@ section, article {
 }
 .sb3{
     background-color: #3B5571;
+}
+.st_btn_box1{
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    bottom: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.st_btn_size{
+    width: 150px;
+    height: 270px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.st_btn1{    
+    background-image: url(../img/icon/arrow_left_icon.png);
+}
+.st_btn2{    
+    background-image: url(../img/icon/arrow_right_icon.png);
+}
+.about_icon{
+    width: 91px;
+    height: 91px;
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    background-image: url(../img/icon/about_icon.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+    cursor: pointer;
 }
 .CT{
     top:400vh;
@@ -697,7 +850,7 @@ section, article {
 .mt3{
     bottom: -240px;
     background-image: url(../img/mountain/mt03.png);
-    animation-duration: 60s;
+    animation-duration: 90s;
 }
 .mt2{
     bottom: -190px;
@@ -728,9 +881,10 @@ section, article {
     border: 0.2ch solid black;
     background-color: gray;
     transition-duration: 0.2s;
+    cursor: pointer;
 }
 .CT .sw_color{
-    background-color: yellowgreen;
+    background-color: rgb(50, 122, 205);
 }
 .sw_control{
     width: 48px;
