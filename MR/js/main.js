@@ -1,4 +1,6 @@
-var _Show = document.querySelector("#Show")
+var _Show = document.querySelector("#Show");
+var _nav_body = document.querySelector(".nav_body");
+var _nav_border = document.querySelector(".nav_border");
 var s1;
 window.onmousewheel = document.onmousewheel = scrollFunc;
 function scrollFunc(e) {
@@ -28,18 +30,28 @@ function screen_move(){
 };
 function screen_control(){
     if(screen_value <= 0){
-        _Show.style = "top:0vh;"
+        _Show.style = "top:0;"
+        _nav_body.style = "top:0;"
+        _nav_border.style = "width:30vw;"
         screen_value = screen_value * 0;
     }else if(screen_value >= 8){
         _Show.style = "top:-400vh;"
+        _nav_body.style = "top:-360px;"
+        _nav_border.style = "width:10vw;"
         screen_value = screen_value * 0 + 8;
     }else if(screen_value >= 6){
         _Show.style = "top:-300vh;"
+        _nav_body.style = "top:-270px;"
+        _nav_border.style = "width:10vw;"
     }else if(screen_value >= 4){
         _Show.style = "top:-200vh;"
+        _nav_body.style = "top:-180px;"
+        _nav_border.style = "width:10vw;"
     }
     else if(screen_value >= 2){
         _Show.style = "top:-100vh;"
+        _nav_body.style = "top:-90px;"
+        _nav_border.style = "width:10vw;"
     }
 };
 
