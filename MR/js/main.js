@@ -1,82 +1,80 @@
+var _Show = document.querySelector("#Show")
+var s1;
+window.onmousewheel = document.onmousewheel = scrollFunc;
+function scrollFunc(e) {
+    e = e || window.event;
+    var t1 = document.getElementById("wheelDelta");
+    var t2 = document.getElementById("detail");
+    if (e.wheelDelta) {
+        s1 = e.wheelDelta;
+    } else if (e.detail) {
+        s1 = e.detail * -1;
+    }        
+    getsc()
+    screen_move(s1)
+    };
+    
+function getsc(){if (document.addEventListener) {
+    document.addEventListener('DOMMouseScroll', scrollFunc, false);
+}};
+var screen_value = 0;
+function screen_move(){
+    if(s1 < 0){
+        screen_value = screen_value + 1;            
+    }else if(s1 > 0){
+        screen_value = screen_value - 1;
+    }
+    screen_control(screen_value);        
+};
+function screen_control(){
+    if(screen_value <= 0){
+        _Show.style = "top:0vh;"
+        screen_value = screen_value * 0;
+    }else if(screen_value >= 8){
+        _Show.style = "top:-400vh;"
+        screen_value = screen_value * 0 + 8;
+    }else if(screen_value >= 6){
+        _Show.style = "top:-300vh;"
+    }else if(screen_value >= 4){
+        _Show.style = "top:-200vh;"
+    }
+    else if(screen_value >= 2){
+        _Show.style = "top:-100vh;"
+    }
+};
+
 var _btn_home = document.querySelector("#btn_home");
 var _btn_spirit = document.querySelector("#btn_spirit");
 var _btn_works = document.querySelector("#btn_works");
 var _btn_story = document.querySelector("#btn_story");
 var _btn_contact = document.querySelector("#btn_contact");
-// var _btn_home = document.querySelector(".hm");
-// var _nav = document.querySelector("#Nav");
-// var _box = document.querySelector(".box");
-// var _swiper_wrapper = document.querySelector(".swiper-wrapper");
-// var _tra_start = "translate3d(0px, 0px, 0px)";
-// function navchange(){
-//     let _tray = _swiper_wrapper.style.transform;    
-//     if(_tray === _tra_start){
-//         _btn_home.classList.remove("grow");
-//         _nav.style = "display:flex;";
-//         _box.classList.add("box1");
-//         _box.classList.remove("box2");        
-//     }
-//     else if(_tray === ""){
-//         _btn_home.classList.remove("grow");
-//         _nav.style = "display:flex;";
-//         _box.classList.add("box1");
-//         _box.classList.remove("box2");        
-//     }
-//     else{
-//         _btn_home.classList.add("grow");
-//         _nav.style = "display:none;";
-//         _box.classList.add("box2"); 
-//         _box.classList.remove("box1");             
-//     };
-      
-// };
-// var t0 = 0;
-// var t2;
-// function fortwice(){
-//     if(t0 == 2){
-//         clearTimeout(t2);
-//         return t0 = 0;
-//     }
-//     else{
-//         navchange();
-//         t0++;
-//         if(t2){
-//             clearTimeout(t2)
-//         }
-//         t2 = setTimeout(fortwice,200)
-//     }
-//     };
-// btn_1.addEventListener("click", fortwice, false);
-// btn_2.addEventListener("click", fortwice, false);
-// btn_3.addEventListener("click", fortwice, false);
-// btn_4.addEventListener("click", fortwice, false);
-// btn_5.addEventListener("click", fortwice, false);
-// var _mouse_control;
-// if (window.addEventListener)
-//     window.addEventListener('DOMMouseScroll', wheel, false);
-// window.onmousewheel = document.onmousewheel = wheel;
-// function wheel(event){
-//     var delta = 0;
-//     if (!event) event = window.event;
-//     if (event.wheelDelta) {
-//         delta = event.wheelDelta/120; 
-//         if (window.opera) delta = -delta;
-//     } else if (event.detail) {
-//         delta = -event.detail/3;
-//     }
-//     if (delta)
-//         handle(delta);
-// }
-// function handle(delta) {
-//     var _mouse_control = 3;    
-//     if (delta <0){
-//         _mouse_control = _mouse_control + 1;
-//         gosmooth(_mouse_control);    
-//     }else{
-//         _mouse_control = _mouse_control - 1;
-//         gosmooth(_mouse_control);
-//     }
-// };
+_btn_home.onclick = function to_home(){
+    screen_value = screen_value * 0;
+    screen_control(screen_value);
+    console.log(screen_value)
+};
+_btn_spirit.onclick = function to_spirit(){
+    screen_value = screen_value * 0 + 2;
+    screen_control(screen_value);
+    console.log(screen_value)
+};
+_btn_works.onclick = function to_works(){
+    screen_value = screen_value * 0 + 4;
+    screen_control(screen_value);
+    console.log(screen_value)
+};
+_btn_story.onclick = function to_story(){
+    screen_value = screen_value * 0 + 6;
+    screen_control(screen_value);
+    console.log(screen_value)
+};
+_btn_contact.onclick = function to_contact(){
+    screen_value = screen_value * 0 + 8;
+    screen_control(screen_value);
+    console.log(screen_value)
+};
+
+
 var _nav_page = document.querySelector("#Nav_page")
 var _burger = document.querySelector("#Burger");
 var _page_cover = document.querySelector(".page_cover");
@@ -98,11 +96,31 @@ var _Pc_contact = document.querySelector("#Pc_contact");
 function cross_click(){
     setTimeout(function(){_cross.onclick()},500)
 };
-_Pc_btn_home.onclick = cross_click;
-_Pc_spirit.onclick = cross_click;
-_Pc_works.onclick = cross_click;
-_Pc_story.onclick = cross_click;
-_Pc_contact.onclick = cross_click;
+_Pc_btn_home.onclick = function to_home(){
+    screen_value = screen_value * 0;
+    screen_control(screen_value);
+    cross_click();
+};
+_Pc_spirit.onclick = function to_spirit(){
+    screen_value = screen_value * 0 + 2;
+    screen_control(screen_value);
+    cross_click();
+};
+_Pc_works.onclick = function to_works(){
+    screen_value = screen_value * 0 + 4;
+    screen_control(screen_value);
+    cross_click();
+};
+_Pc_story.onclick = function to_story(){
+    screen_value = screen_value * 0 + 6;
+    screen_control(screen_value);
+    cross_click();
+};
+_Pc_contact.onclick = function to_contact(){
+    screen_value = screen_value * 0 + 8;
+    screen_control(screen_value);
+    cross_click();
+};
 
 var _txts = document.querySelector(".t_size");
 var _txt1 = document.querySelector(".text1");
@@ -178,21 +196,6 @@ var _ab_box = document.querySelector(".ab_box");
 var _ab_icon = document.querySelector(".about_icon");
 var _st_btn1 = document.querySelector(".st_btn1");
 var _st_btn2 = document.querySelector(".st_btn2");
-// _b1t.onclick = function(){
-//     st_clear()
-//     _ab_size.classList.add("name")
-//     st_box_show()
-// };
-// _b2t.onclick = function(){
-//     st_clear()
-//     _ab_size.classList.add("letter")
-//     st_box_show()
-// };
-// _b3t.onclick = function(){
-//     st_clear()
-//     _ab_size.classList.add("skill")
-//     st_box_show()
-// };
 _b1t.onclick = function(){
     st_value = 1
     st_control()
@@ -228,7 +231,12 @@ _st_btn2.onclick = function(){
     st_control()
 };
 function st_control(){
-    if(st_value <= 0){
+    if(st_value <= -1){
+        st_value = st_value + 3
+        st_clear()
+        _ab_size.classList.add("skill")
+    }
+    else if(st_value <= 0){
         st_value = st_value + 3
         st_clear()
         _ab_size.classList.add("letter")
@@ -237,15 +245,15 @@ function st_control(){
         st_clear()
         _ab_size.classList.add("name")
     }
-    else if(st_value >= 3){
-        st_value = st_value - 3
-        st_clear()
-        _ab_size.classList.add("letter")
-    }
     else if(st_value >= 4){
         st_value = st_value - 3
         st_clear()
         _ab_size.classList.add("name")
+    }
+    else if(st_value >= 3){
+        st_value = st_value - 3
+        st_clear()
+        _ab_size.classList.add("letter")
     }
     else{
         st_clear()

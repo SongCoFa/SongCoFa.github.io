@@ -1,6 +1,8 @@
+@import'./rwd.css';
 html,body {
     position: relative;
     height: 100%;
+    overflow: hidden;
 }
 
 html{
@@ -18,9 +20,17 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+.screen_box{
+    overflow: hidden;
+}
+/* @media (min-width: 1280px) { */
+
 .main_body {
     width: 100vw;
     height: 500vh;
+    position: absolute;
+    top:0;
+    transition-duration: 1s;
 }
 .sec_size{
     width: 100vw;
@@ -484,7 +494,6 @@ section, article {
 }
 .start_site{
     left: 100vw;
-    transition-duration: 3s;
 }
 .WK .slide_in{
     left: 0;
@@ -908,3 +917,4 @@ section, article {
         background-position-x: 75%;
     }
 }
+/* } */

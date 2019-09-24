@@ -7,7 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
     <title>Document</title>
     <!--滾動頁面設定js教學  https://pjchender.blogspot.com/2015/04/jquery-2mousewheel.html -->
-    <style>
+    <style type="text/css">
+        .html, body{
+            overflow: hidden;
+        }
         .btn{
             width: 100px;
             height: 100px;
@@ -18,31 +21,103 @@
             justify-content: space-around;
             cursor: pointer;
         }
+        .box{
+            width: 100vw;
+            height: 100vh;
+            background-color: plum;
+        }
+        .table123{
+            width: 100vw;
+            height: 500vh;
+        }
     </style>
 </head>
 <body>
-    <div class="btn"><a href="main.html" style="text-decoration: none;">Go</a></div>
-    <button class="btn" id="try">123</button>
+    <div class="table123">
+    <div class="box" id="box1">
+        <div class="btn"><a href="main.html" style="text-decoration: none;">Go</a></div>
+        <button class="btn" id="try">123</button>
+        <p><label for="wheelDelta"> 瀏覽器型別:</label>(IE/Opera)<input type="text" id="wheelDelta"/></p>
+        <p><label for="detail"> 滾動值:</label><input type="text" id="detail"/></p>
+    </div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+    <div class="box" id="box5"></div>
+    </div>
     <script>
-        var i = 0;
-        function a9527(){
-            i = i + 2                      
-            console.log(i)
-            console.log(ok(i))
-        };
-        function ok(){
-            if(i < 4){
-                return "ok"
-            }else if(i >= 8){
-                i = i - 8;
-                return "go_back";
-            }
-            else{
-                return "no"
-            }
-        };
-        var _btn = document.querySelector("#try");
-        _btn.onclick = a9527;
+        var s1;
+        window.onmousewheel = document.onmousewheel = scrollFunc;
+        function scrollFunc(e) {
+        e = e || window.event;
+
+        var t1 = document.getElementById("wheelDelta");
+        var t2 = document.getElementById("detail");
+        if (e.wheelDelta) {//IE/Opera/Chrome
+            t1.value = "IE、Opera、Safari、Chrome";
+            t2.value = e.wheelDelta;
+            s1 = e.wheelDelta;
+        } else if (e.detail) {//Firefox
+            t1.value = "Firefox";
+            t2.value = e.detail;
+        }
+        //ScrollText(direct);
+        getsc()
+        screen_move(s1)
+    };
+    /*註冊事件*/
+    function getsc(){if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    }};
+    var screen_value = 0;
+    function screen_move(){
+        if(s1 < 0){//往下滑
+            screen_value = screen_value + 1;            
+        }else if(s1 > 0){//往上滑
+            screen_value = screen_value - 1;
+        }
+        screen_control(screen_value);        
+    };
+    function screen_control(){
+        if(screen_value <= 0){
+            console.log("box1")
+            screen_value = screen_value * 0;
+        }else if(screen_value <= 2){
+            console.log("box2")
+        }else if(screen_value <= 4){
+            console.log("box3")
+        }else if(screen_value <= 6){
+            console.log("box4")   
+        }else if(screen_value >= 8){
+            console.log("box5")
+            screen_value = [screen_value * 0] + 8;
+        }
+    };
+
+        // var i = 0;
+        // function a9527(){
+        //     i = i + 2                      
+        //     console.log(i)
+        //     console.log(ok(i))
+        // };
+        // function ok(){
+        //     if(i < 4){
+        //         return "ok"
+        //     }else if(i >= 8){
+        //         i = i - 8;
+        //         return "go_back";
+        //     }
+        //     else{
+        //         return "no"
+        //     }
+        // };
+        // var _btn = document.querySelector("#try");
+        // _btn.onclick = a9527;
+
     </script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
 </body>
 </html>
