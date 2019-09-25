@@ -2,58 +2,85 @@ var _Show = document.querySelector("#Show");
 var _nav_body = document.querySelector(".nav_body");
 var _nav_border = document.querySelector(".nav_border");
 var s1;
+var stop_control = 0;
 window.onmousewheel = document.onmousewheel = scrollFunc;
 function scrollFunc(e) {
     e = e || window.event;
-    var t1 = document.getElementById("wheelDelta");
-    var t2 = document.getElementById("detail");
-    if (e.wheelDelta) {
+
+    if(stop_control <= 0){
+        stop_control = 3
+        if (e.wheelDelta) {
         s1 = e.wheelDelta;
     } else if (e.detail) {
         s1 = e.detail * -1;
-    }        
+    }            
     getsc()
     screen_move(s1)
+    setTimeout(function(){stop_control = 0},1000)}    
     };
     
 function getsc(){if (document.addEventListener) {
     document.addEventListener('DOMMouseScroll', scrollFunc, false);
 }};
+
 var screen_value = 0;
 function screen_move(){
     if(s1 < 0){
         screen_value = screen_value + 1;            
     }else if(s1 > 0){
         screen_value = screen_value - 1;
+    }else if(s2 < 0){
+        s2 = 0
+        screen_value = screen_value + 1;            
+    }else if(s2 > 0){
+        s2 = 0
+        screen_value = screen_value - 1;
     }
-    screen_control(screen_value);        
+    screen_control(screen_value);   
 };
+
 function screen_control(){
     if(screen_value <= 0){
         _Show.style = "top:0;"
         _nav_body.style = "top:0;"
         _nav_border.style = "width:30vw;"
-        screen_value = screen_value * 0;
-    }else if(screen_value >= 8){
+        screen_value = 0;
+    }else if(screen_value >= 4){
         _Show.style = "top:-400vh;"
         _nav_body.style = "top:-360px;"
         _nav_border.style = "width:10vw;"
-        screen_value = screen_value * 0 + 8;
-    }else if(screen_value >= 6){
+        screen_value = 4;
+    }else if(screen_value >= 3){
         _Show.style = "top:-300vh;"
         _nav_body.style = "top:-270px;"
         _nav_border.style = "width:10vw;"
-    }else if(screen_value >= 4){
+    }else if(screen_value >= 2){
         _Show.style = "top:-200vh;"
         _nav_body.style = "top:-180px;"
         _nav_border.style = "width:10vw;"
     }
-    else if(screen_value >= 2){
+    else if(screen_value >= 1){
         _Show.style = "top:-100vh;"
         _nav_body.style = "top:-90px;"
         _nav_border.style = "width:10vw;"
-    }
+    }    
 };
+
+var startY = 0;
+var s2;
+_Show.addEventListener("touchstart",function(e){
+    e = e || window.event;
+    startY = e.changedTouches[0].screenY;
+});
+_Show.addEventListener("touchmove",function(e){
+    e = e || window.event;
+    s2 = e.changedTouches[0].screenY - startY;
+});
+_Show.addEventListener("touchend",function(e){
+    e = e || window.event;
+    screen_move(s2)
+});
+
 
 var _btn_home = document.querySelector("#btn_home");
 var _btn_spirit = document.querySelector("#btn_spirit");
