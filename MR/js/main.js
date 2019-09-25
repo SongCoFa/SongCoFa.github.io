@@ -88,7 +88,7 @@ var _btn_works = document.querySelector("#btn_works");
 var _btn_story = document.querySelector("#btn_story");
 var _btn_contact = document.querySelector("#btn_contact");
 _btn_home.onclick = function to_home(){
-    screen_value = screen_value * 0;
+    screen_value = 0;
     screen_control(screen_value);
 };
 _btn_spirit.onclick = function to_spirit(){
@@ -131,27 +131,27 @@ function cross_click(){
     setTimeout(function(){_cross.onclick()},500)
 };
 _Pc_btn_home.onclick = function to_home(){
-    screen_value = screen_value * 0;
+    screen_value = 0;
     screen_control(screen_value);
     cross_click();
 };
 _Pc_spirit.onclick = function to_spirit(){
-    screen_value = screen_value * 0 + 2;
+    screen_value = 1;
     screen_control(screen_value);
     cross_click();
 };
 _Pc_works.onclick = function to_works(){
-    screen_value = screen_value * 0 + 4;
+    screen_value = 2;
     screen_control(screen_value);
     cross_click();
 };
 _Pc_story.onclick = function to_story(){
-    screen_value = screen_value * 0 + 6;
+    screen_value = 3;
     screen_control(screen_value);
     cross_click();
 };
 _Pc_contact.onclick = function to_contact(){
-    screen_value = screen_value * 0 + 8;
+    screen_value = 4;
     screen_control(screen_value);
     cross_click();
 };
