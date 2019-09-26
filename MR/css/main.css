@@ -1,5 +1,9 @@
-@import'./rwd.css';
-html,body {
+@import'./rwd1.css';
+@import'./rwd2.css';
+@import'./rwd3.css';
+@import'./rwd4.css';
+@import'./rwd5.css';
+/* html,body {
     position: relative;
     height: 100%;
     overflow: hidden;
@@ -23,8 +27,6 @@ body {
 .screen_box{
     overflow: hidden;
 }
-/* @media (min-width: 1280px) { */
-
 .main_body {
     width: 100vw;
     height: 500vh;
@@ -70,8 +72,7 @@ section, article {
     margin: 0;
     text-align: center;
     font-size: 18px;
-    background: #000;
-    /* Center slide text vertically */
+    background: #000;   
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -101,16 +102,16 @@ section, article {
     width: 184px;
     border-radius: 46px;
 }
-#Logo_bar .list{
+#Logo_bar2 .list{
     display: block;
     cursor: pointer;
 }
-#Logo_bar .cross1{
+#Logo_bar2 .cross1{
     top:23px;
     min-width: 68px;
     transform: translate(-10.1%, 0%) rotate(45deg);
 }
-#Logo_bar .cross2{
+#Logo_bar2 .cross2{
     top:23px;
     min-width: 68px;
     transform: translate(-10.1%, 0%) rotate(-45deg);
@@ -166,6 +167,10 @@ section, article {
 .hm .icon{
     min-width: 69px;
     min-height: 69px;
+    background-image: url(../img/icon/icon_v1.png);
+    background-size: contain;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 .hm .list{
     min-width: 54px;
@@ -219,9 +224,12 @@ section, article {
     position: absolute;
     right: 0;
     box-sizing: border-box;
-    border-top: 0.2ch solid rgb(245, 238, 228);
-    border-bottom: 0.2ch solid rgb(245, 238, 228);
+    border-top: 0.2px solid rgb(245, 238, 228);
+    border-bottom: 0.2px solid rgb(245, 238, 228);
     transition-duration: 1s; 
+}
+.nav_box .nbg{
+    width: 10vw;
 }
 .nav_box .nav{
     width: 30vw;
@@ -368,16 +376,6 @@ section, article {
     position: absolute;
     top:calc(50vh - 300px);
     left:calc(50vw - 300px);
-}
-.title{
-    width: 10vw;
-    height: 90px;
-    position: absolute;
-    top:40px;
-    right:40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
 }
 .b_size{
     width: 600px;
@@ -841,8 +839,8 @@ section, article {
     opacity: 0;
 }
 .c_sun{
-    width: 160px;
-    height: 160px;
+    width: 8vw;
+    height: 8vw;
     background-image: url(../img/icon/sun_icon.png);
     background-position: 50% 50%;
     background-size: contain;
@@ -860,8 +858,8 @@ section, article {
     opacity: 0;
 }
 .c_moon{
-    width: 210px;
-    height: 210px;
+    width: 11vw;
+    height: 11vw;
     background-image: url(../img/icon/moon_icon.png);
     background-position: 50% 50%;
     background-size: contain;
@@ -882,23 +880,25 @@ section, article {
     animation-timing-function: linear;
 }
 .mt3{
-    bottom: -240px;
+    bottom: -22vh;
     background-image: url(../img/mountain/mt03.png);
     animation-duration: 90s;
 }
 .mt2{
-    bottom: -190px;
+    bottom: -17.6vh;
     background-image: url(../img/mountain/mt02.png);
     animation-duration: 45s;
 }
 .mt1{
-    bottom: -110px;
+    bottom: -11vh;
     background-image: url(../img/mountain/mt01.png);
     animation-duration: 35s;
 }
 .night{
     background-image: url(../img/mountain/night.png);
     background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0.8;
     position: absolute;
     top:0;
@@ -925,7 +925,7 @@ section, article {
     height: 48px;
     border-radius: 50%;
     background-color: #5C748A;
-    border: 0.2ch solid black;
+    border: 0.2px solid black;
     position: absolute;
     right: -1px;
     top:-1px;
@@ -941,5 +941,4 @@ section, article {
     100%{
         background-position-x: 75%;
     }
-}
-/* } */
+} */

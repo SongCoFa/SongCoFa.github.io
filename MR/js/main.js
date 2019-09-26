@@ -1,6 +1,7 @@
 var _Show = document.querySelector("#Show");
 var _nav_body = document.querySelector(".nav_body");
 var _nav_border = document.querySelector(".nav_border");
+var _Logo_bar1 = document.querySelector("#Logo_bar1");
 var s1;
 var stop_control = 0;
 window.onmousewheel = document.onmousewheel = scrollFunc;
@@ -40,29 +41,31 @@ function screen_move(){
 };
 
 function screen_control(){
+    _Logo_bar1.classList.add("grow")    
     if(screen_value <= 0){
+        _Logo_bar1.classList.toggle("grow")
         _Show.style = "top:0;"
         _nav_body.style = "top:0;"
-        _nav_border.style = "width:30vw;"
+        _nav_border.classList.remove("nbg")
         screen_value = 0;
     }else if(screen_value >= 4){
         _Show.style = "top:-400vh;"
         _nav_body.style = "top:-360px;"
-        _nav_border.style = "width:10vw;"
+        _nav_border.classList.add("nbg")
         screen_value = 4;
     }else if(screen_value >= 3){
         _Show.style = "top:-300vh;"
         _nav_body.style = "top:-270px;"
-        _nav_border.style = "width:10vw;"
+        _nav_border.classList.add("nbg")
     }else if(screen_value >= 2){
         _Show.style = "top:-200vh;"
         _nav_body.style = "top:-180px;"
-        _nav_border.style = "width:10vw;"
+        _nav_border.classList.add("nbg")
     }
     else if(screen_value >= 1){
         _Show.style = "top:-100vh;"
         _nav_body.style = "top:-90px;"
-        _nav_border.style = "width:10vw;"
+        _nav_border.classList.add("nbg")
     }    
 };
 
