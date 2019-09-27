@@ -1,144 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin&display=swap" rel="stylesheet">
-    <title>Document</title>
-    <!--滾動頁面設定js教學  https://pjchender.blogspot.com/2015/04/jquery-2mousewheel.html -->
-    <style type="text/css">
-        /* .html, body{
-            overflow: hidden;
-        } */
-        .btn{
-            width: 100px;
-            height: 100px;
-            background-color: aqua;
-            font-size: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            cursor: pointer;
-        }
-        .box{
-            width: 100vw;
-            height: 100vh;
-            background-color: plum;
-        }
-        .table123{
-            width: 100vw;
-            height: 500vh;
-        }
-    </style>
+    <title>MoonRabbit</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Be+Vietnam:300&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="table123">
-    <div class="box" id="box1">
-        <div class="btn"><a href="main.html" style="text-decoration: none;">Go</a></div>
-        <button class="btn" id="try">123</button>
-        <p><label for="wheelDelta"> 瀏覽器型別:</label>(IE/Opera)<input type="text" id="wheelDelta"/></p>
-        <p><label for="detail"> 滾動值:</label><input type="text" id="detail"/></p>
-    </div>
-    <div class="box" id="box2"></div>
-    <div class="box" id="box3"></div>
-    <div class="box" id="box4"></div>
-    <div class="box" id="box5"></div>
-    </div>
-    <script>
-        var s1;
-        var s2 = 0;
-        window.onmousewheel = document.onmousewheel = scrollFunc;
-        function scrollFunc(e) {
-        e = e || window.event;
-        
-        if(s2 <= 0){
-            s2 = 3    
-        var t1 = document.getElementById("wheelDelta");
-        var t2 = document.getElementById("detail");
-        if (e.wheelDelta) {//IE/Opera/Chrome
-            t1.value = "IE、Opera、Safari、Chrome";
-            t2.value = e.wheelDelta;
-            s1 = e.wheelDelta;
-        } else if (e.detail) {//Firefox
-            t1.value = "Firefox";
-            t2.value = e.detail;
-        }
-        //ScrollText(direct);
-        getsc()
-        screen_move(s1);}        
-    };
-    /*註冊事件*/
-    function getsc(){if (document.addEventListener) {
-        document.addEventListener('DOMMouseScroll', scrollFunc, false);
-    }};
-    var screen_value = 0;
-    function screen_move(){
-        if(s1 < 0){//往下滑
-            screen_value = screen_value + 1;           
-        }else if(s1 > 0){//往上滑
-            screen_value = screen_value - 1;             
-        }        
-        screen_control(screen_value);               
-    };
-    function screen_control(){
-        if(screen_value <= 0){
-            console.log("box1")
-            screen_value = screen_value * 0;
-        }else if(screen_value <= 2){
-            console.log("box2")
-        }else if(screen_value <= 4){
-            console.log("box3")
-        }else if(screen_value <= 6){
-            console.log("box4")   
-        }else if(screen_value >= 8){
-            console.log("box5")
-            screen_value = [screen_value * 0] + 8;
-        }
-        setTimeout(function(){s2 = 0},700)
-    };
+    <header class="nav_bar" id="navbar">
+        <div class="hm" id="Logo_bar1">
+            <div id="btn_home"><a href="#" title="homepage" ><div class="icon"></div></a></div>
+            <div class="list" id="Burger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div class="nav_box">
+            <div class="nav_border"></div>
+            <div class="nav_body">
+            <nav class="nav" id="Nav">
+                <div class="btn" id="btn_spirit">
+                    <a class="nav_a" href="#" title="spirit"><h3 class="ta">Spirit</h3></a>
+                </div>
+                <div class="btn" id="btn_works">
+                    <a class="nav_a" href="#" title="works"><h3 class="ta">Works</h3></a>
+                </div>
+                <div class="btn" id="btn_story">
+                    <a class="nav_a" href="#" title="about"><h3 class="ta">About</h3></a>
+                </div>
+                <div class="btn" id="btn_contact">
+                    <a class="nav_a" href="#" title="contact"><h3 class="ta">Contact</h3></a>
+                </div>
+            </nav>
+            <div class="tittle_box">
+                <div class="tittle_size"><h3 class="ta">Spirit</h3></div>
+                <div class="tittle_size"><h3 class="ta">Works</h3></div>
+                <div class="tittle_size"><h3 class="ta">About</h3></div>
+                <div class="tittle_size"><h3 class="ta">Contact</h3></div>
+            </div>
+            </div>            
+        </div>
+    </header>
+        <div class="sec_size none" id="Nav_page">
+            <div class="sec_size page_cover">
+                <nav class="nav" id="">
+                    <div class="btn" id="Pc_spirit">
+                        <a class="nav_a" href="#" title="spirit"><h3 class="ta2">Spirit</h3></a>
+                    </div>
+                    <div class="btn" id="Pc_works">
+                        <a class="nav_a" href="#" title="works"><h3 class="ta2">Works</h3></a>
+                    </div>
+                    <div class="btn" id="Pc_story">
+                        <a class="nav_a" href="#" title="about"><h3 class="ta2">About</h3></a>
+                    </div>
+                    <div class="btn" id="Pc_contact">
+                        <a class="nav_a" href="#" title="contact"><h3 class="ta2">Contact</h3></a>
+                    </div>
+                </nav>
+            </div>
+            <div class="hm grow" id="Logo_bar2">
+                <div id="Pc_btn_home"><a href="#" title="homepage" ><div class="icon"></div></a></div>
+                <div class="list" id="Cross">
+                   <div class="bar cross1"></div>
+                    <div class="bar cross2"></div>
+                </div>
+            </div>            
+        </div>
+        <div class="screen_box sec_size">    
+        <div class="main_body" id="Show">
+            <div class="sec_size" id="HPbox">
+                <section class="sec_size HP" id="homepage">
+                    <div class="earth"></div>
+                    <div class="mora">
+                        <div class="rabbit"></div>
+                        <div class="moon"></div>
+                    </div>
+                    <div class="star">
+                        <div class="size s1"></div>
+                        <div class="size s2"></div>
+                        <div class="size s3"></div>
+                        <div class="size s4"></div>
+                        <div class="size s5"></div>
+                        <div class="size s6"></div>
+                        <div class="size s7"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="sec_size" id="SPbox">
+                <section class="sec_size SP" id="spirit">
+                    <div class="court">
+                        <div class="b_size ball1 b_tra"></div>
+                        <div class="b_size ball2 b_tra"></div>
+                        <div class="b_size ball3 b_tra"></div>
+                        <div class="t_size text1"><h2>Creative<br>Aim</h2></div>
+                        <div class="t_size text2 disapper">
+                            <h2>Bringing aesthetics<br>
+                                into the daily life of people<br>
+                                by the form of web pages</h2></div>
+                        <div class="t_size text3 disapper"><h2>Design<br>Concept</h2></div>
+                        <div class="t_size text4 disapper">
+                            <h2>Enter the best code<br>
+                                Create the ultimate aesthetics<br>
+                                Don’t leave any error
+                            </h2>
+                       </div>            
+                    </div>                        
+                </section>
+            </div>
 
-        // var i = 0;
-        // function a9527(){
-        //     i = i + 2                      
-        //     console.log(i)
-        //     console.log(ok(i))
-        // };
-        // function ok(){
-        //     if(i < 4){
-        //         return "ok"
-        //     }else if(i >= 8){
-        //         i = i - 8;
-        //         return "go_back";
-        //     }
-        //     else{
-        //         return "no"
-        //     }
-        // };
-        // var _btn = document.querySelector("#try");
-        // _btn.onclick = a9527;
+            <div class="sec_size" id="WKbox">
+                <section class="sec_size WK wkcolor" id="works">
+                    <div class="sec_size start_site matte matte1f slide_in" id="big_pic1"></div>
+                    <div class="sec_size start_site matte matte21f none slide_out" id="big_pic2"></div>
+                    <div class="wk_btn_box1">
+                        <div class="wk_btn1 wk_btn_size"></div>
+                        <div class="wk_btn2 wk_btn_size"></div>
+                    </div>  
+                    <div class="wk_show_box sec_size transparency none" id="wk_showbox">
+                        <div class="sec_size start_site slide_in" id="showbox1">
+                            <div class="wk_show2 matte matte1"></div>
+                            <div class="wk_show3 matte matte2"></div>
+                            <div class="wk_show2 matte matte3"></div>
+                            <div class="wk_show1 matte matte1f"></div>
+                            <div class="wk_show2 matte matte4"></div>
+                            <div class="wk_show3 matte matte5"></div>
+                            <div class="wk_show2 matte matte6"></div>
+                        </div>
+                        <div class="sec_size start_site slide_in none" id="showbox2">
+                            <div class="wk_show2 matte matte21"></div>
+                            <div class="wk_show3 matte matte22"></div>
+                            <div class="wk_show2 matte matte23"></div>
+                            <div class="wk_show1 matte matte21f"></div>
+                            <div class="wk_show2 matte matte24"></div>
+                            <div class="wk_show3 matte matte25"></div>
+                            <div class="wk_show2 matte matte26"></div>
+                        </div>
+                    </div>                    
+                    <div class="wk_btn_box2">
+                        <h3 class="wk_btn3">Click Me</h3>
+                    </div>                                
+                </section>
+            </div>
 
-        var _table123 = document.querySelector(".table123");
-        var startY = 0;
-        _table123.addEventListener("touchstart",function(e){
-            e = e || window.event;
-            startY = e.changedTouches[0].screenY;
-            console.log(startY)
-        });
-        _table123.addEventListener("touchmove",function(e){
-            e = e || window.event;
-            var dy = e.changedTouches[0].screenY - startY;
-            console.log(dy)
-        });
-        // _table123.addEventListener("touchend",function(e){
-        //     e = e || window.event;
-        //     return
-        // });     
+            <div class="sec_size" id="STbox">
+                <section class="sec_size ST s_color" id="story">
+                    <div>
+                        <div class="b_size s_color b_border">
+                            <div class="b2_size bt sb1 b1t"></div>
+                            <div class="b2_size bt sb2 b2t"></div>
+                            <div class="b2_size bt sb3 b3t"></div>
+                        </div>
+                        <div class="ab_click"></div>
+                    </div>
+                    <div class="ab_box none">    
+                        <div class="ab_size name"></div>
+                        <div class="st_btn_box1">
+                            <div class="st_btn1 st_btn_size"></div>
+                            <div class="st_btn2 st_btn_size"></div>
+                        </div>
+                        <div class="about_icon"></div> 
+                    </div>
+                </section>
+            </div>
 
-    </script>
-    <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+            <div class="sec_size" id="CTbox">
+                <section class="sec_size CT" id="contact">
+                    <div class="sun_box">
+                        <div class="c_sun"></div>
+                    </div>
+                    <div class="moon_box control_bar">
+                        <div class="c_moon"></div>
+                    </div>
+                    <div class="sec_size ani mt3 ani_on"></div>
+                    <div class="sec_size ani mt2 ani_on"></div>
+                    <div class="sec_size ani mt1 ani_on"></div>
+                    <div class="sec_size night"></div> 
+                    <div class="switch">
+                        <div class="sw_control"></div>
+                    </div>                   
+                </section>
+                
+            </div>    
+        </div>
+        </div>
+
+<script src="../js/main.js"></script>
 </body>
+
 </html>
