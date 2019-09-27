@@ -156,6 +156,7 @@
         justify-content: space-around;
         transition-duration: 1s;
         border-radius: 26px;
+        cursor: pointer;
     }
     .hm:hover{
         background-color: #DBB2CD;

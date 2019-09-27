@@ -156,6 +156,7 @@ section, article {
     align-items: center;
     justify-content: space-around;
     transition-duration: 1s;
+    cursor: pointer;
 }
 .hm:hover{
     background-color: #DBB2CD;
