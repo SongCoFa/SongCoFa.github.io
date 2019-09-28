@@ -432,7 +432,7 @@
         line-height: 80px;
     }
     .text2{
-        font-size: 13px;
+        font-size: 14px;
         line-height: 32px;
     }
     .text3{
@@ -440,7 +440,7 @@
         line-height: 80px;
     }
     .text4{
-        font-size: 13px;
+        font-size: 12px;
         line-height: 32px;
     }
     @keyframes change_text_color{
@@ -852,7 +852,7 @@
         top:-80px;
     }
     .moon_box{
-        width: 600px;
+        width: 470px;
         height: 5px;
         position: absolute;
         bottom: 0;
@@ -908,6 +908,31 @@
         left: 0;
         transition-duration: 1s;
     }
+    .ct_text{
+        position: absolute;
+        top:10%;
+        left: 13%;
+    }
+    .text5{
+        font-size: 14px;
+        line-height: 38px;
+        width: 80vw;
+        height: 25vh;
+        position: absolute;
+        top:0;
+        left:0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        color: rgb(210, 205, 236);
+        opacity: 0.9;
+        transition-duration: 1s;
+    }
+    .text_color{
+        color: rgb(60, 59, 66); 
+    }
     .switch{
         width: 60px;
         height: 30px;
@@ -931,7 +956,7 @@
         border: 0.2px solid black;
         position: absolute;
         right: 0px;
-        top:1px;
+        top:0px;
         transition-duration: 0.2s;
     }
     .switch .sw_on{

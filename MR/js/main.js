@@ -303,11 +303,13 @@ var _sw_control = document.querySelector(".sw_control");
 var _night = document.querySelector(".night");
 var _sun_box = document.querySelector(".sun_box");
 var _moon_box = document.querySelector(".moon_box");
+var _text5 = document.querySelector(".text5");
 _switch.onclick = function(){
     _switch.classList.toggle("sw_color")
     _sw_control.classList.toggle("sw_on")
     _sun_box.classList.toggle("control_bar")
     _moon_box.classList.toggle("control_bar")
     _night.classList.toggle("transparency")
+    _text5.classList.toggle("text_color")
 };
 

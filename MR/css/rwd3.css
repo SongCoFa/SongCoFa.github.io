@@ -436,7 +436,7 @@
         line-height: 140px;
     }
     .text4{
-        font-size: 28px;
+        font-size: 26px;
         line-height: 64px;
     }
     @keyframes change_text_color{
@@ -902,6 +902,31 @@
         top:0;
         left: 0;
         transition-duration: 1s;
+    }
+    .ct_text{
+        position: absolute;
+        top:13%;
+        left: 15%;
+    }
+    .text5{
+        font-size: 22px;
+        line-height: 46px;
+        width: 40vw;
+        height: 25vh;
+        position: absolute;
+        top:0;
+        left:0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        color: rgb(210, 205, 236);
+        opacity: 0.9;
+        transition-duration: 1s;
+    }
+    .text_color{
+        color: rgb(60, 59, 66); 
     }
     .switch{
         width: 80px;

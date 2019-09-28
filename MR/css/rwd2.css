@@ -436,7 +436,7 @@
         line-height: 140px;
     }
     .text4{
-        font-size: 28px;
+        font-size: 26px;
         line-height: 64px;
     }
     @keyframes change_text_color{
@@ -902,6 +902,31 @@
         left: 0;
         transition-duration: 1s;
     }
+    .ct_text{
+        position: absolute;
+        top:7%;
+        left: 15%;
+    }
+    .text5{
+        font-size: 22px;
+        line-height: 64px;
+        width: 35vw;
+        height: 35vh;
+        position: absolute;
+        top:0;
+        left:0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        color: rgb(210, 205, 236);
+        opacity: 0.9;
+        transition-duration: 1s;
+    }
+    .text_color{
+        color: rgb(60, 59, 66); 
+    }
     .switch{
         width: 80px;
         height: 40px;
@@ -925,7 +950,7 @@
         border: 0.2px solid black;
         position: absolute;
         right: 0px;
-        top:1px;
+        top:0.5px;
         transition-duration: 0.2s;
     }
     .switch .sw_on{
