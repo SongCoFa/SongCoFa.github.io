@@ -116,13 +116,31 @@ var _nav_page = document.querySelector("#Nav_page")
 var _burger = document.querySelector("#Burger");
 var _page_cover = document.querySelector(".page_cover");
 var _cross = document.querySelector("#Cross");
+var _cross1 = document.querySelector(".cross1");
+var _cross2 = document.querySelector(".cross2");
+var _burger1 = document.querySelector("#bgb1");
+var _burger2 = document.querySelector("#bgb2");
+var _burger3 = document.querySelector("#bgb3");
 _burger .onclick = function() {
-    _nav_page.classList.toggle("none")
+    burger_anime()
+    setTimeout(function(){_nav_page.classList.toggle("none")},400)    
     setTimeout(function(){_page_cover.classList.toggle("pcm")},500)
+    setTimeout(cross_anime(),2000)
 };
 _cross .onclick = function() {
     _page_cover.classList.toggle("pcm")
-    setTimeout(function(){_nav_page.classList.toggle("none")},1000)    
+    cross_anime()
+    setTimeout(function(){_nav_page.classList.toggle("none")},1200)
+    setTimeout(function(){burger_anime()},1200)    
+};
+function cross_anime(){
+    setTimeout(function(){_cross1.classList.toggle("short")},500)
+    setTimeout(function(){_cross2.classList.toggle("short")},800)
+};
+function burger_anime(){
+    _burger1.classList.toggle("short1")
+    _burger3.classList.toggle("short1")
+    _burger2.classList.toggle("short2")
 };
 
 var _Pc_btn_home = document.querySelector("#Pc_btn_home");

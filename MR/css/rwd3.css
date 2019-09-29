@@ -102,16 +102,21 @@
         display: block;
         cursor: pointer;
     }
-    #Logo_bar2 .cross1{
-        top:18px;
-        min-width: 59px;
-        transform: translate(-20%, 0%) rotate(45deg);
+    .hm .list .cross1{
+        top:0px;
+        width: 54px;
+        transform: rotate(45deg);
+        transform-origin: 0% 50%;
     }
-    #Logo_bar2 .cross2{
-        top:18px;
-        min-width: 59px;
-        transform: translate(-20%, 0%) rotate(-45deg);
-    } 
+    .hm .list .cross2{
+        top:38px;
+        width: 54px;
+        transform:  rotate(-45deg);
+        transform-origin: 0% 50%;
+    }
+    #Nav_page #Logo_bar2 .list .short{
+        width: 0px;
+    }  
     .page_cover .nav{
         width: 100vw;
         height: 46vh;
@@ -176,15 +181,23 @@
         display: none;
     }
     .list .bar{
-        min-width: 42px;
-        min-height: 6px;
+        width: 42px;
+        height: 6px;
         background-color:#646B94;
         border-radius: 3px;
-        transition-duration: 1s;    
+        transition-duration: 0.4s;    
         position: absolute;
     }
     .list:hover .bar{
         background-color: #B54536;
+    }
+    #Burger .short1{
+        width: 0;
+        background-color: rgb(54, 181, 143);
+    }
+    #Burger .short2{
+        width: 21px;
+        background-color: rgb(54, 181, 143);
     }
     #Burger .bar:nth-child(1){
         top:0px;
