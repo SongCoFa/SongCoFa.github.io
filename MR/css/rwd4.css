@@ -1,167 +1,40 @@
 @media (max-width: 899px) and (min-width: 600px) {
-    html,body {
-        position: relative;
-        height: 100%;
-        overflow: hidden;
-    }
     
-    html{
-        scroll-behavior: smooth;
-        overflow-x: hidden;
-    }
-    h2,h3{
-        font-family: 'Be Vietnam', sans-serif;
-    }
-    body {
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .screen_box{
-        overflow: hidden;
-    }
-    .main_body {
-        width: 100vw;
-        height: 500vh;
-        position: absolute;
-        top:0;
-        transition-duration: 1s;
-    }
-    .sec_size{
-        width: 100vw;
-        height: 100vh;    
-        position: absolute;
-    }
-    .nav_a{
-        text-decoration: none;
-    }
-    .none{
-        display: none;
-    }
-    .btn .ta:hover{
-        animation-name: change_text_color;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-    .btn .ta2:hover{
-        animation-name: change_text_color;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
-    #Nav_page{
-        position: fixed;
-        top:0;
-        left: 0;
-        z-index: 3;
-    }
-    .transparency{
-        opacity: 0;
-    }
-    .CT .transparency{
-        opacity: 0;
-    }
-    section, article {
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        font-size: 18px;
-        background: #000;   
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    .page_cover{
-        background-color: #193357;
-        transition-duration: 1s;
-        top:-100%;
-    }
-    #Nav_page .pcm{
-        top:0;
-    }
-    #Nav_page .hm{
-        position: absolute;
-    }
     #Nav_page .grow{
         width: 140px;
         border-radius: 35px;
     }
-    #Logo_bar2 .list{
-        display: block;
-        cursor: pointer;
-    }
     .hm .list .cross1{
         top:0px;
         width: 54px;
-        transform: rotate(45deg);
-        transform-origin: 0% 50%;
     }
     .hm .list .cross2{
         top:38px;
         width: 54px;
-        transform:  rotate(-45deg);
-        transform-origin: 0% 50%;
     }
-    #Nav_page #Logo_bar2 .list .short{
-        width: 0px;
-        background-color: rgb(54, 181, 143);
-    } 
     .page_cover .nav{
-        width: 100vw;
-        height: 46vh;
-        position: absolute;
         top: 27vh;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        align-items: center;
+    }
+    .ta{
+        font-size: 19px;
     }
     .ta2{
         font-size: 40px;
-        color: rgb(245, 238, 228);
-        line-height: 40px;
-    }
-    
-    .HP{
-        background-color: #001017;
     }
     .nav_bar{
         width: calc(100vw - 60px);
         height: 72px;
-        position: fixed;
         top: 30px;
         left: 30px;
-        z-index: 2;
     }
+
+
     .hm{
         width: 72px;
         height: 72px;
         border-radius: 50%;
-        background-color: #A3CEDD;
-        position: fixed;
         top: 30px;
         left: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        transition-duration: 1s;
-        cursor: pointer;
-    }
-    .hm:hover{
-        background-color: #DBB2CD;
     }
     #navbar .grow{
         width: 140px;
@@ -170,35 +43,18 @@
     .hm .icon{
         min-width: 50px;
         min-height: 50px;
-        background-image: url(../img/icon/icon_v1.png);
-        background-size: contain;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
     }
     .hm .list{
         min-width: 42px;
         min-height: 42px;
-        position: relative;
-        display: none;
     }
     .list .bar{
         width: 42px;
         height: 6px;
-        background-color:#646B94;
         border-radius: 3px;
-        transition-duration: 0.4s;    
-        position: absolute;
-    }
-    .list:hover .bar{
-        background-color: #B54536;
-    }
-    #Burger .short1{
-        width: 0;
-        background-color: rgb(54, 181, 143);
     }
     #Burger .short2{
         width: 21px;
-        background-color: rgb(54, 181, 143);
     }
     #Burger .bar:nth-child(1){
         top:0px;
@@ -209,35 +65,17 @@
     #Burger .bar:nth-child(3){
         top:36px;
     }
-    #navbar .grow .list{
-        display: block;
-    }
     .nav_bar .nav_box{
         width: 40vw;
-        height: 70px;
-        position: absolute;
-        right: 0;
-        box-sizing: border-box;
-        display: flex;
-        overflow: hidden;     
+        height: 70px;     
     }
     .nav_body{
         width: 50vw;
         height: 350px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transition-duration: 1s;
     }
     .nav_border{
         width: 50vw;
         height: 70px;
-        position: absolute;
-        right: 0;
-        box-sizing: border-box;
-        border-top: 0.2ch solid rgb(245, 238, 228);
-        border-bottom: 0.2ch solid rgb(245, 238, 228);
-        transition-duration: 1s; 
     }
     .nav_box .nbg{
         width: 10vw;
@@ -245,41 +83,19 @@
     .nav_box .nav{
         width: 40vw;
         height: 70px;
-        position: absolute;
-        right: 0;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .ta{
-        font-size: 19px;
-        color: rgb(245, 238, 228);
-    }
+    }    
     .tittle_box{
         width: 10vw;
-        height: 360px;
-        position: absolute;
-        right: 0;
         top: 80px;
     }
     .tittle_size{
         width: 10vw;
-        height: 90px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        
     }
+
+
     .HP .earth{
         height: 36vh;
         width: 36vh;
-        border-radius: 50%;
-        background-image: url(../img/earth/earth01.jpg);
-        background-position: 50%;
-        background-repeat: none;
-        background-size: 120vh;
-        position: absolute;
         top:13vh;
     }
     .HP .mora{

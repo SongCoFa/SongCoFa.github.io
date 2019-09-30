@@ -216,22 +216,22 @@ function changematte(){
     if(wk_value = 0){
         wk_value++;
         _big_pic1.classList.toggle("slide_out")
-        setTimeout(_big_pic1.classList.toggle("none"),500)
-        setTimeout(_big_pic1.classList.toggle("slide_in"),1000)
-        setTimeout(_big_pic2.classList.toggle("slide_out"),1500)
-        setTimeout(_big_pic2.classList.toggle("none"),2000)
-        setTimeout(_big_pic2.classList.toggle("slide_in"),2500)
-        setTimeout(_showbox1.classList.toggle("none"),3000)
-        setTimeout(_showbox2.classList.toggle("none"),3500);
+        _big_pic1.classList.toggle("none")
+        _big_pic1.classList.toggle("slide_in")
+        _big_pic2.classList.toggle("slide_out")
+        _big_pic2.classList.toggle("none")
+        _big_pic2.classList.toggle("slide_in")
+        _showbox1.classList.toggle("none")
+        _showbox2.classList.toggle("none");
     }else if(wk_value = 1){
         _big_pic2.classList.toggle("slide_out")
-        setTimeout(_big_pic2.classList.toggle("none"),500)
-        setTimeout(_big_pic2.classList.toggle("slide_in"),1000)
-        setTimeout(_big_pic1.classList.toggle("slide_out"),1500)
-        setTimeout(_big_pic1.classList.toggle("none"),2000)
-        setTimeout(_big_pic1.classList.toggle("slide_in"),2500)
-        setTimeout(_showbox2.classList.toggle("none"),3000)
-        setTimeout(_showbox1.classList.toggle("none"),3500)
+        _big_pic2.classList.toggle("none")
+        _big_pic2.classList.toggle("slide_in")
+        _big_pic1.classList.toggle("slide_out")
+        _big_pic1.classList.toggle("none")
+        _big_pic1.classList.toggle("slide_in")
+        _showbox2.classList.toggle("none")
+        _showbox1.classList.toggle("none")
         return wk_value = 0;
     }
 };
