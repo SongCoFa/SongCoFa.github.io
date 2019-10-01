@@ -46,7 +46,8 @@
     }
     .hm .list{
         min-width: 42px;
-        min-height: 42px;
+        min-height: 42px;        
+        display: none;
     }
     .list .bar{
         width: 42px;
@@ -101,48 +102,7 @@
     .HP .mora{
         width: 100vw;
         height: 38vh;
-        position: absolute;
         bottom: 0vh;
-    }
-    .mora .rabbit{
-        background-image: url(../img/rabbit/rabbit_v1-03.png);
-        background-position: 50%;
-        background-size: 14vw 12vw;
-        background-repeat: no-repeat;
-        width: 15vw;
-        height: 12.5vw;
-        position: absolute;
-        left: 50vw;
-        bottom: 7vw;
-        transform: translate(-25% , 0);
-        z-index: 1;
-    }
-    .mora .moon{
-        background-image: url(../img/moon/moon_v1-02.png);
-        background-position: 50%;
-        background-size: 100vw 8.2vw;
-        background-repeat: no-repeat;
-        width: 100vw;
-        height: 8.2vw;
-        position: absolute;
-        bottom: 0;
-    }
-    .star{
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-    }
-    .star .size{
-        width: 0.1px;
-        height: 0.1px;
-        background-color: #FFF0A8;
-        border-radius: 50%;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        animation-name: shine;
-        animation-duration: 4s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;    
     }
     .star .size:nth-child(1){
         top: 56vh;
@@ -175,32 +135,11 @@
         left: 69.7vw;
         animation-delay: 2s;
     }
-    @keyframes shine{
-        0%{
-            width: 0.1px;
-            height: 0.1px;
-        }
-        40%{
-            width: 0.1px;
-            height: 0.1px;
-        }     
-        70%{
-            width: 1.5vw;
-            height: 1.5vw;
-        }
-        100%{
-            width: 0.1px;
-            height: 0.1px;
-        }
-    }
-    .SP{
-        background-color: #272b35;
-        top:100vh;
-    }
+    
+    
     .court{
         width: 600px;
         height: 600px;
-        position: absolute;
         top:calc(50vh - 300px);
         left:calc(50vw - 300px);
     }
@@ -208,50 +147,16 @@
         width: 600px;
         height: 600px;                            
     }
-    .court .b_tra{
-        position: absolute;
-        top:0;
-        left:0;
-        animation-iteration-count:infinite;
-        animation-fill-mode: both;
-        animation-direction: alternate-reverse;
-    }
     .court .ball1{
-        background-color: paleturquoise;
-        opacity: 0.3;
-        animation-name: change_color1;
-        animation-duration: 120s;
         border-radius: 280px 265px 275px 270px; 
     }
     .court .ball2{
-        background-color: palevioletred;
-        opacity: 0.3;
-        animation-name: change_color2;
-        animation-duration: 133s;
         border-radius: 260px 290px 265px 245px;
-    }
-    .court .ball3{
-        background-color: rgb(224, 233, 143);
-        opacity: 0.4;
-        animation-name: change_color3;
-        animation-duration: 30s;    
-        border-radius: 50%;
     }
     .t_size{
         width: 600px;
         height: 600px;
-        position: absolute;
         top:0;
-        left:0;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        text-align: center;
-        color: rgb(205, 221, 236);
-        opacity: 0.9;
-    }
-    .court .disapper{
-        display: none;
     }
     .text1{
         font-size: 90px;
@@ -269,273 +174,95 @@
         font-size: 26px;
         line-height: 64px;
     }
-    @keyframes change_text_color{
-        25%{
-            color: rgb(70, 211, 236);
-        }
-        50%{
-            color: rgb(139, 207, 130);
-        }
-        75%{
-            color: rgb(218, 134, 120);
-        }
-        100%{
-            color: rgb(209, 129, 196);
-        }
-    }
-    @keyframes change_color1{
-        25%{
-            transform: rotate(90deg);
-            background-color: rgb(190, 94, 190);
-        }
-        50%{
-            transform: rotate(180deg);
-            background-color: rgb(116, 146, 231);
-        }
-        75%{
-            transform: rotate(270deg);
-            background-color: rgb(101, 230, 123);
-        }
-        100%{
-            transform: rotate(360deg);
-            background-color: rgb(161, 179, 63);
-        }
-    }
-    @keyframes change_color2{
-        25%{
-            transform: rotate(-90deg);
-            background-color: rgb(70, 211, 236);
-        }
-        50%{
-            transform: rotate(-270deg);
-            background-color: rgb(56, 180, 39);
-        }
-        75%{
-            transform: rotate(-180deg);
-            background-color: rgb(172, 61, 42);
-        }
-        100%{
-            transform: rotate(-360deg);
-            background-color: rgb(219, 54, 192);
-        }
-    }
-    @keyframes change_color3{
-        25%{
-            background-color: rgb(198, 137, 226);
-        }
-        50%{
-            background-color: rgb(147, 216, 138);
-        }
-        75%{
-            background-color: rgb(99, 98, 197);
-        }
-        100%{
-            background-color: rgb(209, 151, 76);
-        }
-    }
-    .WK{
-        top:200vh;
-    }
-    .WK .transparency{
-        opacity: 0;
-    }
-    .wkcolor{
-        background-color: #252629;
-    }
-    .start_site{
-        left: 100vw;
-    }
-    .WK .slide_in{
-        left: 0;
-    }
-    .wk_show_box .slide_in{
-        left: 0;
-    }
-    #works .slide_out{
-        left: -100vw;
-    }
-    #wk_showbox .slide_out{
-        left: -100vw;
-    }
-    .matte_full{
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    .matte{
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .matte1f{
-        background-image:url(../img/MP/P1/P1F.jpg);    
-        background-position: 5% 50%;
-    }
+    
+    
     .matte1{
-        background-image: url(../img/MP/P1/P1e1.jpg);
-        background-position: 50% 50%;
         top: 0;
         left: 0;
     }
     .matte2{
-        background-image: url(../img/MP/P1/P1e2.jpg);
-        background-position: 50% 50%;
         top: 0vh;
         left: 33vw;
     }
     .matte3{
-        background-image: url(../img/MP/P1/P1e3.jpg);
-        background-position: 50% 50%;
         top: 0vh;
         left: 67vw;
     }
     .matte4{
-        background-image: url(../img/MP/P1/P1e4.jpg);
-        background-position: 50% 30%;
         bottom: 0;
         right: 0;
     }
     .matte5{
-        background-image: url(../img/MP/P1/P1e5.jpg);
-        background-position: 50% 50%;
         bottom: 0vh;
         right: 33vw;
     }
     .matte6{
-        background-image: url(../img/MP/P1/P1e6.jpg);
-        background-position: 50% 5%;
         bottom: 0vh;
         right: 67vw;
     }
-    .matte21f{
-        background-image:url(../img/MP/P2/P2F.jpg);    
-        background-position: 50% 50%;    
-    }
     .matte21{
-        background-image: url(../img/MP/P2/P1e1.jpg);
-        background-position: 50% 50%;
         top: 0;
         left: 0;
     }
     .matte22{
-        background-image: url(../img/MP/P2/P1e2.jpg);
-        background-position: 50% 50%;
         top: 0vh;
         left: 33vw;
     }
     .matte23{
-        background-image: url(../img/MP/P2/P1e3.jpg);
-        background-position: 50% 50%;
         top: 0vh;
         left: 67vw;
     }
     .matte24{
-        background-image: url(../img/MP/P2/P1e4.jpg);
-        background-position: 50% 50%;
         bottom: 0;
         right: 0;
     }
     .matte25{
-        background-image: url(../img/MP/P2/P1e5.jpg);
-        background-position: 50% 50%;
         bottom: 0vh;
         right: 33vw;
     }
     .matte26{
-        background-image: url(../img/MP/P2/P1e6.jpg);
-        background-position: 50% 50%;
         bottom: 0vh;
         right: 67vw;
-    }
-    .wk_show_box{
-        background-color: rgb(12, 12, 22);
-        z-index: 1;
-        transition-duration: 0.5s;
-        opacity: 1;
     }
     .wk_show1{
         width: 100vw;
         height: 34vh;
-        position: absolute;
         left:0vw;
         top:33vh;
     }
     .wk_show2{
         width: 33vw;
         height: 33vh;
-        position: absolute;
     }
     .wk_show3{
         width: 34vw;
         height: 33vh;
-        position: absolute;
     }
     .wk_btn_box1{
         width: 100vw;
         height: 50vh;
-        position: absolute;
         bottom: 20vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1;
     }
     .wk_btn_box2{
         width: 600px;
         height: 100px;
-        position: absolute;
         bottom: 40px;
         left: calc(50vw - 300px);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        z-index: 1;
     }
     .wk_btn_size{
         width: 120px;
         height: 210px;
-        cursor: pointer;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-    }
-    .wk_btn1{    
-        background-image: url(../img/icon/arrow_left_icon.png);
-    }
-    .wk_btn2{    
-        background-image: url(../img/icon/arrow_right_icon.png);
     }
     .wk_btn3{
         font-size: 60px;
-        color: #E3E4EE;
-        opacity: 1;
-        animation-name: wk_btn_shine;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease;
-        cursor: pointer;
     }
-    .wk_btn:hover{
-        animation-iteration-count: 1;
-    }
-    @keyframes wk_btn_shine{
-        50%{
-            opacity: 0;
-        }
-        100%{
-            opacity: 1;
-        }
-    }
-    .ST{
-        top:300vh;
-    }
+
+    
     .ab_size{
         width: 100vw;
         height: 75vh;
-        position: absolute;
         left: 0vw;
         bottom: 15vh;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
     }
     .name{
         background-image: url(../img/about_me/name_v2.png);
@@ -546,49 +273,15 @@
     .letter{
         background-image: url(../img/about_me/letter_v2.png);
     }
-    .ab_box{
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-        background-color: rgb(45, 45, 48);
-        transition-duration: 1s;
-        left: -100vw;
-    }
-    #story .ab_box_show{
-        left: 0;
-    }
     .ab_click{
         width: 450px;
         height: 450px;
-        position: absolute;
         top:calc(50vh - 230px);
         left: calc(50vw - 220px);
-        background-image: url(../img/about_me/ab_click.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: 50% 50%;
-    }
-    .s_color{
-        background-color: rgb(45, 45, 48);
-    }
-    .b_border{
-        border: 0.2ch solid rgb(10, 10, 10);
-        border-radius: 50%;
-        position: relative;
     }
     .b2_size{
         width: 45px;
         height: 45px;
-        border-radius: 50%;
-    }
-    .b2_size:hover{
-        background-color: #A3CEDD;
-    }
-    .bt{
-        position: absolute;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-        transition-duration: 1s;
     }
     .b1t{
         top:0;
@@ -602,139 +295,40 @@
         top:442px;
         right: -10px;
     }
-    .sb1{
-        background-color: #193357;
-    }
-    .sb2{
-        background-color: #5C748A;
-    }
-    .sb3{
-        background-color: #3B5571;
-    }
     .st_btn_box1{
         width: 100vw;
         height: 50vh;
-        position: absolute;
         bottom: 23vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1;
     }
     .st_btn_size{
         width: 120px;
         height: 220px;
-        cursor: pointer;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-    }
-    .st_btn1{    
-        background-image: url(../img/icon/arrow_left_icon.png);
-    }
-    .st_btn2{    
-        background-image: url(../img/icon/arrow_right_icon.png);
     }
     .about_icon{
         width: 91px;
         height: 91px;
-        position: absolute;
         bottom: 30px;
         right: 40px;
-        background-image: url(../img/icon/about_icon.png);
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: contain;
-        cursor: pointer;
     }
-    .CT{
-        top:400vh;
-        background-color: rgba(207, 221, 235, 0.877);
-    }
-    .CT .control_bar{
-        transform: rotate(-60deg);
-        display: block;
-        opacity: 0.8;
-        z-index: 1;
-    }
+
+
     .sun_box{
         width: 1500px;
-        height: 5px;
-        position: absolute;
-        bottom: 0;
         left: -60vw;
-        transition-duration: 1s;
-        opacity: 0;
     }
     .c_sun{
         width: 8vw;
         height: 8vw;
-        background-image: url(../img/icon/sun_icon.png);
-        background-position: 50% 50%;
-        background-size: contain;
-        position: absolute;
-        right: -80px;
-        top:-80px;
     }
     .moon_box{
         width: 1300px;
-        height: 5px;
-        position: absolute;
-        bottom: 0;
         left: -80vw;
-        transition-duration: 1s;
-        opacity: 0;
     }
     .c_moon{
         width: 11vw;
         height: 11vw;
-        background-image: url(../img/icon/moon_icon.png);
-        background-position: 50% 50%;
-        background-size: contain;
-        position: absolute;
-        right: -105px;
-        top:-105px;
-    }
-    .ani{
-        left: 0;
-        background-position-x: 25%;
-        background-position-y: 50%;
-        background-repeat: no-repeat;
-        background-size: cover;  
-    }
-    .ani_on{
-        animation-name: bcgmove;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-    .mt3{
-        bottom: -22vh;
-        background-image: url(../img/mountain/mt03.png);
-        animation-duration: 90s;
-    }
-    .mt2{
-        bottom: -17.6vh;
-        background-image: url(../img/mountain/mt02.png);
-        animation-duration: 45s;
-    }
-    .mt1{
-        bottom: -11vh;
-        background-image: url(../img/mountain/mt01.png);
-        animation-duration: 35s;
-    }
-    .night{
-        background-image: url(../img/mountain/night.png);
-        background-position: 50% 50%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        opacity: 0.8;
-        position: absolute;
-        top:0;
-        left: 0;
-        transition-duration: 1s;
     }
     .ct_text{
-        position: absolute;
         top:10%;
         left: 15%;
     }
@@ -743,56 +337,21 @@
         line-height: 40px;
         width: 50vw;
         height: 25vh;
-        position: absolute;
-        top:0;
-        left:0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        text-align: left;
-        color: rgb(210, 205, 236);
-        opacity: 0.9;
-        transition-duration: 1s;
-    }
-    .text_color{
-        color: rgb(60, 59, 66); 
     }
     .switch{
         width: 80px;
         height: 40px;
         border-radius: 21px;
-        position: absolute;
         bottom: 36px;
         right: 36px;
-        border: 0.2ch solid black;
-        background-color: gray;
-        transition-duration: 0.2s;
-        cursor: pointer;
-    }
-    .CT .sw_color{
-        background-color: rgb(50, 122, 205);
     }
     .sw_control{
         width: 38px;
         height: 38px;
-        border-radius: 50%;
-        background-color: #5C748A;
-        border: 0.2px solid black;
-        position: absolute;
         right: 0px;
-        top:1px;
-        transition-duration: 0.2s;
     }
     .switch .sw_on{
         right:40px;
     }
-    @keyframes bcgmove{
-        0%{
-            background-position-x: 25%;
-        }
-        100%{
-            background-position-x: 75%;
-        }
-    }
+    
 }
