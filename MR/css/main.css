@@ -11,8 +11,9 @@ html,body {
 html{
     scroll-behavior: smooth;
 }
-h2,h3{
+h2, h3, h4, h5, h6{
     font-family: 'Be Vietnam', sans-serif;
+    margin: 0;
 }
 body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -290,10 +291,11 @@ section, article {
 
 .SP{
     background-color: #272b35;
-    top:100vh;
+    top:300vh;
 }
 .court{
     position: absolute;
+    cursor: pointer;
 }
 .court .b_tra{
     position: absolute;
@@ -328,12 +330,22 @@ section, article {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: column;
     text-align: center;
     color: rgb(205, 221, 236);
     opacity: 0.9;
 }
 .court .disapper{
     display: none;
+}
+.wt_box2 select{
+    cursor: pointer;
+    border: 1px solid rgb(212, 209, 212);
+    transition-duration: 0.5s;
+    text-decoration: none;
+}
+.wt_box2 select:hover{
+    border: 2px solid rgb(235, 148, 199);
 }
 @keyframes change_text_color{
     25%{
@@ -553,7 +565,7 @@ section, article {
 
 
 .ST{
-    top:300vh;
+    top:100vh;
 }
 .ab_size{
     position: absolute;
@@ -569,7 +581,7 @@ section, article {
     transition-duration: 1s;
     left: -100vw;
 }
-#story .ab_box_show{
+#about .ab_box_show{
     left: 0;
 }
 .ab_click{
