@@ -212,19 +212,15 @@ fetch('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorizat
         return response.json();
     })
     .then(function (myJson) {
-        console.log(myJson);
 
-        //從API中抓取地區天氣資料，存在_location中
         _location = myJson.cwbopendata.dataset.locations.location;
 
-        //將彰化地區氣溫預報及降雨機率用變數存放起來
         var T = _location[0].weatherElement[0].time[1].elementValue.value;
         var PoP12h = _location[0].weatherElement[9].time[1].elementValue.value;
         var Wx = _location[0].weatherElement[12].time[1].elementValue[0].value;
         var UVI_value = _location[0].weatherElement[13].time[1].elementValue[0].value;
         var UVI_LV = _location[0].weatherElement[13].time[1].elementValue[1].value;
 
-        //利用innerHTML在畫面上顯示彰化地區氣溫預報及降雨機率
 
         _txt1.innerHTML = `
                 <h6>${_location[0].locationName}</h6><h5>${T}度</h5><h4>平均氣溫</h4>
@@ -239,7 +235,6 @@ fetch('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorizat
                 <h6>${_location[0].locationName}</h6><h5>${UVI_value}<span>  </span>${UVI_LV}</h5><h4>紫外線指數</h4>
             `;
 
-        //創造一個迴圈，將每筆資料的地區名稱填入_location_name_select中
         for (let index = 0; index < _location[0].weatherElement[13].time.length; index++) {
             const element_2 = _location[0].weatherElement[13].time[index];
 
@@ -256,7 +251,6 @@ fetch('https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-D0047-091?Authorizat
                     `;
         };
 
-        //當select被選擇時，做對應的動作
         var location_name;
         var name_value = 0;
         _location_area_select.onchange = function () {
