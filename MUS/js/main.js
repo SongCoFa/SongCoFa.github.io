@@ -162,11 +162,11 @@ $('#Check_box_lan li input').click(function () {
             `
 
             $('#mus2_text1')[0].innerHTML=`
-            <h4>Music and the</h4>
+            <h4>Midnight with</h4>
             `
 
             $('#mus2_text2')[0].innerHTML=`
-            <h4>Beast</h4>
+            <h4>Moonlight</h4>
             `
 
         }
