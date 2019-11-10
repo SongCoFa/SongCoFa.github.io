@@ -1,0 +1,751 @@
+%pos_top {
+    position: absolute;
+    top: 0;
+}
+
+%pos_right {
+    position: absolute;
+    right: 0;
+}
+
+%pos_bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+%flex_around {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+%flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+%hover_move {
+    transform: translate(-5%, -5%);
+}
+
+%hover_move_v {
+    transform: translate(-2%, -3%);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+h2,
+h3,
+h4,
+h5 {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.ful_height {
+    height: 100vh;
+}
+
+.header_height {
+    height: 120px;
+}
+
+.mid_height {
+    height: 400px;
+}
+
+.bottom_height {
+    height: calc(100vh - 520px);
+}
+
+.ful_wid {
+    width: 100vw;
+}
+
+.wid_15 {
+    width: 15vw;
+}
+
+.wid_5 {
+    width: 5vw;
+}
+
+.wid_50 {
+    width: 50vw;
+}
+
+.wid_66 {
+    width: 66.6vw;
+}
+
+.wid_210 {
+    width: 210px;
+}
+
+.op_0 {
+    opacity: 0;
+}
+
+.bgc_pink{
+    background-color: palevioletred;
+}
+
+.bgc_w {
+    background-color: rgb(201, 198, 198);
+}
+
+.bgc_bg {
+    background-color: rgb(161, 209, 201);
+}
+
+.bgc_db {
+    background-color: rgb(47, 58, 70);
+}
+
+.bgc_dbg {
+    background-color: rgb(95, 125, 133);
+}
+
+
+.bgc_rp {
+    background-color: rgb(185, 161, 192);
+}
+
+.bgc_dr {
+    background-color: rgb(78, 57, 68);
+}
+
+.bgc_drp {
+    background-color: rgb(211, 167, 176);
+}
+
+
+.bgc_whitegray {
+    background-color: rgb(170, 172, 172);
+}
+
+.bgc_black {
+    background-color: rgb(20, 20, 20);
+}
+
+.bgc_gray {
+    background-color: rgb(137, 138, 138);
+}
+
+.bgc_icon{
+    background-color: #E6E6E6;
+}
+
+.c_w {
+    color: rgba(230, 225, 225, 0.918);
+}
+
+.c_b {
+    color: rgb(21, 18, 56);
+}
+
+.color_box{
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+
+.btn_box1 {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(241, 238, 241);
+    border: 1px solid rgba(190, 189, 189, 0.904);
+    box-sizing: border-box;
+}
+
+.home_pic_box {
+    width: 1280px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mus_pic_box {
+    @extend %pos_bottom;
+    width: 400px;
+}
+
+.mus_btn {
+    @extend %pos_bottom;
+
+
+    .mus_img_box {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.mus_pic_size {
+    width: 350px;
+    height: 350px;
+    right: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.video_box {
+    @extend %pos_top;
+    overflow: auto;
+    width: 63vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-around;
+}
+
+.video_box_in{
+    text-decoration: none;
+}
+
+.video {
+    @extend %flex_center;
+    width: 350px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+.video_height {
+    height: 250px;
+    background-color: rgb(100, 99, 99);
+}
+
+.icon{
+    height: 68px;
+    width: 68px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.fav_btn_box{
+    @extend %pos_right;
+    width: 100%;
+    height: 50px;
+    bottom: -50px;
+    background-color: rgb(168, 167, 167);
+
+    .fav_btn{
+        @extend %pos_right;
+        width: 50px;
+        height: 50px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.fav{
+    border:none;
+}
+
+.text_top {
+    position: absolute;
+    left: 17vw;
+    bottom: 0;
+    height: 40px;
+    font-size: 34px;
+    color: whitesmoke;
+}
+
+.text_mid {
+    position: absolute;
+    left: 17vw;
+    top: 0;
+    height: 80px;
+    font-size: 43px;
+    color: whitesmoke;
+}
+
+.scroll_btn{
+    width: 30px;
+    height: 30px;
+}
+
+.scroll_btn:hover{
+    @extend %hover_move;
+}
+
+.flo_lef {
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.right_20 {
+    right: 20vw;
+}
+
+.top_50 {
+    top: 50px;
+    opacity: 1;
+}
+
+.bot_120 {
+    position: absolute;
+    bottom: 120px;
+    opacity: 0;
+}
+
+.t_5ms {
+    transition-duration: 0.5s;
+}
+
+.t_2ms {
+    transition-duration: 0.5s;
+}
+
+
+
+#outside_box {
+    @extend %pos_top;
+    height: 300vh;
+
+    .tittle_height {
+        height: 50px;
+    }
+
+    #header {
+        position: fixed;
+        top: 0;
+        z-index: 10;
+
+
+        #nav_box {
+            @extend %pos_top;
+            height: 50px;
+
+            ul {
+                height: 100%;
+
+                li {
+                    @extend %flex_center;
+                    margin: 0px;
+                    padding: 15px 0px;
+                    transition-duration: 0.5s;                    
+
+                    a {
+                        text-decoration: none;
+                    }
+
+                    h4,
+                    h5 {
+                        margin: 0;
+                        padding: 0;
+                        color: white;
+                        transition-duration: 0.5s;
+                        font-size: 18px;
+                    }
+                }
+
+                li:hover {
+                    background-color: rgba(236, 183, 234, 0.897);
+
+                    h4,
+                    h5 {
+                        color: rgba(70, 88, 122, 0.774);
+                    }
+                }
+            }
+        }
+
+        #control_box {
+            position: absolute;
+            height: 70px;
+
+            #icon {
+                @extend %pos_top,
+                %flex_center;
+                left: 13vw;
+
+                h2,
+                h3 {
+                    font-size: 34px;
+                    margin: 0;
+                    padding: 3px 24px;
+                }
+
+                h4,
+                h5 {
+                    font-size: 21px;
+                    margin: 0;
+                    padding: 2px 25px;
+                }
+            }
+
+            #control_btn_box {
+                @extend %pos_top;
+                height: 70px;
+                background-color: rgb(100, 99, 99);
+                cursor: pointer;
+
+                #language {
+                    @extend %flex_center;
+                }
+
+                #language:hover {
+                    @extend %hover_move;
+                }
+
+                #favorite {
+                    @extend %flex_center;
+                }
+
+                #favorite:hover {
+                    @extend %hover_move;
+                }
+
+                #bgcolor {
+                    @extend %flex_center;
+                }
+
+                #bgcolor:hover {
+                    @extend %hover_move;
+                }
+                
+                .icon_pink{
+                    background-color: palevioletred;
+                }
+            }
+        }
+
+        #Check_box_lan {
+            @extend %flex_center;
+            cursor: pointer;
+        }
+
+        #Check_box_bgc {
+            @extend %flex_center;
+            cursor: pointer;
+
+            li{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            
+            #check_box_text{
+                @extend %flex_center;
+                width: 100%;
+                height: 22px;
+                color: rgb(56, 55, 52);
+
+                h4,h5{
+                    font-size: 20px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        .bot_0 {
+            bottom: -120px;
+            opacity: 1;
+        }
+
+        .top_0 {
+            top: 0;
+            opacity: 0;
+        }
+    }
+
+    #main {
+        @extend %pos_top;
+        height: 300vh;
+
+        .not_fav{
+            display: none;
+        }
+
+        #home {
+            @extend %pos_top;
+
+            #home_box {
+                @extend %pos_bottom;
+                height: calc(100vh - 120px);
+                overflow: hidden;
+
+                .op_08 {
+                    opacity: 0.85;
+                }
+
+                #hbl {
+                    @extend %pos_bottom;
+                    height: 100%;
+                    left: -20px;
+
+                    #home_pic1 {
+                        background-image: url(../img/home/pic1.png);
+                        background-position: 50% 56%;
+                        @extend %pos_bottom;
+                    }
+
+                    #home_cover1 {
+                        background-image: url(../img/home/cover_1.png);
+                        background-position: 50% 56%;
+                        @extend %pos_bottom;
+                    }
+
+                }
+
+                #hbr {
+                    @extend %pos_bottom;
+                    height: 100%;
+                    right: 0;
+
+                    #home_pic2 {
+                        background-image: url(../img/home/pic2.png);
+                        background-position: 50% 60%;
+                        @extend %pos_bottom;
+                    }
+
+                    #home_cover2 {
+                        background-image: url(../img/home/cover_2.png);
+                        background-position: 50% 60%;
+                        @extend %pos_bottom;
+                    }
+
+                }
+
+                #home_text1 {
+                    @extend %pos_top,
+                    %flex_around;
+                    width: 45vw;
+                    height: 230px;
+                    left: 0;
+
+                    h2,h3{
+                        font-size: 56px;
+                    }
+
+                    h4,h5{
+                        font-size: 42px;
+                    }
+                }
+
+                #home_text2 {
+                    @extend %pos_top,
+                    %flex_around;
+                    width: 50vw;
+                    height: 230px;
+                    right: 0;
+
+                    h2,h3{
+                        font-size: 56px;
+                    }
+
+                    h4,h5{
+                        font-size: 42px;
+                    }
+                }
+
+                #home_choice1 {
+                    @extend %pos_bottom;
+                    left: 0;
+                    height: 100%;
+                    z-index: 1;
+                    cursor: pointer;
+
+                }
+
+                #home_choice2 {
+                    @extend %pos_bottom;
+                    right: 0;
+                    height: 100%;
+                    z-index: 1;
+                    cursor: pointer;
+                }
+
+                h2,
+                h3,
+                h4,
+                h5 {
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        #mus1 {
+            position: absolute;
+            top: 100vh;
+
+            #mus1_box_top {
+                @extend %pos_top;
+
+                #mus1_text1{
+                    h3,h4{
+                        font-size: 32px;
+                    }
+                }
+            }
+
+            #mus1_box_mid {
+                position: absolute;
+                top: 120px;
+
+                #mus1_text2{
+                    h3,h4{
+                        font-size: 38px;
+                    }
+                }
+
+                .mus_pic_box {
+
+                    #mus1_btn1:hover {
+                        background-color: #1DA1F2;
+                    }
+
+                    #mus1_btn2:hover {
+                        background-color: #3B5998;
+                    }
+
+                    #mus1_btn3:hover {
+                        background-color: #FF0000;
+                    }
+
+                    #mus1_pic {
+                        @extend %pos_bottom;
+                        background-image: url(../img/mus_1/sp_1.png);
+                    }
+                }
+            }
+
+            #mus1_box_bot {
+                @extend %pos_bottom;
+
+                #mus1_video1:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus1_video2:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus1_video3:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus1_video4:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus1_video5:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus1_video6:hover {
+                    @extend %hover_move_v;
+                }
+            }
+        }
+
+        #mus2 {
+            position: absolute;
+            top: 200vh;
+
+            #mus2_box_top {
+                @extend %pos_top;
+
+                #mus2_text1{
+                    h3,h4{
+                        font-size: 32px;
+                    }
+                }
+            }
+
+            #mus2_box_mid {
+                position: absolute;
+                top: 120px;
+
+                #mus2_text2{
+                    h3,h4{
+                        font-size: 38px;
+                    }
+                }
+
+                .mus_pic_box {
+
+                    #mus2_btn1:hover {
+                        background-color: #1DA1F2;
+                    }
+
+                    #mus2_btn2:hover {
+                        background-color: #3B5998;
+                    }
+
+                    #mus2_btn3:hover {
+                        background-color: #FF0000;
+                    }
+
+                    #mus2_pic {
+                        @extend %pos_bottom;
+                        background-image: url(../img/mus_2/sp_2.png);
+                    }
+                }
+            }
+
+            #mus2_box_bot {
+                @extend %pos_bottom;
+
+                #mus2_video1:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus2_video2:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus2_video3:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus2_video4:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus2_video5:hover {
+                    @extend %hover_move_v;
+                }
+
+                #mus2_video6:hover {
+                    @extend %hover_move_v;
+                }
+            }
+        }
+    }
+    #footer{
+        #scroll_btn_box{
+            position: fixed;
+            right: 0;
+            bottom: 75px;
+            width: 30px;
+            height: 90px;
+            background-color:black;
+            z-index: 80;
+        }
+    }
+}
