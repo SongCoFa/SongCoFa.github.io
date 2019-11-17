@@ -247,7 +247,7 @@
     background-position: 50% 60%;
   }
   #outside_box #main #home #home_box #home_text1 {
-    margin: 5vh 40vw;
+    margin: 5vh calc(50vw - 100px);
     width: 200px;
     height: 200px;
   }
@@ -258,7 +258,7 @@
     font-size: 32px;
   }
   #outside_box #main #home #home_box #home_text2 {
-    margin: 50vh 40vw 10vh;
+    margin: 50vh calc(50vw - 100px) 10vh;
     width: 200px;
     height: 200px;
   }
@@ -431,7 +431,7 @@
     background-position: 50% 60%;
   }
   #outside_box #main #home #home_box #home_text1 {
-    margin: 2vh 37vw;
+    margin: 2vh calc(50vw - 100px);
     width: 200px;
     height: 200px;
   }
@@ -442,7 +442,7 @@
     font-size: 32px;
   }
   #outside_box #main #home #home_box #home_text2 {
-    margin: 45vh 37vw 10vh;
+    margin: 45vh calc(50vw - 100px) 10vh;
     width: 200px;
     height: 200px;
   }
@@ -508,7 +508,7 @@
     height: calc(100vh - 330px);
   }
   .right_20 {
-    right: 5vw;
+    right: 2vw;
   }
   .wid_210 {
     width: 120px;
@@ -560,10 +560,10 @@
     left: 5vw;
   }
   .video {
-    width: 90vw;
+    width: 96vw;
   }
   .video_box {
-    width: 90vw;
+    width: 96vw;
   }
   .video_box_in {
     margin: 0 0 75px;
@@ -579,7 +579,7 @@
     height: 40px;
   }
   #outside_box #header #nav_box ul li {
-    padding: 11.5px 15px;
+    padding: 11px 15px;
   }
   #outside_box #header #nav_box ul li h4,
   #outside_box #header #nav_box ul li h5 {
@@ -637,7 +637,7 @@
     background-position: 50% 60%;
   }
   #outside_box #main #home #home_box #home_text1 {
-    margin: 2vh 27vw;
+    margin: 2vh calc(50vw - 75px);
     width: 150px;
     height: 100px;
   }
@@ -648,7 +648,7 @@
     font-size: 18px;
   }
   #outside_box #main #home #home_box #home_text2 {
-    margin: 45vh 26vw 10vh;
+    margin: 45vh calc(50vw - 75px) 10vh;
     width: 150px;
     height: 100px;
   }
