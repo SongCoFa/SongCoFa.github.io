@@ -1,14 +1,14 @@
-function hide(){
+function hide() {
     $('#control_box').addClass('top_0');
     $('#header').addClass('tittle_height');
 };
 
-function show(){
+function show() {
     $('#header').removeClass('tittle_height');
     $('#control_box').removeClass('top_0');
 };
 
-$("#header").hover(function(){
+$("#header").hover(function () {
     show()
 });
 
@@ -19,7 +19,7 @@ var scroll_control = 0;
 
 
 $(window).scroll(function () {
-    if(scroll_control <= 0){
+    if (scroll_control <= 0) {
         scroll_control = 1;
         now_scroll = scrollY;
         scroll_value = now_scroll - past_scroll;
@@ -28,33 +28,32 @@ $(window).scroll(function () {
     past_scroll = scrollY;
 });
 
-function tittle_control(){
-    if(scroll_value >= 0){        
-        if(scrollY >= 90){
-            if($('#header').hasClass('tittle_height')){
+function tittle_control() {
+    if (scroll_value >= 0) {
+        if (scrollY >= 90) {
+            if ($('#header').hasClass('tittle_height')) {
                 scroll_control = 0;
                 return;
-            }else{
+            } else {
                 hide();
                 clearclass();
                 scroll_control = 0;
                 return;
             };
-        }else{
+        } else {
             scroll_control = 0;
             return;
         };
-    }else{
-        if(scrollY <= 90){
+    } else {
+        if (scrollY <= 90) {
             show();
             scroll_control = 0;
             return;
-        }
-        else{
-            if($('#header').hasClass('tittle_height')){
+        } else {
+            if ($('#header').hasClass('tittle_height')) {
                 scroll_control = 0;
                 return;
-            }else{
+            } else {
                 hide();
                 clearclass();
                 scroll_control = 0;
@@ -74,7 +73,7 @@ $('#language').click(function () {
         clearclass();
     } else {
         clearclass(),
-        $('#Check_box_lan').toggleClass('bot_0');
+            $('#Check_box_lan').toggleClass('bot_0');
     };
 });
 
@@ -83,13 +82,23 @@ $('#bgcolor').click(function () {
         clearclass();
     } else {
         clearclass(),
-        $('#Check_box_bgc').toggleClass('bot_0');
+            $('#Check_box_bgc').toggleClass('bot_0');
     };
 });
 
-$('#favorite').click(function(){
-    $('#favorite img').toggleClass('icon_pink');
-    $('.video_box_in').not('.fav').toggleClass('not_fav');
+
+var fav_value = 0;
+$('#favorite').click(function () {
+    console.log(fav_value);
+    if (fav_value <= 1) {
+        fav_value = 3;
+        $('#favorite img').toggleClass('icon_pink');
+        $('.video_box_in').not('.fav').toggleClass('not_fav');
+    } else {
+        fav_value = 0
+        $('#favorite img').toggleClass('icon_pink');
+        $('.video_box_in').not('.fav').toggleClass('not_fav');
+    }
 });
 
 var lan_value;
@@ -98,74 +107,74 @@ $('#Check_box_lan li input').click(function () {
     if ($(this).prop('checked')) {
         $('#Check_box_lan li input:checkbox').prop('checked', false);
         $(this).prop('checked', true);
-        
-        if(lan_value == "CH"){
-            $('#check_box_text')[0].innerHTML=`
+
+        if (lan_value == "CH") {
+            $('#check_box_text')[0].innerHTML = `
             <h5>背景色</h5>
             `
 
-            $('#home_btn')[0].innerHTML=`
+            $('#home_btn')[0].innerHTML = `
             <h5>首頁</h5>
             `
 
-            $('#home_text1')[0].innerHTML=`
+            $('#home_text1')[0].innerHTML = `
             <h3>米津玄師</h3>
             <h5>音樂鬼才</h5>
             `
 
-            $('#home_text2')[0].innerHTML=`
+            $('#home_text2')[0].innerHTML = `
             <h2>Aimer</h2>
             <h5>靈魂歌姬</h5>
             `
-            
-            $('#mus1_text1')[0].innerHTML=`
+
+            $('#mus1_text1')[0].innerHTML = `
             <h5>用音樂革命的</h5>
             `
 
-            $('#mus1_text2')[0].innerHTML=`
+            $('#mus1_text2')[0].innerHTML = `
             <h5>野獸</h5>
             `
 
-            $('#mus2_text1')[0].innerHTML=`
+            $('#mus2_text1')[0].innerHTML = `
             <h5>閃耀於午夜的</h5>
             `
 
-            $('#mus2_text2')[0].innerHTML=`
+            $('#mus2_text2')[0].innerHTML = `
             <h5>月光</h5>
             `
 
-        }else{
-            $('#check_box_text')[0].innerHTML=`
+        } else {
+            $('#check_box_text')[0].innerHTML = `
             <h4>color</h4>
             `
 
-            $('#home_btn')[0].innerHTML=`
+            $('#home_btn')[0].innerHTML = `
             <h4>Home</h4>
             `
 
-            $('#home_text1')[0].innerHTML=`
+            $('#home_text1')[0].innerHTML = `
             <h2>米津玄師</h2>
             <h4>Musical genius</h4>
             `
 
-            $('#home_text2')[0].innerHTML=`
+            $('#home_text2')[0].innerHTML = `
             <h2>Aimer</h2>
             <h4>Ethereal voice</h4>
             `
 
-            $('#mus1_text1')[0].innerHTML=`
+            $('#mus1_text1')[0].innerHTML = `
             <h4>Music and the</h4>
             `
 
-            $('#mus1_text2')[0].innerHTML=`
+            $('#mus1_text2')[0].innerHTML = `
             <h4>Beast</h4>
             `
 
-            $('#mus2_text1')[0].innerHTML=`
+            $('#mus2_text1')[0].innerHTML = `
             <h4>Midnight with</h4>
             `
 
-            $('#mus2_text2')[0].innerHTML=`
+            $('#mus2_text2')[0].innerHTML = `
             <h4>Moonlight</h4>
             `
 
@@ -180,20 +189,20 @@ $('#Check_box_bgc li input').click(function () {
         $('#Check_box_bgc li input:checkbox').prop('checked', false);
         $(this).prop('checked', true);
 
-        if(bgc_value == "blue"){
+        if (bgc_value == "blue") {
             clear_bgc();
             bgc_blue();
-        }else if(bgc_value == "pink"){
+        } else if (bgc_value == "pink") {
             clear_bgc();
             bgc_pink();
-        }else if(bgc_value == "gray"){
+        } else if (bgc_value == "gray") {
             clear_bgc();
             bgc_gray();
         };
     };
 });
 
-function clear_bgc(){
+function clear_bgc() {
     $("#control_box").removeClass("bgc_bg bgc_rp bgc_whitegray");
     $("#tittle").removeClass("bgc_db bgc_dr bgc_black");
     $("#mus1_box_top").removeClass("bgc_dbg bgc_drp bgc_gray");
@@ -204,7 +213,7 @@ function clear_bgc(){
     $("#mus2_box_bot").removeClass("bgc_dbg bgc_drp bgc_gray");
 };
 
-function bgc_blue(){
+function bgc_blue() {
     $("#control_box").addClass("bgc_bg");
     $("#tittle").addClass("bgc_db");
     $("#mus1_box_top").addClass("bgc_dbg");
@@ -215,7 +224,7 @@ function bgc_blue(){
     $("#mus2_box_bot").addClass("bgc_dbg");
 };
 
-function bgc_pink(){
+function bgc_pink() {
     $("#control_box").addClass("bgc_rp");
     $("#tittle").addClass("bgc_dr");
     $("#mus1_box_top").addClass("bgc_drp");
@@ -223,10 +232,10 @@ function bgc_pink(){
     $("#mus1_box_bot").addClass("bgc_drp");
     $("#mus2_box_top").addClass("bgc_drp");
     $("#mus2_box_mid").addClass("bgc_dr");
-    $("#mus2_box_bot").addClass("bgc_drp");    
+    $("#mus2_box_bot").addClass("bgc_drp");
 };
 
-function bgc_gray(){
+function bgc_gray() {
     $("#control_box").addClass("bgc_whitegray");
     $("#tittle").addClass("bgc_black");
     $("#mus1_box_top").addClass("bgc_gray");
@@ -234,5 +243,5 @@ function bgc_gray(){
     $("#mus1_box_bot").addClass("bgc_gray");
     $("#mus2_box_top").addClass("bgc_gray");
     $("#mus2_box_mid").addClass("bgc_black");
-    $("#mus2_box_bot").addClass("bgc_gray");    
+    $("#mus2_box_bot").addClass("bgc_gray");
 };
