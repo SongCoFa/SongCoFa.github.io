@@ -185,54 +185,7 @@
     }
     
     
-    .matte1{
-        top: 0;
-        left: 0;
-    }
-    .matte2{
-        top: 33vh;
-        left: 0;
-    }
-    .matte3{
-        top: 67vh;
-        left: 0;
-    }
-    .matte4{
-        top: 0;
-        right: 0;
-    }
-    .matte5{
-        top: 33vh;
-        right: 0;
-    }
-    .matte6{
-        top: 67vh;
-        right: 0;
-    }
-    .matte21{
-        top: 0;
-        left: 0;
-    }
-    .matte22{
-        top: 33vh;
-        left: 0;
-    }
-    .matte23{
-        top: 67vh;
-        left: 0;
-    }
-    .matte24{
-        top: 0;
-        right: 0;
-    }
-    .matte25{
-        top: 33vh;
-        right: 0;
-    }
-    .matte26{
-        top: 67vh;
-        right: 0;
-    }
+    
     .wk_show1{
         width: 60vw;
         height: 100vh;
@@ -252,17 +205,17 @@
         bottom: 20vh;
     }
     .wk_btn_box2{
-        width: 600px;
+        width: 300px;
         height: 100px;
         bottom: 40px;
-        left: calc(50vw - 300px);
+        left: calc(50vw - 150px);
     }
     .wk_btn_size{
         width: 120px;
         height: 210px;
     }
     .wk_btn3{
-        font-size: 60px;
+        font-size: 52px;
     }
     
     

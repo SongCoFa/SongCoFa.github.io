@@ -187,54 +187,7 @@
     }
     
     
-    .matte1{
-        top: 0;
-        left: 0;
-    }
-    .matte2{
-        top: 0vh;
-        left: 33vw;
-    }
-    .matte3{
-        top: 0vh;
-        left: 67vw;
-    }
-    .matte4{
-        bottom: 0;
-        right: 0;
-    }
-    .matte5{
-        bottom: 0vh;
-        right: 33vw;
-    }
-    .matte6{
-        bottom: 0vh;
-        right: 67vw;
-    }
-    .matte21{
-        top: 0;
-        left: 0;
-    }
-    .matte22{
-        top: 0vh;
-        left: 33vw;
-    }
-    .matte23{
-        top: 0vh;
-        left: 67vw;
-    }
-    .matte24{
-        bottom: 0;
-        right: 0;
-    }
-    .matte25{
-        bottom: 0vh;
-        right: 33vw;
-    }
-    .matte26{
-        bottom: 0vh;
-        right: 67vw;
-    }
+    
     .wk_show1{
         width: 100vw;
         height: 34vh;
@@ -255,17 +208,17 @@
         bottom: 30vh;
     }
     .wk_btn_box2{
-        width: 300px;
-        height: 100px;
+        width: 200px;
+        height: 50px;
         bottom: 7vh;
-        left: calc(50vw - 150px);
+        left: calc(50vw - 100px);
     }
     .wk_btn_size{
         width: 70px;
         height: 130px;
     }
     .wk_btn3{
-        font-size: 30px;
+        font-size: 26px;
     }
     
 

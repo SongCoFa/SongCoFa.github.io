@@ -447,59 +447,19 @@ section, article {
 }
 .matte1f{
     background-image:url(../img/MP/P1/P1F.jpg);    
-    background-position: 5% 50%;
-}
-.matte1{
-    background-image: url(../img/MP/P1/P1e1.jpg);
-    background-position: 50% 50%;
+    background-position: 25% 60%;
 }
 .matte2{
     background-image: url(../img/MP/P1/P1e2.jpg);
-    background-position: 50% 50%;
-}
-.matte3{
-    background-image: url(../img/MP/P1/P1e3.jpg);
-    background-position: 50% 50%;
-}
-.matte4{
-    background-image: url(../img/MP/P1/P1e4.jpg);
-    background-position: 50% 30%;
-}
-.matte5{
-    background-image: url(../img/MP/P1/P1e5.jpg);
-    background-position: 50% 50%;
-}
-.matte6{
-    background-image: url(../img/MP/P1/P1e6.jpg);
-    background-position: 50% 5%;
+    background-position: 25% 50%;
 }
 .matte21f{
     background-image:url(../img/MP/P2/P2F.jpg);    
     background-position: 50% 50%;    
 }
-.matte21{
-    background-image: url(../img/MP/P2/P1e1.jpg);
-    background-position: 50% 50%;
-}
 .matte22{
     background-image: url(../img/MP/P2/P1e2.jpg);
-    background-position: 50% 50%;
-}
-.matte23{
-    background-image: url(../img/MP/P2/P1e3.jpg);
-    background-position: 50% 50%;
-}
-.matte24{
-    background-image: url(../img/MP/P2/P1e4.jpg);
-    background-position: 50% 50%;
-}
-.matte25{
-    background-image: url(../img/MP/P2/P1e5.jpg);
-    background-position: 50% 50%;
-}
-.matte26{
-    background-image: url(../img/MP/P2/P1e6.jpg);
-    background-position: 50% 50%;
+    background-position: 60% 50%;
 }
 .wk_show_box{
     background-color: rgb(12, 12, 22);
@@ -550,6 +510,8 @@ section, article {
     animation-iteration-count: infinite;
     animation-timing-function: ease;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 .wk_btn:hover{
     animation-iteration-count: 1;
