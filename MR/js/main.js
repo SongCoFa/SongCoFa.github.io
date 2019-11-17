@@ -396,9 +396,7 @@ var _wk_show_box = document.querySelector(".wk_show_box");
 var _wk_btn3 = document.querySelector(".wk_btn3");
 _wk_btn3.onclick = function () {
     _wk_show_box.classList.toggle("none")
-    setTimeout(function () {
-        _wk_show_box.classList.toggle("transparency")
-    }, 500)
+    _wk_show_box.classList.toggle("transparency")
 };
 
 var _b1t = document.querySelector(".b1t");
