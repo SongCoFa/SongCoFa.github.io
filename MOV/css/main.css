@@ -513,8 +513,8 @@ body {
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0;
-  -webkit-animation-duration: 700s;
-          animation-duration: 700s;
+  -webkit-animation-duration: 400s;
+          animation-duration: 400s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease;
@@ -531,8 +531,8 @@ body {
   background-position: 50% 50%;
   background-size: cover;
   opacity: 0.2;
-  -webkit-animation-duration: 1000s;
-          animation-duration: 1000s;
+  -webkit-animation-duration: 700s;
+          animation-duration: 700s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease;

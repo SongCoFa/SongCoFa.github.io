@@ -430,7 +430,7 @@ body {
         #sr_bg1 {
             @include pic(url(../img/sr/sr_bg_1.png), no-repeat, 50% 50%, cover);
             opacity: 0;
-            animation-duration: 700s;
+            animation-duration: 400s;
             animation-iteration-count: infinite;
             animation-timing-function: ease;
             animation-direction: alternate;
@@ -440,7 +440,7 @@ body {
         #sr_bg2 {
             @include pic(url(../img/sr/sr_bg_2.png), no-repeat, 50% 50%, cover);
             opacity: 0.2;
-            animation-duration: 1000s;
+            animation-duration: 700s;
             animation-iteration-count: infinite;
             animation-timing-function: ease;
             animation-direction: alternate;
