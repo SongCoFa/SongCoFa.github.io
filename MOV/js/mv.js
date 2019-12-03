@@ -17,6 +17,8 @@ var rc_txt_box1 = document.querySelector("#rc_text1");
 var rc_txt_box2 = document.querySelector("#rc_text2");
 var rc_txt_box3 = document.querySelector("#rc_text3");
 
+var fo_txt_box = document.querySelector("#fo_txt_box");
+
 
 function txtin() {
     mv_txt_box1.innerHTML = `
@@ -131,6 +133,16 @@ function txtin() {
     If you are fascinated by the story of Harry Potter, you must not miss the solid books with original content.
     </h3>
     `;
+
+
+    fo_txt_box.innerHTML = `
+    <h2>
+    Only use for learning, if images or materials on the web are a violation of rights
+    </h2>
+    <h3>
+    Please contact me by mail: leo01817@gmail.com
+    </h3>
+    `
 };
 
 txtin();

@@ -42,7 +42,7 @@ body {
 .sr_bg_box {
   position: absolute;
   width: 100vw;
-  height: 370vh;
+  height: 380vh;
 }
 
 .burger_box_wid0 {
@@ -63,8 +63,9 @@ body {
 }
 
 #outside_box {
-  height: 570vh;
+  height: 580vh;
   position: absolute;
+  overflow: hidden;
 }
 
 #outside_box #nav_page {
@@ -336,13 +337,14 @@ body {
 }
 
 #outside_box #mv_page .poster {
-  width: 734px;
+  height: 100vh;
+  width: 39vw;
   position: absolute;
   left: 0;
 }
 
 #outside_box #mv_page .mv_content {
-  width: calc(100vw - 734px);
+  width: 61vw;
   position: absolute;
   right: 1px;
 }
@@ -502,7 +504,7 @@ body {
 }
 
 #outside_box #sp_rc_bg {
-  top: 200vh;
+  bottom: 0;
   background-color: #0b1016;
   overflow: hidden;
 }
@@ -856,7 +858,7 @@ body {
 }
 
 #outside_box #rc_page #rc_content_box2 {
-  top: calc(45vh + 990px);
+  top: calc(45vh + 950px);
   height: 350px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -885,6 +887,37 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 0%;
   background-size: cover;
+}
+
+#outside_box #footer {
+  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.616);
+}
+
+#outside_box #footer #fo_txt_box {
+  height: 80%;
+  top: 10%;
+}
+
+#outside_box #footer #fo_txt_box h2, #outside_box #footer #fo_txt_box h3 {
+  margin: 12px 0;
+  padding: 0;
+  text-align: center;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+#outside_box #footer #fo_txt_box h2 {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+#outside_box #footer #fo_txt_box h3 {
+  font-family: 'Alata', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
 }
 
 @-webkit-keyframes scroll_icon_show1 {
