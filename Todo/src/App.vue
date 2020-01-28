@@ -12,6 +12,8 @@
       <TodoItem v-for="(todo, key, index) in list" :todo="todo" :key="index" :filter="filter" class="todo-item" v-on:remove="del(key)"></TodoItem>
     </ul>
 
+    <div class="msg" v-if="incompleteCount === 0 && filter === 'show_all'">恭喜完成所有項目！</div>
+
     <div class="control">
       <a v-on:click="setFilter('show_all')" class="btn" :class="{ active: filter === 'show_all'}">全部 ({{ allCount }})</a>
       <a v-on:click="setFilter('show_completed')" class="btn" :class="{ active: filter === 'show_completed'}">已完成 ({{ completedCount }})</a>
@@ -176,8 +178,8 @@ export default {
   }
   
   .msg {
-    font-size: 15px;
-    color: #363636;
+    font-size: 20px;
+    color: #a77590;
   }
   
   .btn {
