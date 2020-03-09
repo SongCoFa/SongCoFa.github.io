@@ -1,6 +1,10 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <template slot="default">
+        <div class="loading-image"></div>
+      </template>
+    </loading>
 
     <!-- 購物車內容 -->
     <div class="container pt-5 pb-4 cart">
@@ -324,6 +328,12 @@ export default {
 </script>
 
 <style scope lang="scss">
+.loading-image {
+  background-image: url(https://media.giphy.com/media/f9S2zKoJ7gAcI030TO/giphy.gif);
+  background-size: cover;
+  width: 219px;
+  height: 230px;
+}
 .cart {
   h2 {
     display: inline-block;

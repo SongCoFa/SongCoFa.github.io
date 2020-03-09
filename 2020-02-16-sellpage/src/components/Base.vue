@@ -15,19 +15,19 @@
     <Cart class="d-none d-sm-block"></Cart>
 
     <!-- Footer -->
-    <!-- <Footer></Footer> -->
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from "./Header";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 import Cart from "./Cart";
 import AlertMessage from "./AlertMessage";
 export default {
   components: {
     Header,
-    // Footer,
+    Footer,
     Cart,
     AlertMessage
   },
@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
 main {
   margin-top: 65px;
-  overflow: hidden;
   font-family: 'Noto Sans SC', sans-serif;
 }
 .text-fgo{
