@@ -1,10 +1,6 @@
 <template>
   <div>
-    <loading :active.sync="isLoading">
-      <template slot="default">
-        <div class="loading-image"></div>
-      </template>
-    </loading>
+    <loading :active.sync="isLoading"></loading>    
     <Banner></Banner>
 
     <!-- ABOUT US -->
@@ -54,7 +50,7 @@
 
     <!-- 熱銷商品 -->
     <section id="best-seller" class="pt-5 pb-4">
-      <div class="container pb-5 text-center" animation-class="fadeInUpBig">
+      <div class="container pb-5 text-center">
         <h2 class="font-weight-bolder mb-4 pb-2">最受歡迎的商品</h2>
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -117,7 +113,7 @@ export default {
     swiper,
     swiperSlide,
     Banner,
-    HomeYoutube
+    HomeYoutube,
   },
   data() {
     return {
@@ -210,12 +206,6 @@ export default {
 </script>
 
 <style lang="scss">
-.loading-image {
-  background-image: url(https://media.giphy.com/media/f9S2zKoJ7gAcI030TO/giphy.gif);
-  background-size: cover;
-  width: 219px;
-  height: 230px;
-}
 // ABOUT US
 .about-us {
   h2 {
@@ -312,7 +302,7 @@ export default {
 }
 .comment {
   background-color: #929191;
-  padding: 50px 0 50px;
+  padding:50px 0 50px;
   h2 {
     display: inline-block;
     font-weight: 600;
