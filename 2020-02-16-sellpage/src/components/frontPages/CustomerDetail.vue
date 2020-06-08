@@ -1,7 +1,13 @@
 <template>
   <div>
     <!-- Loading -->
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <template slot="default">
+        <div class="loading-image-background">
+        <div class="loading-image"></div>
+        </div>
+      </template>
+    </loading>
     <!-- 商品資訊 -->
     <div class="container py-3">
       <!-- Breadcrumb -->
@@ -172,6 +178,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.loading-image {
+  background-image: url(https://media.giphy.com/media/f9S2zKoJ7gAcI030TO/giphy.gif);
+  background-size: cover;
+  width: 219px;
+  height: 230px;
+}
+
 .main {
   .double-border {
     border-width: 4px;

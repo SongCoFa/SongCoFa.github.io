@@ -1,6 +1,10 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <template slot="default">
+        <div class="loading-image"></div>
+      </template>
+    </loading>
 
     <!-- Banner -->
     <div class="banner"></div>
@@ -258,6 +262,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.loading-image {
+  background-image: url(https://media.giphy.com/media/f9S2zKoJ7gAcI030TO/giphy.gif);
+  background-size: cover;
+  width: 219px;
+  height: 230px;
+}
 
 .banner {
   background-image: url(../../assets/images/Banner/CustomerProduct.jpg);
