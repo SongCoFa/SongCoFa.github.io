@@ -2,25 +2,25 @@
   <div>
     <div v-if="query === 'RepairSystem'">
       <div class="row m-0">
-        <div class="col d-inline-block" style="padding-left:0;">
+        <div class="col d-inline-block" style="min-width: 150px">
             <h4 class="text_sm">起始時間：</h4>
             <div class="input-group text_sm">
                 <input type="date" class="form-control w-100" v-model="Query.start_datetime" placeholder="請輸入起始時間" />
             </div>
         </div>
-        <div class="col d-inline-block">
+        <div class="col d-inline-block" style="min-width: 150px">
             <h4 class="text_sm">結束時間：</h4>
             <div class="input-group text_sm">
                 <input type="date" class="form-control w-100" v-model="Query.end_datetime" placeholder="請輸入結束時間" />
             </div>
         </div>
-        <div class="col d-inline-block">
+        <div class="col d-inline-block" style="min-width: 150px">
             <h4 class="text_sm">車號：</h4>
             <div class="input-group text_sm">
                 <input type="text" class="form-control w-100" v-model="Query.bus_no" placeholder="請輸入車號" />
             </div>
         </div>
-        <div class="col d-inline-block" style="padding-right:0;">
+        <div class="col d-inline-block" style="min-width: 150px">
             <h4 class="text_sm">狀態：</h4>
             <div class="input-group text_sm">
                 <select class="form-control w-100" v-model="Query.status">

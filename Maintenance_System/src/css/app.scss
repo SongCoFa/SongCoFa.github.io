@@ -1,13 +1,21 @@
 // app global css in SCSS form
 @media (max-width: 500px){
-
+    .text_big{
+        font-size: 22px;
+    }
+    
+    .text_sm{
+        font-size: 15px !important;
+    }
 }
-.text_big{
-    font-size: 26px;
-}
-
-.text_sm{
-    font-size: 21px !important;
+@media (min-width: 501px){
+    .text_big{
+        font-size: 26px;
+    }
+    
+    .text_sm{
+        font-size: 21px !important;
+    }
 }
 
 button{
@@ -62,7 +70,8 @@ h4{
 
 .btn-block{
     display: block;
-    width: 100%;
+    width: calc(100% - 30px);
+    margin-left: 15px;
 }
 
 .btn-primary{

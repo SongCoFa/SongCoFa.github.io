@@ -139,7 +139,7 @@ export default {
             }
           })
           this.historydata = response.data
-          console.log(this.historydata)
+          // console.log(this.historydata)
         })
         .catch(function (error) {
           console.log(error)

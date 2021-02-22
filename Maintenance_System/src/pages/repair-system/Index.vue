@@ -222,7 +222,6 @@ export default {
   }
   .querytool{
     position: relative;
-    height: 135px;
     width: calc(100vw - 50px);
     margin-left: 25px;
     margin-bottom: 30px;
