@@ -65,7 +65,7 @@ const linksData = [
   {
     title: '報修系統',
     icon: 'plagiarism',
-    link: 'http://localhost:8080/#/repair-system'
+    link: 'http://www.fmsbolymin.com.tw:8813/repair/#/repair-system'
   }
 ]
 
@@ -101,6 +101,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @media (max-width: 500px){
+    .logo_img{
+      width: 110px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    .user_img{
+      width: 30px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    .user_title{
+      position: absolute;
+      text-align: center;
+      font-weight: bold;
+      width: 104px;
+      height: 30px;
+      top: 10px;
+      left: 152px;
+    }
+  }
+  @media (min-width: 501px){
+    .logo_img{
+      width: 165px;
+      height: 45px;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+    .user_img{
+      width: 45px;
+      height: 45px;
+      margin-top: 5px;
+      margin-left: 20px;
+    }
+    .user_title{
+      position: absolute;
+      text-align: center;
+      font-weight: bold;
+      width: 104px;
+      height: 45px;
+      top: 10px;
+      left: 260px;
+    }
+  }
   a{
     cursor: pointer;
     text-decoration: none;
@@ -114,27 +160,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-  }
-  .logo_img{
-    width: 165px;
-    height: 45px;
-    margin-top: 5px;
-    margin-left: 10px;
-  }
-  .user_img{
-    width: 45px;
-    height: 45px;
-    margin-top: 5px;
-    margin-left: 20px;
-  }
-  .user_title{
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    width: 104px;
-    height: 45px;
-    top: 10px;
-    left: 260px;
   }
   .tittle_nav{
     position: absolute;

@@ -2,8 +2,9 @@
   <q-page>
     <Breadcrumb :nowat="PageNowAt" />
     <div class="title"></div>
+    <div class="text_big Timer">{{TimeNow}}</div>
     <div class="dataTable mainTable">
-      <div class="q-pa-md" style="padding-top:0px; padding-bottom:2px; white-space: nowrap; overflow-y: scroll;">
+      <div class="q-pa-md" style="padding:0px 0px 0px 0;white-space: nowrap;">
         <table class="q-table" style="position:relative;">
           <thead>
             <tr class="q-tr" style="background-color: rgb(50, 39, 77);">
@@ -32,18 +33,18 @@
         </table>
       </div>
     </div>
+    <div class="historyTitleBox">
+      <img style="float:left;" src="~/assets/ICON/List.png" />
+      <div class="historyTitle text_sm">歷史紀錄:</div>
+      <div class="colorcard text_sm">
+        <div class="colorbox detailList"></div>
+        <div class="colorcard-title">維修紀錄</div>
+        <div class="colorbox confirmationList"></div>
+        <div class="colorcard-title">確認紀錄</div>
+      </div>
+    </div>
     <div class="historyTable dataTable">
-      <div class="q-pa-md" style="padding-top:0px; white-space: nowrap; overflow-y: scroll;">
-        <div style="position:relative; width:100%; height:46px;">
-          <img style="float:left;" src="~/assets/ICON/List.png" />
-          <div style="float:left; padding:7px 0 0 9px;" class="text_sm">歷史紀錄:</div>
-          <div class="colorcard text_sm">
-            <div class="colorbox detailList"></div>
-            <div class="colorcard-title">維修紀錄</div>
-            <div class="colorbox confirmationList"></div>
-            <div class="colorcard-title">確認紀錄</div>
-          </div>
-        </div>
+      <div class="q-pa-md" style="padding:0 0 2px 0; white-space: nowrap;">
         <table class="q-table" style="position:relative;">
           <thead>
             <tr class="q-tr" style="background-color: rgb(56, 48, 44);">
@@ -150,82 +151,202 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title{
-  position:relative;
-  top:60px;
-  height: 50px;
-  left:225px;
-  width:100px;
-  margin-bottom: 45px;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.dataTable{
-  position: relative;
-  width: calc(100vw - 25px);
-  margin:0 10px 0 10px;
-  table{
-    border: 0.5px solid rgb(204, 202, 202);
-    border-radius: 8px;
+@media(max-width: 500px){
+  .title{
+    position:relative;
+    top:60px;
+    height: 35px;
+    left:225px;
+    width:100px;
+    margin-bottom: 45px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
-}
-.mainTable{
-  padding-top: 15px;
-  height: 145px;
-}
-.colorcard{
-  float: right;
-  width: 290px;
-  padding-top: 7px;
-}
-.colorbox{
-  width: 35px;
-  height: 35px;
-  float: left;
-  box-sizing: border-box;
-  border: 0.5px solid black;
-  margin-left: 20px;
-}
-.colorcard-title{
-  float: left;
-  padding:2px 0 0 5px;
-}
-.historyTable{
-  tbody{
-    tr{
-      position: relative;
-      td{
-        padding-bottom: 200px;
+  .Timer{
+    position: relative;
+    display: inline-block;
+    height: 25px;
+    width: 350px;
+    padding-left: 25px;
+    margin-top: 10px;
+  }
+  .dataTable{
+    position: relative;
+    overflow-y: hidden;
+  }
+  .mainTable{
+    height: 110px;
+    width: calc(100vw - 50px);
+    margin:0px 25px 0 25px;
+    border:0.5px solid gray;
+  }
+  .historyTitleBox{
+    position: relative;
+    margin: 10px 25px 10px;
+    width: calc(100% - 46px);
+    height: 46px;
+    .historyTitle{
+      float: left;
+      padding: 7px 0 0 9px;
+    }
+  }
+  .historyTable{
+    position: relative;
+    width: calc(100vw - 50px);
+    margin:0 25px 10px 25px;
+    border:0.5px solid gray;
+    tbody{
+      tr{
+        position: relative;
+        td{
+          padding-bottom: 200px;
+        }
       }
     }
   }
-}
-.detailbox{
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  padding-top: 42px;
-  width: 100%;
-  height: 242px;
-  border: 0.5px solid gray;
-  .descriptionBox{
-    float: left;
-    width: 23%;
-    height: 100%;
+  .detailbox{
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    padding-top: 42px;
+    width: 100%;
+    height: 242px;
+    border: 0.5px solid gray;
+    .descriptionBox{
+      float: left;
+      width: 23%;
+      height: 100%;
     // border: 0.5px solid gray;
-    .desTitle{
-      height: 50px;
-      padding: 7px 14px;
+      .desTitle{
+        height: 50px;
+        padding: 7px 14px;
+      }
+    }
+    .pictureBox{
+      float: left;
+      width: 77%;
+      height: 100%;
+      img{
+        max-height: 197px;
+      }
     }
   }
-  .pictureBox{
+  .colorcard{
+    float: right;
+    width: 95px;
+    padding-top: 7px;
+  }
+  .colorbox{
+    width: 20px;
+    height: 20px;
     float: left;
-    width: 77%;
-    height: 100%;
-    img{
-      max-height: 197px;
+    box-sizing: border-box;
+    border: 0.5px solid black;
+    margin-left: 7px;
+  }
+  .colorcard-title{
+    float: left;
+    padding:0px 0 0 5px;
+  }
+}
+@media(min-width: 501px){
+  .title{
+    position:relative;
+    top:60px;
+    height: 50px;
+    left:225px;
+    width:100px;
+    margin-bottom: 45px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .Timer{
+    position: relative;
+    display: inline-block;
+    height: 35px;
+    width: 450px;
+    padding-left: 25px;
+    margin-top: 10px;
+  }
+  .dataTable{
+    position: relative;
+    overflow-y: hidden;
+  }
+  .mainTable{
+    height: 110px;
+    width: calc(100vw - 75px);
+    margin:5px 25px 0 25px;
+    border:0.5px solid gray;
+  }
+  .historyTitleBox{
+    position: relative;
+    margin: 20px 25px 10px;
+    width: calc(100% - 55px);
+    height: 46px;
+    .historyTitle{
+      float: left;
+      padding: 7px 0 0 9px;
     }
+  }
+  .historyTable{
+    position: relative;
+    width: calc(100vw - 75px);
+    margin:0 25px 10px 25px;
+    border:0.5px solid gray;
+    tbody{
+      tr{
+        position: relative;
+        td{
+          padding-bottom: 200px;
+        }
+      }
+    }
+  }
+  .detailbox{
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    padding-top: 42px;
+    width: 100%;
+    height: 242px;
+    border: 0.5px solid gray;
+    .descriptionBox{
+      float: left;
+      width: 23%;
+      height: 100%;
+    // border: 0.5px solid gray;
+      .desTitle{
+        height: 50px;
+        padding: 7px 14px;
+      }
+    }
+    .pictureBox{
+      float: left;
+      width: 77%;
+      height: 100%;
+      img{
+        max-height: 197px;
+      }
+    }
+  }
+  .colorcard{
+    float: right;
+    width: 290px;
+    padding-top: 7px;
+  }
+  .colorbox{
+    width: 35px;
+    height: 35px;
+    float: left;
+    box-sizing: border-box;
+    border: 0.5px solid black;
+    margin-left: 20px;
+  }
+  .colorcard-title{
+    float: left;
+    padding:2px 0 0 5px;
   }
 }
 .confirmationList{
