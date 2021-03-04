@@ -159,7 +159,7 @@ export default {
 
       this.$http.post(api, send)
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
           this.$emit('refreshData');
           this.$refs.modal.hide();
         })
@@ -190,7 +190,7 @@ export default {
 
           this.$http.post(api, send)
             .then((response) => {
-              // console.log(response.data);
+              console.log(response.data);
               this.$emit('refreshData');
               this.$refs.modal.hide();
             })

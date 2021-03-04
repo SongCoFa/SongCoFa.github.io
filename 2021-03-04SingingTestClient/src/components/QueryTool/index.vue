@@ -92,7 +92,7 @@ export default {
     },
     async queue(input) {
       const flag = await this.checkExcutable();
-      console.log(this.selectedInput);
+      // console.log(this.selectedInput);
 
       if (!flag) return;
 
@@ -134,7 +134,7 @@ export default {
       const result = await this.$http
         .post(this.GetResultApi, search)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
 
           const routeName = this.$route.name;
           // 駕駛長資料管理 default filter

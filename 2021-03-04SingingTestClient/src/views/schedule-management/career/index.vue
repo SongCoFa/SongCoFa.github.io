@@ -426,7 +426,7 @@ export default {
       // eslint-disable-next-line no-param-reassign
       record = this.lookupDriver(record, record.emp_ID);
 
-      console.log(record);
+      // console.log(record);
 
       // 編輯後更新視圖顯示資料
       if (position === 'first') {
@@ -478,7 +478,12 @@ export default {
         temp.Direction = temp.direction;
       });
 
-      console.log(send);
+      // console.log(send);
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http.post(api, send)
         .then((response) => {
@@ -514,6 +519,11 @@ export default {
 
     toUp() {
       if (this.firstShift == null || this.secondShift == null) return;
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       // 複製或移動模式
       if (this.duplicate) {
@@ -604,6 +614,11 @@ export default {
     },
     toDown() {
       if (this.firstShift == null || this.secondShift == null) return;
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       if (this.duplicate) {
         const sameItems = [];
