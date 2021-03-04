@@ -151,10 +151,15 @@ export default {
       const api = `${process.env.VUE_APP_BASE_API}/api/shift/UpsertMasterList`;
 
       const send = [this.shiftMaster];
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http.post(api, send)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           this.$emit('refreshData');
           this.$refs.modal.hide();
         })
@@ -162,6 +167,11 @@ export default {
     },
     handleDelete() {
       const api = `${process.env.VUE_APP_BASE_API}/api/shift/DeleteMasterList`;
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$bvModal.msgBoxConfirm('將刪除本仕業主表及詳細資料，請確認是否執行', {
         title: '訊息',
@@ -180,7 +190,7 @@ export default {
 
           this.$http.post(api, send)
             .then((response) => {
-              console.log(response.data);
+              // console.log(response.data);
               this.$emit('refreshData');
               this.$refs.modal.hide();
             })

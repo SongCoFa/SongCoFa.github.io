@@ -12,8 +12,12 @@
           >{{ nowTime | moment("YYYY-MM-DD HH:mm:ss")}}</span>
           <span
             class="text-style font-weight-bold"
-            v-if="userInfo"
+            v-if="userInfo && !isVisitor"
           >您好：({{ userInfo.emp_ID }}){{ userInfo.emp_name }}</span>
+          <span
+            class="text-style font-weight-bold"
+            v-if="userInfo && isVisitor"
+          >您好：(visitor)訪客</span>
         </div>
       </b-row>
 
@@ -118,12 +122,19 @@ export default {
   data() {
     return {
       nowTime: null,
+      isVisitor: false,
     };
   },
   mounted() {
     window.setInterval(() => {
       this.nowTime = new Date();
     }, 1000);
+    const member = window.sessionStorage.getItem('member');
+    if (member === 'visitor') {
+      this.isVisitor = true;
+    } else {
+      this.isVisitor = false;
+    }
   },
   computed: {
     ...mapState(['userInfo']),

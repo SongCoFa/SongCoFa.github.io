@@ -447,7 +447,7 @@ export default {
           send.map((row, i) => {
             const $el = row;
 
-            console.log(value[i]);
+            // console.log(value[i]);
             $el.intermediate_stations.map((station) => {
               const temp = station;
               // value[i].forEach((a) => {
@@ -482,8 +482,12 @@ export default {
 
     updated(result) {
       const send = result;
-
-      console.log(send);
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
+      // console.log(send);
 
       this.$http.post(`${process.env.VUE_APP_BASE_API}/api/shift/ImportList`, send)
         .then((response) => {

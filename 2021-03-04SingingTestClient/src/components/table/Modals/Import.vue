@@ -306,11 +306,16 @@ export default {
       const abnormalList = this.checkData(importArray);
 
       if (abnormalList.length > 0) return;
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http
         .post(this.ImportApi, importArray)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
 
           this.$refs.modal.hide();
 
@@ -329,7 +334,7 @@ export default {
         .catch(error => console.log(error));
     },
     checkData(importArray) {
-      console.log(importArray);
+      // console.log(importArray);
 
       const routeName = this.$route.name;
 

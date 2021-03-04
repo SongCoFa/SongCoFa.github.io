@@ -38,7 +38,12 @@ export default {
     handleOk() {
       const send = [this.delItem];
       send[0].expire_date = null;
-      console.log(send);
+      // console.log(send);
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http
         .post(

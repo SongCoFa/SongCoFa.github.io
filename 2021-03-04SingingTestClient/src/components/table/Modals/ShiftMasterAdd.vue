@@ -179,6 +179,11 @@ export default {
       }
 
       const send = [this.Master];
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http.post(api, send)
         .then((response) => {

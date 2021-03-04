@@ -181,6 +181,11 @@ export default {
           return;
         }
       }
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       // console.log(this.AddApi, send);
 

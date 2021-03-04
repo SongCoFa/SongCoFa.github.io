@@ -313,7 +313,7 @@ export default {
           });
           this.routeList = [...new Set(list)];
 
-          console.log(this.routeList);
+          // console.log(this.routeList);
         })
         .catch(e => console.log(e));
     },
@@ -329,7 +329,7 @@ export default {
       this.routeSelecting = true;
     },
     setRoute(item) {
-      console.log(item);
+      // console.log(item);
       this.record.SubRouteUID = item.SubRouteUID;
       this.record.DisplayRouteID = item.DisplayRouteID;
       this.record.direction = item.Direction;

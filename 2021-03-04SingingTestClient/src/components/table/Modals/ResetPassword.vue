@@ -37,6 +37,11 @@ export default {
   methods: {
     handleOk() {
       const send = { emp_ID: this.item.emp_ID, password_new: null };
+      const member = window.sessionStorage.getItem('member');
+      if (member === 'visitor') {
+        alert('使用者權限不足');
+        return;
+      }
 
       this.$http
         .post(
