@@ -107,7 +107,7 @@ export default {
       ],
 
       exporting: false,
-      getday:false,
+      getday: false,
       busyState: false,
     };
   },
@@ -119,9 +119,9 @@ export default {
         option.value = '';
         option.JSONvalue = '';
       }
-      if(option.value === 'AnnualLeaveReport'){
+      if (option.value === 'AnnualLeaveReport') {
         this.getday = true;
-      }else{
+      } else {
         this.getday = false;
       }
       this.PrintReportApi = `${process.env.VUE_APP_BASE_API}/api/ScheduleReport/${option.value}`;
@@ -171,7 +171,7 @@ export default {
     updateResult(result, queriedInput, time) {
       if (!result) {
         this.Table.items = [];
-      } else {        
+      } else {
         this.Table.items = JSON.parse(result);
       }
       this.queriedData.input = queriedInput;
@@ -200,8 +200,8 @@ export default {
       }
 
       if (this.reportType === 'AnnualLeaveReport') {
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const today = new Date();
+        const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         condition.today = date;
       }
 
@@ -222,7 +222,6 @@ export default {
           .catch(e => console.log(e));
         return;
       }
-      console.log("000");
 
       const pre = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,';
       const name = this.reportOptions.find(item => item.value === this.reportType);
