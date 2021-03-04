@@ -1,0 +1,15 @@
+{  
+  "route_name": "路線名稱", 
+  "route_code": "路線編號", 
+  "route_destination": "路線終點", 
+  "route_variant": "路線變量", 
+  "is_eta_disabled": "啟用 ETA", 
+  "route_type": "路線類型", 
+  "route_direction": "路線方向", 
+  "enable_lcd_eta": "啟用 LCD ETA", 
+  "route_length": "路線長度", 
+  "valid_from": "有效日期", 
+  "valid_to": "失效日期", 
+  "era_master_id": "ERA Master ID", 
+  "rwa_master_id": "RWA Master ID"
+}

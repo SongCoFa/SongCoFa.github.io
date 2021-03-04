@@ -1,0 +1,7 @@
+{  
+  "communication_id": "Communication ID", 
+  "manufacturing_id": "Manufacturing ID", 
+  "msisdn": "ISDN Number", 
+  "serial_number": "Serial Number", 
+  "ssh_tunnel_port_ssh": "SSH Tunnel Port"
+}

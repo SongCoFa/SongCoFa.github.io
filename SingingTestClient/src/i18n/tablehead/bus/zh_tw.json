@@ -1,0 +1,7 @@
+{  
+  "internal_number": "內部編號", 
+  "model_desc": "廠牌", 
+  "registration_number": "註冊編號", 
+  "vin_number": "車輛識別號碼", 
+  "operation_status": "操作狀態"
+}

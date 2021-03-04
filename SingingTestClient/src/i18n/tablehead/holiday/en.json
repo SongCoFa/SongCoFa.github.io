@@ -1,0 +1,14 @@
+{  
+  "id": "Holiday ID", 
+  "schedule_code": "Schedule Code", 
+  "name": "Name", 
+  "description": "Description", 
+  "start_date": "Start Date", 
+  "end_date": "End Date", 
+  "priority": "Priority", 
+  "is_deleted": "Deleted", 
+  "created_user": "Created User", 
+  "created_time": "Created Time", 
+  "updated_user": "Updated User", 
+  "updated_time": "Updated Time"
+}

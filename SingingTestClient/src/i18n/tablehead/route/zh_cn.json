@@ -1,0 +1,15 @@
+{  
+  "route_name": "路线名称", 
+  "route_code": "路线编号", 
+  "route_destination": "路线终点", 
+  "route_variant": "路线变量", 
+  "is_eta_disabled": "启用 ETA", 
+  "route_type": "路线类型", 
+  "route_direction": "路线方向", 
+  "enable_lcd_eta": "启用 LCD ETA", 
+  "route_length": "路线长度", 
+  "valid_from": "有效日期", 
+  "valid_to": "失效日期", 
+  "era_master_id": "ERA Master ID", 
+  "rwa_master_id": "RWA Master ID"  
+}

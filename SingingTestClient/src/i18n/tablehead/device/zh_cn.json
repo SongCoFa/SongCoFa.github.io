@@ -1,0 +1,7 @@
+{  
+  "communication_id": "通讯编号", 
+  "manufacturing_id": "製造商编号", 
+  "msisdn": "移动用户 ISDN 号码", 
+  "serial_number": "序号", 
+  "ssh_tunnel_port_ssh": "SSH 通道端口号"
+}

@@ -1,0 +1,15 @@
+{  
+  "route_name": "Route Name", 
+  "route_code": "Route Code", 
+  "route_destination": "Route Destination", 
+  "route_variant": "Route Variant", 
+  "is_eta_disabled": "Disabled ETA", 
+  "route_type": "Route Type", 
+  "route_direction": "Route Direction", 
+  "enable_lcd_eta": "Enable LCD ETA", 
+  "route_length": "Route Length", 
+  "valid_from": "Valid From", 
+  "valid_to": "Valid To", 
+  "era_master_id": "ERA Master ID", 
+  "rwa_master_id": "RWA Master ID"  
+}

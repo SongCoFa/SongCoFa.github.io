@@ -1,0 +1,19 @@
+{
+    "Dashboard": "儀表板",
+    "Vehicle Status": "車輛狀態",
+    "Basic data setting": "基本資料設定",
+    "Bus": "公車",
+    "Driver": "司機",
+    "Device": "裝置",
+    "Route": "路線",
+    "Stop": "站點",
+    "Trip": "行程",
+    "Holiday": "假期",
+    "Map": "地圖",
+    "Real Time Map": "實時地圖",
+    "Replay": "回放",
+    "Play Ground": "遊樂園",
+    "System Configuration": "系統設定",
+    "System Role Permission": "系統管理員",
+    "Edit System Role Permission": "編輯人員權限"
+}

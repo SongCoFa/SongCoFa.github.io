@@ -1,0 +1,80 @@
+@import '@/styles/BootstrapThemColors.scss';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: #f4f6e9;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.container-border {
+  border: 1px solid #aaaaaa;
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+
+//set modal color
+.modal-head-footer-color {
+  background-color: #b6dada;
+}
+.modal-body-color {
+  background-color: #dbeded;
+}
+
+.display-which-row {
+  margin-bottom: 0;
+  line-height: 1.75;
+  font-size: 1rem;
+}

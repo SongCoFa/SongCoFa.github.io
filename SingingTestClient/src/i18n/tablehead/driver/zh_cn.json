@@ -1,0 +1,7 @@
+{  
+  "driver_code": "驾驶代码", 
+  "username": "使用者名称", 
+  "contact_number": "联络号码", 
+  "full_name": "全名",
+  "password": "密码"
+}

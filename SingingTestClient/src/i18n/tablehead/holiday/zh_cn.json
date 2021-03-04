@@ -1,0 +1,14 @@
+{  
+  "id": "假期编号", 
+  "schedule_code": "预定假期编号", 
+  "name": "假期名称", 
+  "description": "假期说明", 
+  "start_date": "起始时间", 
+  "end_date": "结束时间", 
+  "priority": "优先度", 
+  "is_deleted": "是否删除", 
+  "created_user": "建立人", 
+  "created_time": "建立时间", 
+  "updated_user": "更新人", 
+  "updated_time": "更新时间"
+}

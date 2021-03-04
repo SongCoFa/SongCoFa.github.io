@@ -1,0 +1,23 @@
+{  
+  "id": "ID",
+  "station_code": "Station Code", 
+  "station_name": "Station Name", 
+  "stop_code": "Stop Code", 
+  "stop_name": "Stop Name",
+  "is_eta_disabled": "Disabled ETA",
+  "longitude": "Longitude",
+  "latitude": "Latitude",    
+  "arrival_trigger_distance": "Arrival Trigger Distance", 
+  "departure_trigger_distance": "Departure Trigger Distance", 
+  "nsa_master_id": "NSA Master ID", 
+  "tsa_master_id": "TSA Master ID",
+  "route_code": "Route Code",
+  "route_destination": "Route Destination",
+  "route_variant": "Route Variant",
+  "sequence_number": "Sequence Number",
+  "stop_id": "Stop ID",
+  "stop_short_name": "Stop Shortname",
+  "stop_station_id": "Stop Station ID",
+  "stop_direct_number": "Stop Direct Number",
+  "station_id": "Station ID"
+}

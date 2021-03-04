@@ -1,0 +1,20 @@
+{
+  "status": "状态", 
+  "direction": "方向", 
+  "direction_snapped": "Direction Snapped", 
+  "distance_on_route": "Distance On Route", 
+  "distance_on_route_percentage": "Distance On Route Percentage", 
+  "driving_status": "Driving Status", 
+  "gps_speed": "GPS Speed", 
+  "is_on_stop": "Is On Stop", 
+  "latitude": "纬度", 
+  "latitude_snapped": "Latitude Snapped", 
+  "longitude": "经度", 
+  "longitude_snapped": "Longitude Snapped", 
+  "Speed": "速度", 
+  "trip_id": "Trip ID", 
+  "vehicle_id": "车辆编号", 
+  "driver_id": "驾驶编号", 
+  "route_id": "Route ID", 
+  "stop_on_route": "Stop On Route"  
+}

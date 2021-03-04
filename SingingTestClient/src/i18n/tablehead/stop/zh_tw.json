@@ -1,0 +1,23 @@
+{  
+  "id": "ID",
+  "station_code": "Station Code", 
+  "station_name": "Station Name", 
+  "stop_code": "Stop Code", 
+  "stop_name": "Stop Name",    
+  "is_eta_disabled": "啟用 ETA", 
+  "longitude": "經度",   
+  "latitude": "緯度", 
+  "arrival_trigger_distance": "Arrival Trigger Distance", 
+  "departure_trigger_distance": "Departure Trigger Distance", 
+  "nsa_master_id": "NSA Master ID", 
+  "tsa_master_id": "TSA Master ID",
+  "route_code": "路線編號",
+  "route_destination": "路線終點",
+  "route_variant": "Route Variant",
+  "sequence_number": "Sequence Number",
+  "stop_id": "Stop ID",
+  "stop_short_name": "Stop Shortname",
+  "stop_station_id": "Stop Station ID",
+  "stop_direct_number": "Stop Direct Number",
+  "station_id": "Station ID"  
+}

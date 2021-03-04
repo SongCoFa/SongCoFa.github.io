@@ -1,0 +1,20 @@
+{
+  "status": "Status", 
+  "direction": "Direction", 
+  "direction_snapped": "Direction Snapped", 
+  "distance_on_route": "Distance On Route", 
+  "distance_on_route_percentage": "Distance On Route Percentage", 
+  "driving_status": "Driving Status", 
+  "gps_speed": "GPS Speed", 
+  "is_on_stop": "Is On Stop", 
+  "latitude": "Latitude", 
+  "latitude_snapped": "Latitude Snapped", 
+  "longitude": "Longitude", 
+  "longitude_snapped": "Longitude Snapped", 
+  "speed": "Speed", 
+  "trip_id": "Trip ID", 
+  "vehicle_id": "Vehicle ID", 
+  "driver_id": "Driver ID", 
+  "route_id": "Route ID", 
+  "stop_on_route": "Stop On Route"  
+}

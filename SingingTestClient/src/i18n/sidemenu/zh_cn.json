@@ -1,0 +1,19 @@
+{
+    "Dashboard": "仪表板",
+    "Vehicle Status": "车辆状态",
+    "Basic data setting": "基本资料设定",
+    "Bus": "公车",
+    "Driver": "司机",
+    "Device": "装置",
+    "Route": "路线",
+    "Stop": "站点",
+    "Trip": "行程",
+    "Holiday": "假期",
+    "Map": "地图",
+    "Real Time Map": "实时地图",
+    "Replay": "回放",
+    "Play Ground": "游乐园",
+    "System Configuration": "系统设定",
+    "System Role Permission": "系统管理员",
+    "Edit System Role Permission": "编辑人员权限"
+}
