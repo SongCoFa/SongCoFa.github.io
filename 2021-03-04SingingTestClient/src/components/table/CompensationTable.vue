@@ -103,7 +103,7 @@
           <table class="w-100 custom-table">
             <tbody>
               <tr>
-                <td rowspan="16" class="left-span-title text-center p-3">非固定支付項目</td>
+                <td rowspan="20" class="left-span-title text-center p-3">非固定支付項目</td>
                 <td colspan="4" class="text-center">項目</td>
                 <td class="amount-column text-center">金額</td>
               </tr>
@@ -175,6 +175,30 @@
                 <td colspan="4" class="green-background">慰問金</td>
                 <td class="text-right">
                   <input type="number" class="input-width" :disabled="isNaN(item.慰問金)" v-model.number="item.慰問金" :class="{ 'edited': item.慰問金 !== originSelectedItem.慰問金 }">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" class="green-background">資遣費</td>
+                <td class="text-right">
+                  <input type="number" class="input-width" :disabled="isNaN(item.資遣費)" v-model.number="item.資遣費" :class="{ 'edited': item.資遣費 !== originSelectedItem.資遣費 }">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" class="green-background">旅遊代金</td>
+                <td class="text-right">
+                  <input type="number" class="input-width" :disabled="isNaN(item.旅遊代金)" v-model.number="item.旅遊代金" :class="{ 'edited': item.旅遊代金 !== originSelectedItem.旅遊代金 }">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" class="green-background">其他一</td>
+                <td class="text-right">
+                  <input type="number" class="input-width" :disabled="isNaN(item.其他一)" v-model.number="item.其他一" :class="{ 'edited': item.其他一 !== originSelectedItem.其他一 }">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="4" class="green-background">其他二</td>
+                <td class="text-right">
+                  <input type="number" class="input-width" :disabled="isNaN(item.其他二)" v-model.number="item.其他二" :class="{ 'edited': item.其他二 !== originSelectedItem.其他二 }">
                 </td>
               </tr>
               <tr>
@@ -537,7 +561,7 @@ export default {
   computed: {
     item: {
       get() {
-        console.log(this.selectedItem);
+        // console.log(this.selectedItem);
         return this.selectedItem;
       },
       set(val) {

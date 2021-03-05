@@ -48,11 +48,6 @@ export default {
       this.timestamp = dateTime;
       send[0].expire_date = dateTime;
       // console.log(send, dateTime);
-      const member = window.sessionStorage.getItem('member');
-      if (member === 'visitor') {
-        alert('使用者權限不足');
-        return;
-      }
 
       this.$http
         .post(

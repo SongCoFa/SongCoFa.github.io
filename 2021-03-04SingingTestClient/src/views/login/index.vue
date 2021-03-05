@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-content-center align-content-center h-100">
-    <form class="form-signin">
+    <form @submit.prevent="login(user)" class="form-signin">
       <img img src="@/assets/images/logo.png" />
       <input
         type="text"
@@ -17,8 +17,7 @@
         placeholder="請輸入密碼"
         required
       />
-      <button class="btn btn-lg btn-primary btn-block outline" @click="login">登入</button>
-      <button class="btn btn-lg btn-primary btn-block outline" @click="Visitorlogin">訪客登入</button>
+      <button class="btn btn-lg btn-primary btn-block outline" type="submit">登入</button>
       <div class="mb-5"></div>
     </form>
   </div>
@@ -37,12 +36,12 @@ export default {
     };
   },
   methods: {
-    login() {
-      // console.log(user);
+    login(user) {
+      console.log(user);
       this.$http
-        .post(this.api, this.user)
+        .post(this.api, user)
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
 
          if (response.status !== 200) {
             alert('伺服器回應失敗');
@@ -53,36 +52,10 @@ export default {
             alert(response.data.Message);
             return;
           }
-          window.sessionStorage.setItem('member', 'admin');
+
           this.$router.push('/');
         })
         .catch(error => console.log(error));
-    },
-    Visitorlogin() {
-      const visitor = {
-        emp_ID: 'admin',
-        Password: '0000',
-      };
-      window.sessionStorage.setItem('member', 'visitor');
-      // console.log(visitor);
-      this.$http
-        .post(this.api, visitor)
-        .then((response) => {
-          // console.log(response.data);
-
-         if (response.status !== 200) {
-            alert('伺服器回應失敗');
-            return;
-          }
-
-          if (response.data.Code !== 1) {
-            alert(response.data.Message);
-            return;
-          }
-
-          this.$router.push('/');
-        })
-        .catch(error => (error));
     },
   },
 };

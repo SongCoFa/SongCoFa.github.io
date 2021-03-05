@@ -265,16 +265,11 @@ export default {
       this.excuteWrite(sendConvert);
     },
     excuteWrite(send) {
-      // console.log(send);
-      const member = window.sessionStorage.getItem('member');
-      if (member === 'visitor') {
-        alert('使用者權限不足');
-        return;
-      }
+      console.log(send);
 
       this.$http.post(this.ImportApi, send)
         .then((response) => {
-          // console.log(response.data);
+          console.log(response.data);
 
           this.$refs.modal.hide();
 

@@ -148,11 +148,6 @@ export default {
       this.loadFileInner = convert;
     },
     async excuteDataUpdate() {
-      const member = window.sessionStorage.getItem('member');
-      if (member === 'visitor') {
-        alert('使用者權限不足');
-        return;
-      }
       // 查駕駛資料 要替換匯入的姓名為員編
       const driverList = await this.$http
         .post(`${process.env.VUE_APP_BASE_API}/api/driver/GetList`, { emp_ID: null, emp_name: null, dept: null })

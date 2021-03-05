@@ -54,7 +54,7 @@
           <template v-slot:thead-top>
             <b-tr>
               <b-th class="b-table-sticky-column" colspan="4"></b-th>
-              <b-th class="text-center header-custom-bg-one" colspan="14">每月非固定支付項目</b-th>
+              <b-th class="text-center header-custom-bg-one" colspan="18">每月非固定支付項目</b-th>
               <b-th class="text-center header-custom-bg-two" colspan="8">每月非固定扣繳項目</b-th>
               <b-th class="b-table-sticky-column column-sticky-right"></b-th>
             </b-tr>
@@ -272,6 +272,30 @@ export default {
             key: 'education_allowance',
             name: 'Education Allowance',
             displayName: '教育補助費',
+            exampleValue: '0',
+          },
+          {
+            key: 'severance_pay',
+            name: 'severance_pay',
+            displayName: '資遣費',
+            exampleValue: '0',
+          },
+          {
+            key: 'travel_price',
+            name: 'travel_price',
+            displayName: '旅遊代金',
+            exampleValue: '0',
+          },
+          {
+            key: 'other_1',
+            name: 'other_1',
+            displayName: '其他一',
+            exampleValue: '0',
+          },
+          {
+            key: 'other_2',
+            name: 'other_2',
+            displayName: '其他二',
             exampleValue: '0',
           },
           {
@@ -624,6 +648,42 @@ export default {
             },
           },
           {
+            key: 'severance_pay',
+            label: '資遣費',
+            sortable: true,
+            customize: {
+              editable: true,
+              name: 'SeverancePay',
+            },
+          },
+          {
+            key: 'travel_price',
+            label: '旅遊代金',
+            sortable: true,
+            customize: {
+              editable: true,
+              name: 'TravelPrice',
+            },
+          },
+          {
+            key: 'other_1',
+            label: '其他一',
+            sortable: true,
+            customize: {
+              editable: true,
+              name: 'Other1',
+            },
+          },
+          {
+            key: 'other_2',
+            label: '其他二',
+            sortable: true,
+            customize: {
+              editable: true,
+              name: 'Other2',
+            },
+          },
+          {
             key: 'loan',
             label: '暫借款',
             sortable: true,
@@ -753,9 +813,13 @@ export default {
   },
   methods: {
     UpdateContentSize() {
-      const totalHeight = this.$refs.Content.clientHeight;
-      const queryAreaHeight = this.$refs.QueryTool.$refs.QueryToolArea.clientHeight;
-      this.containerHeight = totalHeight - queryAreaHeight;
+      try {
+        const totalHeight = this.$refs.Content.clientHeight;
+        const queryAreaHeight = this.$refs.QueryTool.$refs.QueryToolArea.clientHeight;
+        this.containerHeight = totalHeight - queryAreaHeight;
+      } catch (e) {
+        console.log(e);
+      }
     },
     updateResult(result, queriedInput, time) {
       this.Table.items = result;

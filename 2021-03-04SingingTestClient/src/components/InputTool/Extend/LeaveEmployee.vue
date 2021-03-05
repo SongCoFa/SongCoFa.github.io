@@ -48,7 +48,7 @@ export default {
       emp_ID: null,
       emp_name: null,
       dept: null,
-      expired: 1,
+      expired:1,
     };
 
     this.$http.post(api, condition)

@@ -91,6 +91,10 @@ export default {
         { name: 'bonus_cash', resultName: '獎金紅包' },
         { name: 'year_end_bonus', resultName: '年終獎金' },
         { name: 'consolation_money', resultName: '慰問金' },
+        { name: 'severance_pay', resultName: '資遣費' },
+        { name: 'travel_price', resultName: '旅遊代金' },
+        { name: 'other_1', resultName: '其他一' },
+        { name: 'other_2', resultName: '其他二' },
         { name: 'mileage_allowance', resultName: '里程補貼' },
         { name: 'transportation_allowance', resultName: '交通費補貼' },
         { name: 'travel_allowance', resultName: '旅費' },
@@ -310,7 +314,7 @@ export default {
 
       const finaltrial = [{ ...head, ...trial }];
 
-      console.log(finaltrial);
+      // console.log(finaltrial);
 
       const condition = {
         year: this.selectedEmplyee.year,
@@ -319,7 +323,7 @@ export default {
         trial_json: JSON.stringify(finaltrial),
       };
 
-      console.log(condition.trial_json);
+      // console.log(condition.trial_json);
 
       const res = await this.$http.post(`${process.env.VUE_APP_BASE_API}/api/Compensation/TrialCalculate`, condition)
         .then(response => response.data.Resource)

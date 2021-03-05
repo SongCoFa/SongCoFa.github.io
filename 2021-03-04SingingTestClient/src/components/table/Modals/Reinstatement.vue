@@ -47,12 +47,7 @@ export default {
       const send = Object.assign({}, this.item);
       send.expire_date = '2099-12-31';
 
-      // console.log(send);
-      const member = window.sessionStorage.getItem('member');
-      if (member === 'visitor') {
-        alert('使用者權限不足');
-        return;
-      }
+      console.log(send);
 
       this.$http
         .post(this.EditApi, [send])

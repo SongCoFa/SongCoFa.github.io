@@ -204,7 +204,7 @@ export default {
         return some;
       });
 
-      // console.log(rowWithPK);
+      console.log(rowWithPK);
 
       return rowWithPK;
     },
