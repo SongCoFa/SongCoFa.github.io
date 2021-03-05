@@ -27,10 +27,10 @@
           >
             {{ col.label }}
           </q-th>
-          <q-th class="text_sm" style="text-align:right;">描述/照片</q-th>
+          <q-th class="text_sm" style="width:155px">檢視描述/照片</q-th>
           <q-th class="text_sm summarylabel">
             <div class="colum-shadow"></div>
-            描述/照片
+            檢視描述/照片
           </q-th>
           <!-- <q-th auto-width /> -->
         </q-tr>
@@ -48,8 +48,8 @@
           </q-td>
           <q-td class="summarylabel iconlabel">
             <div class="colum-shadow"></div>
-            <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon ListIcon" />
-            <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
+            <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon" />
+            <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon" />
           </q-td>
         </q-tr>
         </template>
@@ -59,9 +59,9 @@
     </div>
     <div class="historyTable">
       <div class="q-pa-md" style="padding-top:0px;">
-        <div class="historyTitleBox">
+        <div style="position:relative; width:100%; height:46px;">
           <img style="float:left;" src="~/assets/ICON/List.png" />
-          <div class="historyTitle text_sm">歷史紀錄:</div>
+          <div style="float:left; padding:7px 0 0 9px;" class="text_sm">歷史紀錄:</div>
           <div class="colorcard text_sm">
             <div class="colorbox detailList"></div>
             <div class="colorcard-title">維修紀錄</div>
@@ -91,7 +91,7 @@
               </q-th>
               <q-th class="text_sm summarylabel">
                 <div class="colum-shadow"></div>
-                描述/照片
+                檢視描述/照片
               </q-th>
               <!-- <q-th auto-width /> -->
             </q-tr>
@@ -107,10 +107,10 @@
               >
               {{ col.value }}
               </q-td>
-              <q-td class="summarylabel" :class="[props.cols[7].value === 'detail' ? 'detailList' : 'confirmationList']">
+              <q-td class="summarylabel iconlabel" :class="[props.cols[7].value === 'detail' ? 'detailList' : 'confirmationList']">
                 <div class="colum-shadow"></div>
-                <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon ListIcon" />
-                <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
+                <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon" />
+                <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon" />
               </q-td>
             </q-tr>
           </template>
@@ -325,141 +325,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media(max-width: 500px){
-  .title{
-    position:relative;
-    top:60px;
-    height:30px;
-    left:165px;
-    width:50px;
-    margin-bottom: 60px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    img{
-      width:30px;
-      height: 30px;
-    }
-  }
-  .dataTable{
-    position: relative;
-    width: calc(100vw - 25px);
-    margin:0 10px 0 10px;
-    height: 180px;
-  }
-  .summarylabel{
-    position: absolute;
-    right:0;
-    text-align: center;
-    width: 90px;
-    max-width: 120px;
-    height: 56px;
-  }
-  .ListIcon{
-    width: 20px;
-    height: 20px;
-  }
-  .historyTable{
-    position: absolute;
-    width: calc(100vw - 25px);
-    margin:0 10px 0 10px;
-    height: 550px;
-    top: 270px;
-    img{
-      width: 30px;
-      height: 30px;
-      margin-top: 3px;
-    }
-    .historyTitleBox{
-      position: relative;
-      width: 100%;
-      height: 57px;
-    }
-    .historyTitle{
-      float: left;
-      padding: 7px 0 0 2px;
-    }
-  }
-  .colorcard{
-    float: right;
-    width: 95px;
-    padding-top: 7px;
-  }
-  .colorbox{
-    width: 20px;
-    height: 20px;
-    float: left;
-    box-sizing: border-box;
-    border: 0.5px solid black;
-    margin-left: 7px;
-  }
-  .colorcard-title{
-    float: left;
-    padding:0px 0 0 5px;
-  }
+.title{
+  position:relative;
+  top:60px;
+  height: 50px;
+  left:225px;
+  width:100px;
+  margin-bottom: 45px;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-@media(min-width: 501px){
-  .title{
-    position:relative;
-    top:60px;
-    height: 50px;
-    left:225px;
-    width:100px;
-    margin-bottom: 45px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .dataTable{
-    position: relative;
-    width: calc(100vw - 25px);
-    margin:0 10px 0 10px;
-    height: 200px;
-  }
-  .summarylabel{
-    position: absolute;
-    right:0;
-    text-align: center;
-    width: 155px;
-    max-width: 155px;
-  }
-  .ListIcon{
-    width: 25px;
-    height: 25px;
-  }
-  .historyTable{
-    position: absolute;
-    width: calc(100vw - 25px);
-    margin:0 10px 0 10px;
-    height: 540px;
-    top: 300px;
-    .historyTitleBox{
-      position: relative;
-      width: 100%;
-      height: 46px;
-    }
-    .historyTitle{
-      float: left;
-      padding: 7px 0 0 9px;
-    }
-  }
-  .colorcard{
-    float: right;
-    width: 290px;
-    padding-top: 7px;
-  }
-  .colorbox{
-    width: 35px;
-    height: 35px;
-    float: left;
-    box-sizing: border-box;
-    border: 0.5px solid black;
-    margin-left: 20px;
-  }
-  .colorcard-title{
-    float: left;
-    padding:2px 0 0 5px;
-  }
+.dataTable{
+  position: relative;
+  width: calc(100vw - 25px);
+  margin:0 10px 0 10px;
+  height: 200px;
 }
 .checkIcon{
   background-image: url(../../../assets/ICON/Check.png);
@@ -467,6 +348,8 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 .choiceIcon{
@@ -475,7 +358,40 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
+}
+.colorcard{
+  float: right;
+  width: 290px;
+  padding-top: 7px;
+}
+.colorbox{
+  width: 35px;
+  height: 35px;
+  float: left;
+  box-sizing: border-box;
+  border: 0.5px solid black;
+  margin-left: 20px;
+}
+.colorcard-title{
+  float: left;
+  padding:2px 0 0 5px;
+}
+.historyTable{
+  position: absolute;
+  width: calc(100vw - 25px);
+  margin:0 10px 0 10px;
+  height: 400px;
+  top: 300px;
+}
+.summarylabel{
+  position: absolute;
+  right:0;
+  text-align: center;
+  width: 155px;
+  max-width: 155px;
 }
 .iconlabel{
   background-color: white;

@@ -2,7 +2,7 @@
     <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
       <q-card class="bg_pink" style="width: 700px; max-width: 80vw;">
         <q-card-section>
-          <div class="text_big title">回覆報修單</div>
+          <div class="text_big" style="font-weight: bold; height:36px;">回覆報修單</div>
           <q-btn id="closs_btn" flat @click="cleanAll" v-close-popup />
         </q-card-section>
 
@@ -119,9 +119,9 @@
           </div>
           <div class="row w-100 text_sm mb_20">
             <div class="col" v-if="0 < picURL_list.length">
-              <div>
-                照片預覽：上傳數量{{picURL_list.length}}
-              </div>
+              <span>
+                照片預覽：
+              </span>
               <div class="w-100" v-for="(item, index) in picURL_list" :key="index">
                 <q-btn class="pic_btn" flat @click="cleanPic(index)"/>
                 <img :src="item" class="img-fluid w-100" />
@@ -328,93 +328,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@media (max-width: 500px){
-  .title{
-    font-weight: bold;
-    height: 22px;
-  }
-  #closs_btn{
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-weight: bold;
-    font-size: 20px;
-    background-image: url(../../assets/ICON/Cross.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-  }
-  .check_btn{
-    background-color: #A33758;
-    width: 33%;
-    min-width: 90px;
-    color: whitesmoke;
-    margin: 0 15px 0 0;
-  }
-  .re_btn{
-    background-color: #3CA395;
-    width: 33%;
-    min-width: 90px;
-    color: whitesmoke;
-    margin: 0 0 0 0px;
-  }
-  .pic_btn{
-    position: relative;
-    display: block;
-    width: 20px;
-    height: 20px;
-    font-weight: bold;
-    font-size: 16px;
-    background-image: url(../../assets/ICON/Cross.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: white;
-    border-radius: 50%;
-  }
-}
-@media (min-width: 501px){
-  .title{
-    font-weight: bold;
-    height: 36px;
-  }
-  #closs_btn{
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-weight: bold;
-    font-size: 26px;
-    background-image: url(../../assets/ICON/Cross.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-  }
-  .check_btn{
-    background-color: #A33758;
-    width: 33%;
-    color: whitesmoke;
-    margin: 0 80px 0 0;
-  }
-  .re_btn{
-    background-color: #3CA395;
-    width: 33%;
-    color: whitesmoke;
-    margin: 0 0 0 80px;
-  }
-  .pic_btn{
-    position: relative;
-    display: block;
-    width: 30px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 26px;
-    background-image: url(../../assets/ICON/Cross.png);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: white;
-    border-radius: 50%;
-  }
-}
+<style scoped>
 .mb_20{
   margin-bottom: 20px;
   font-weight: bold;
@@ -424,6 +338,42 @@ export default {
 }
 .bg_pink2{
   background-color: #E0CED3;
+}
+#closs_btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: bold;
+  font-size: 26px;
+  background-image: url(../../assets/ICON/Cross.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.check_btn{
+  background-color: #A33758;
+  width: 33%;
+  color: whitesmoke;
+  margin: 0 80px 0 0;
+}
+.re_btn{
+  background-color: #3CA395;
+  width: 33%;
+  color: whitesmoke;
+  margin: 0 0 0 80px;
+}
+.pic_btn{
+  position: relative;
+  float: left;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 26px;
+  background-image: url(../../assets/ICON/Cross.png);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
+  border-radius: 50%;
 }
 .col span{
   float: left;

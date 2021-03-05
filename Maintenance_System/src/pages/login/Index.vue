@@ -15,7 +15,7 @@ export default {
         name: null,
         OperatorCode: null
       },
-      isTest: true
+      isTest: false
     }
   },
   mounted () {
@@ -27,7 +27,7 @@ export default {
     this.User.id = window.sessionStorage.getItem('Number')
     this.User.name = window.sessionStorage.getItem('Name')
     this.User.OperatorCode = window.sessionStorage.getItem('Vender')
-    // 判斷是否存有報修主表查詢條件，若有則清除
+    // // 判斷是否存有報修主表查詢條件，若有則清除
     const query = window.sessionStorage.getItem('start_datetime')
     if (query !== null) {
       this.cleanQuery()
@@ -47,14 +47,12 @@ export default {
         const decodeURL = decodeURI(serverURL)
         const first = decodeURL.split('/')
         const second = first[5].split('?')
-        const third = second[1].split('3')
+        const third = second[1].split('%')
         const Num = third[0].split('')
         const Name = third[1].split('')
         const Vender = third[2].split('')
-        Num.pop()
-        Vender.shift()
-        Name.pop()
-        Name.shift()
+        Vender.splice(0, 2)
+        Name.splice(0, 2)
         let userid = ''
         let username = ''
         let uservender = ''
