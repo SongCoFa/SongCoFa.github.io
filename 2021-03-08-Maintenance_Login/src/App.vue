@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Maintenance_System"/>
+    <HelloWorld msg="歡迎使用行動裝置體驗報修系統"/>
     <vue-particles
       class="backgroundimg"
       color="#dedede"
