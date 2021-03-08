@@ -51,9 +51,9 @@
           </q-td>
           <q-td class="summarylabel iconlabel">
             <div class="colum-shadow"></div>
-            <q-btn class="editIcon" @click.native="props.selected = !props.selected; goEdit()" />
-            <q-btn class="detailIcon" @click.native="props.selected = !props.selected; getrowData()" />
-            <q-btn class="printIcon" @click.native="props.selected = !props.selected; goPrint()" />
+            <q-btn class="editIcon ListIcon" @click.native="props.selected = !props.selected; goEdit()" />
+            <q-btn class="detailIcon ListIcon" @click.native="props.selected = !props.selected; getrowData()" />
+            <q-btn class="printIcon ListIcon" @click.native="props.selected = !props.selected; goPrint()" />
           </q-td>
         </q-tr>
         </template>
@@ -206,31 +206,68 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .title{
-    position:relative;
-    top:60px;
-    height: 50px;
-    left:140px;
-    width:100px;
-    margin-bottom: 50px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
+   @media (max-width: 500px){
+    .title{
+      position:relative;
+      top:60px;
+      height:30px;
+      left:105px;
+      width:60px;
+      margin-bottom: 50px;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .summarylabel{
+      position: absolute;
+      right:0;
+      text-align: center;
+      width: 125px;
+      max-width: 170px;
+      padding: 12px 16px;
+    }
+    .ListIcon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  @media (min-width: 501px){
+    .title{
+      position:relative;
+      top:60px;
+      height: 50px;
+      left:140px;
+      width:100px;
+      margin-bottom: 50px;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .summarylabel{
+      position: absolute;
+      right:0;
+      text-align: center;
+      width: 170px;
+      max-width: 170px;
+    }
+    .ListIcon{
+      width: 25px;
+      height: 25px;
+    }
   }
   img{
     cursor: pointer;
   }
   .querytool{
     position: relative;
-    height: 135px;
     width: calc(100vw - 50px);
     margin-left: 25px;
     margin-bottom: 30px;
   }
   .dataTable{
     position: relative;
-    width: calc(100vw - 20px);
-    margin-left: 10px;
+    width: calc(100vw - 44px);
+    margin-left: 22px;
   }
   .editIcon{
     background-image: url(../../assets/ICON/Edit.png);
@@ -238,8 +275,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 25px;
-    height: 25px;
   }
   .detailIcon{
     background-image: url(../../assets/ICON/Detail.png);
@@ -247,8 +282,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 25px;
-    height: 25px;
     margin-left: 10px;
   }
   .printIcon{
@@ -257,16 +290,7 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    width: 25px;
-    height: 25px;
     margin-left: 10px;
-  }
-  .summarylabel{
-    position: absolute;
-    right:0;
-    text-align: center;
-    width: 170px;
-    max-width: 170px;
   }
   .iconlabel{
     background-color: white;

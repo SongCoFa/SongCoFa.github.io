@@ -40,12 +40,13 @@
           header
           class="text-grey-8"
         >
-          Essential Links
+          系統連結
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
+          target="_self"
         />
       </q-list>
     </q-drawer>
@@ -62,46 +63,9 @@ import Footer from 'layouts/components/Footer.vue'
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: '報修系統',
+    icon: 'plagiarism',
+    link: 'http://www.fmsbolymin.com.tw:8813/repair/#/repair-system'
   }
 ]
 
@@ -137,6 +101,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+   @media (max-width: 500px){
+    .logo_img{
+      width: 110px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    .user_img{
+      width: 30px;
+      height: 30px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    .user_title{
+      position: absolute;
+      text-align: center;
+      font-weight: bold;
+      width: 104px;
+      height: 30px;
+      top: 10px;
+      left: 152px;
+    }
+  }
+  @media (min-width: 501px){
+    .logo_img{
+      width: 165px;
+      height: 45px;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+    .user_img{
+      width: 45px;
+      height: 45px;
+      margin-top: 5px;
+      margin-left: 20px;
+    }
+    .user_title{
+      position: absolute;
+      text-align: center;
+      font-weight: bold;
+      width: 104px;
+      height: 45px;
+      top: 10px;
+      left: 260px;
+    }
+  }
   a{
     cursor: pointer;
     text-decoration: none;
@@ -150,27 +160,6 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-  }
-  .logo_img{
-    width: 165px;
-    height: 45px;
-    margin-top: 5px;
-    margin-left: 10px;
-  }
-  .user_img{
-    width: 45px;
-    height: 45px;
-    margin-top: 5px;
-    margin-left: 20px;
-  }
-  .user_title{
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    width: 104px;
-    height: 45px;
-    top: 10px;
-    left: 260px;
   }
   .tittle_nav{
     position: absolute;

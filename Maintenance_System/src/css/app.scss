@@ -1,13 +1,53 @@
 // app global css in SCSS form
 @media (max-width: 500px){
+    .text_big{
+        font-size: 18px;
+    }
 
+    .text_sm{
+        font-size: 15px !important;
+    }
+    .q-toolbar{
+        padding: 0;
+    }
+    .col{
+        position: relative;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 12px 0 12px;
+    }
+    aside{
+        width: 230px !important;
+    }
+    .btn-block{
+        display: block;
+        width: calc(100% - 23.5px);
+        margin-left: 12px;
+    }
 }
-.text_big{
-    font-size: 26px;
-}
+@media (min-width: 501px){
+    .text_big{
+        font-size: 26px;
+    }
 
-.text_sm{
-    font-size: 21px !important;
+    .text_sm{
+        font-size: 21px !important;
+    }
+    .col{
+        position: relative;
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 15px 0 15px;
+    }
+    .btn-block{
+        display: block;
+        width: calc(100% - 30px);
+        margin-left: 15px;
+    }
 }
 
 button{
@@ -27,15 +67,6 @@ h4{
 
 .w-100{
     width: 100%;
-}
-
-.col{
-    position: relative;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-    width: 100%;
-    padding: 0 15px 0 15px;
 }
 
 .breadcrumb{
@@ -58,11 +89,6 @@ h4{
 
 .d-inline-block{
     display: inline-block;
-}
-
-.btn-block{
-    display: block;
-    width: 100%;
 }
 
 .btn-primary{
