@@ -8,7 +8,7 @@
 
         <q-card-section class="q-pt-none row bg_pink2">
           <div class="row w-100 text_sm mb_20" style="margin-top:10px;">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 表單編號：
               </span>
@@ -16,12 +16,11 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.repair_no" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 客運業者：
               </span>
               <div class="form-group input-group">
-                <!-- <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.OperatorName" disabled> -->
                 <select v-if="isBolymin" class="form-control w-100" v-model="selected_DrivermanagementLogParameter.OperatorCode">
                     <option value="" disabled>請選擇客運業者</option>
                     <option v-for="item in OperatorList" :value="item.OperatorCode" :key='item.OperatorName'>{{item.OperatorName}}</option>
@@ -34,7 +33,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 車號：
               </span>
@@ -42,7 +41,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.bus_no" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 報修項目：
               </span>
@@ -52,7 +51,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 確認時間：
               </span>
@@ -60,7 +59,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.confirm_datetime" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 確認人員：
               </span>
@@ -70,7 +69,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 意見：
               </span>
@@ -80,7 +79,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 上傳照片：
               </span>
@@ -90,7 +89,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col" v-if="0 < picURL_list.length">
+            <div class="col col_box" v-if="0 < picURL_list.length">
               <div>
                 照片預覽：上傳數量{{picURL_list.length}}
               </div>
@@ -286,6 +285,9 @@ export default {
 
 <style lang="scss" scoped>
 @media (max-width: 500px){
+  .col_box{
+    min-width: 195px;
+  }
   .title{
     font-weight: bold;
     height: 22px;
@@ -330,6 +332,9 @@ export default {
   }
 }
 @media (min-width: 501px){
+  .col_box{
+    min-width: 250px;
+  }
   .title{
     font-weight: bold;
     height: 36px;

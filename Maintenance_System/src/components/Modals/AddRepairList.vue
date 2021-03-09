@@ -8,7 +8,7 @@
 
         <q-card-section class="q-pt-none row bg_pink2">
           <div class="row w-100 text_sm mb_20" style="margin-top:10px;">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 表單編號：
               </span>
@@ -16,7 +16,7 @@
                 <input class="form-control w-100" type="text" v-model="repair_no" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 客運業者：
               </span>
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 報修人員：
               </span>
@@ -41,7 +41,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.initiator_name" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 報修人員聯絡電話：
               </span>
@@ -51,19 +51,22 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 報修項目：
               </span>
-              <div class="must" v-if="selected_DrivermanagementLogParameter.item === ''">(*必填)</div>
+              <div v-if="ChoiceItemName.length !== 0">
+                <div class="item_text" v-for="item in ChoiceItemName" :key='item'>{{item}}</div>
+              </div>
+              <div class="must" v-if="ChoiceItemName.length === 0">(*必填)</div>
               <div class="form-group input-group">
-                <select class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.item === ''}" v-model="selected_DrivermanagementLogParameter.item">
+                <select class="form-control w-100" :class="{mustborder: ChoiceItemName.length === 0}" v-model="ChoiceItem">
                     <option value="" disabled>請選擇報修項目</option>
-                    <option v-for="item in ItemList" :value="item.item" :key='item.name'>{{item.name}}</option>
+                    <option v-for="item in ItemList" :class="{itemChoice: item.ischoice}" :value="item.item" :key='item.name'>{{item.name}}</option>
                 </select>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 車號：
               </span>
@@ -74,7 +77,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 司機姓名：
               </span>
@@ -82,7 +85,7 @@
                 <input class="form-control w-100" type="text" placeholder="請輸入司機姓名" v-model="selected_DrivermanagementLogParameter.driver_name">
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 司機聯絡電話：
               </span>
@@ -92,7 +95,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 問題摘要：
               </span>
@@ -100,7 +103,7 @@
                 <input class="form-control w-100" type="text" placeholder="請輸入問題摘要" v-model="selected_DrivermanagementLogParameter.summary">
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 問題描述：
               </span>
@@ -110,7 +113,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 上傳照片：
               </span>
@@ -165,11 +168,44 @@ export default {
       },
       OperatorList: [],
       ItemList: [],
+      ChoiceItem: '',
+      ChoiceItemList: [],
+      ChoiceItemName: [],
       preview_list: [],
       image_list: [],
       picURL_list: [],
       picName_list: [],
       isBolymin: false
+    }
+  },
+  watch: {
+    ChoiceItem (newitem) {
+      if (this.ChoiceItem === '') {
+        return
+      }
+      this.ItemList.map((item) => {
+        if (item.item === newitem && item.ischoice === false) {
+          if (this.ChoiceItemList.length >= 3) {
+            alert('報修項目不可複選超過3項')
+            return
+          }
+          item.ischoice = true
+        } else if (item.item === newitem && item.ischoice === true) {
+          item.ischoice = false
+        }
+      })
+      this.ChoiceItemName = []
+      this.ChoiceItemList = []
+      const Choice = this.ItemList.filter(item => item.ischoice === true)
+      if (Choice.length !== 0) {
+        Choice.map((item) => {
+          const newName = `${item.name}`
+          const newlist = `${item.item}`
+          this.ChoiceItemName = this.ChoiceItemName.concat(newName)
+          this.ChoiceItemList = this.ChoiceItemList.concat(newlist)
+        })
+      }
+      this.ChoiceItem = ''
     }
   },
   methods: {
@@ -186,6 +222,8 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
+      this.selected_DrivermanagementLogParameter.item = this.ChoiceItemList
+      this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
       if (!check) {
         alert('必填項目不得為空')
@@ -225,6 +263,12 @@ export default {
         start_datetime: null,
         picture_filename: null
       }
+      this.ItemList.map((item) => {
+        item.ischoice = false
+      })
+      this.ChoiceItem = ''
+      this.ChoiceItemList = []
+      this.ChoiceItemName = []
       this.picURL_list = []
       this.picName_list = []
     },
@@ -285,7 +329,7 @@ export default {
     },
     inspection (item) {
       // console.log(item)
-      if (item.bus_no === '' || item.item === '') {
+      if (item.bus_no === '' || item.item.length === 0) {
         return false
       } else {
         return true
@@ -297,9 +341,17 @@ export default {
 
 <style lang="scss" scoped>
 @media(max-width:500px){
+  .col_box{
+    min-width: 195px;
+  }
   .title{
     font-weight: bold;
     height: 22px;
+  }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 14px;
   }
   #closs_btn{
     position: absolute;
@@ -334,9 +386,17 @@ export default {
   }
 }
 @media(min-width:501px){
+  .col_box{
+    min-width: 250px;
+  }
   .title{
     font-weight: bold;
     height: 36px;
+  }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 17px;
   }
   #closs_btn{
     position: absolute;
@@ -389,5 +449,9 @@ export default {
 .mustborder{
   border: 0.5px solid red;
   border-radius: 5px;
+}
+.itemChoice{
+  background-color: rgb(97, 37, 138);
+  color: whitesmoke;
 }
 </style>

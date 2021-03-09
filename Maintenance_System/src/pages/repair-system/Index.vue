@@ -131,6 +131,9 @@ export default {
     this.$axios.get('/api/Repair/RepairItem')// 取得報修列表ItemList
       .then((response) => {
         this.ItemList = response.data
+        this.ItemList.map((item) => {
+          item.ischoice = false
+        })
       })
       .catch(function (error) {
         console.log(error)
@@ -181,9 +184,6 @@ export default {
       const code = this.OperatorList.filter((item) => item.OperatorName === this.selected[0].OperatorName)
       this.$refs.edit.selected_DrivermanagementLogParameter.OperatorCode = code[0].OperatorCode
       this.$refs.edit.OperatorList = this.OperatorList
-      // 設定報修人員
-      this.$refs.edit.selected_DrivermanagementLogParameter.initiator_id = this.User.id
-      this.$refs.edit.selected_DrivermanagementLogParameter.initiator_name = this.User.name
       // 帶入報修項目清單
       this.$refs.edit.ItemList = this.ItemList
       // 設定照片預覽

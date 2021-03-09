@@ -8,7 +8,7 @@
 
         <q-card-section class="q-pt-none row bg_pink2">
           <div class="row w-100 text_sm mb_20" style="margin-top:10px;">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 表單編號：
               </span>
@@ -16,7 +16,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.repair_no" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 客運業者：
               </span>
@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 車號：
               </span>
@@ -34,7 +34,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.bus_no" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 報修項目：
               </span>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 回覆時間：
               </span>
@@ -52,7 +52,7 @@
                 <input class="form-control w-100" type="text" v-model="selected_DrivermanagementLogParameter.reply_datetime" disabled>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 回覆人員：
               </span>
@@ -62,7 +62,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 維修工時(小時)：
               </span>
@@ -71,7 +71,7 @@
                 <input class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.fix_hour === ''}" type="number" value="0" v-model.trim="selected_DrivermanagementLogParameter.fix_hour">
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 責任歸屬：
               </span>
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 更換零件：
               </span>
@@ -97,7 +97,7 @@
                 </select>
               </div>
             </div>
-            <div class="col">
+            <div class="col col_box">
               <span>
                 故障原因或處理方式：
               </span>
@@ -108,7 +108,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col">
+            <div class="col col_box">
               <span>
                 上傳照片：
               </span>
@@ -118,7 +118,7 @@
             </div>
           </div>
           <div class="row w-100 text_sm mb_20">
-            <div class="col" v-if="0 < picURL_list.length">
+            <div class="col col_box" v-if="0 < picURL_list.length">
               <div>
                 照片預覽：上傳數量{{picURL_list.length}}
               </div>
@@ -330,6 +330,9 @@ export default {
 
 <style lang="scss" scoped>
 @media (max-width: 500px){
+  .col_box{
+    min-width: 195px;
+  }
   .title{
     font-weight: bold;
     height: 22px;
@@ -374,6 +377,9 @@ export default {
   }
 }
 @media (min-width: 501px){
+  .col_box{
+    min-width: 250px;
+  }
   .title{
     font-weight: bold;
     height: 36px;
