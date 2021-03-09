@@ -49,7 +49,7 @@
           <thead>
             <tr class="q-tr" style="background-color: rgb(56, 48, 44);">
               <th class="text_sm text-left">紀錄時間</th>
-              <th class="text_sm text-left">使用時間</th>
+              <!-- <th class="text_sm text-left">使用時間</th> -->
               <th class="text_sm text-left">紀錄人員</th>
               <th class="text_sm text-left">維修工時(小時)</th>
               <th class="text_sm text-left">責任歸屬</th>
@@ -60,7 +60,7 @@
           <tbody>
             <tr class="q-tr" v-for="item in this.historydata" :key="item.reply_datetime" :class="[item.type === 'detail' ? 'detailList' : 'confirmationList']">
               <td class="text_sm text-left">{{item.reply_datetime}}</td>
-              <td class="text_sm text-left">{{item.usetime}}</td>
+              <!-- <td class="text_sm text-left">{{item.usetime}}</td> -->
               <td class="text_sm text-left">{{item.reply_person_name}}</td>
               <td class="text_sm text-left">{{item.fix_hour}}</td>
               <td class="text_sm text-left">{{item.attribution}}</td>
@@ -126,9 +126,9 @@ export default {
         .then((response) => {
           // console.log(response)
           response.data.map((item) => {
-            if (item.duration_hour !== null) {
-              item.usetime = `${item.duration_day}D${item.duration_hour}H`
-            }
+            // if (item.duration_hour !== null) {
+            //   item.usetime = `${item.duration_day}D${item.duration_hour}H`
+            // }
             if (item.picture_filename !== null && item.picture_filename !== '') {
               const PicNameList = item.picture_filename.split(',')
               const PicUrl = item.DownloadURL

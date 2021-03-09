@@ -159,7 +159,7 @@ export default {
         bus_no: null,
         repair_no: '',
         item_name: null,
-        fix_hour: '',
+        fix_hour: '0',
         attribution: '待確認',
         repairing_parts: '',
         description: ''
@@ -189,7 +189,7 @@ export default {
         bus_no: null,
         repair_no: '',
         item_name: null,
-        fix_hour: '',
+        fix_hour: '0',
         attribution: '待確認',
         repairing_parts: '',
         description: ''

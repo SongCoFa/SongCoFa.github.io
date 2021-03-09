@@ -98,7 +98,7 @@
           </template>
 
           <template v-slot:body="props">
-            <q-tr :props="props" :class="[props.cols[7].value === 'detail' ? 'detailList' : 'confirmationList']">
+            <q-tr :props="props" :class="[props.cols[6].value === 'detail' ? 'detailList' : 'confirmationList']">
               <q-td
               v-for="col in props.cols"
               :key="col.name"
@@ -107,7 +107,7 @@
               >
               {{ col.value }}
               </q-td>
-              <q-td class="summarylabel" :class="[props.cols[7].value === 'detail' ? 'detailList' : 'confirmationList']">
+              <q-td class="summarylabel" :class="[props.cols[6].value === 'detail' ? 'detailList' : 'confirmationList']">
                 <div class="colum-shadow"></div>
                 <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon ListIcon" />
                 <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
@@ -146,7 +146,7 @@ export default {
           reply_datetime: null,
           reply_person_name: null,
           status: null,
-          usetime: null,
+          // usetime: null,
           attribution: null,
           repairing_parts: null,
           BB: null,
@@ -158,7 +158,7 @@ export default {
           reply_datetime: null,
           reply_person_name: null,
           status: null,
-          usetime: null,
+          // usetime: null,
           attribution: null,
           repairing_parts: null,
           BB: null,
@@ -183,7 +183,7 @@ export default {
       maindata: [],
       historycolumns: [
         { name: '紀錄時間', align: 'left', label: '紀錄時間', field: 'reply_datetime', sortable: true },
-        { name: '使用時間', align: 'left', label: '使用時間', field: 'usetime', sortable: true },
+        // { name: '使用時間', align: 'left', label: '使用時間', field: 'usetime', sortable: true },
         { name: '記錄人員', align: 'left', label: '記錄人員', field: 'reply_person_name', sortable: true },
         { name: '維修工時(小時)', align: 'left', label: '維修工時(小時)', field: 'fix_hour', sortable: true },
         { name: '責任歸屬', align: 'left', label: '責任歸屬', field: 'attribution', sortable: true },
@@ -309,11 +309,11 @@ export default {
       this.$axios.get(`/api/Repair/RepairDetailConfirmationList/${input}`)
         .then((response) => {
           // console.log(response)
-          response.data.map((item) => {
-            if (item.duration_hour !== null) {
-              item.usetime = `${item.duration_day}D${item.duration_hour}H`
-            }
-          })
+          // response.data.map((item) => {
+          //   if (item.duration_hour !== null) {
+          //     item.usetime = `${item.duration_day}D${item.duration_hour}H`
+          //   }
+          // })
           this.historydata = response.data
         })
         .catch(function (error) {

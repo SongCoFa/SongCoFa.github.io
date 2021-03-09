@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     signin(){
-      return 'http://www.fmsbolymin.com.tw:8813/repair/#/login?90018;Cofa;Bolymin'
+      return 'http://www.fmsbolymin.com.tw:8813/repair/#/login?90018;Song;Bolymin'
     }
   }
 }
