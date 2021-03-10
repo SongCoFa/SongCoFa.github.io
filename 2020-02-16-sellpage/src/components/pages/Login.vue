@@ -53,10 +53,16 @@ export default {
       signin(){
         const api =`${process.env.VUE_APP_APIPATH}/admin/signin`;
         const vm = this;
-        vm.$http.post(api, vm.user).then((response) => {
-        if(response.data.success){
+        vm.$http.post(api, vm.user)
+        .then((response) => {
+          // console.log(response)
+          if(response.data.success){
             vm.$router.push('/admin/products');
-        }
+          }
+        })
+        .catch((error) => {
+            console.log(error)
+            alert('登入失敗')
         })
       },
   },
