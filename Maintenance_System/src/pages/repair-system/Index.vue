@@ -62,7 +62,7 @@
       </div>
     </div>
     <Add ref="add" />
-    <Edit ref="edit" />
+    <Edit ref="edit" @getResult="ReResult" />
   </q-page>
 </template>
 
@@ -130,6 +130,7 @@ export default {
     }
     this.$axios.get('/api/Repair/RepairItem')// 取得報修列表ItemList
       .then((response) => {
+        // console.log(response)
         this.ItemList = response.data
         this.ItemList.map((item) => {
           item.ischoice = false
@@ -151,6 +152,10 @@ export default {
       this.maindata = result
       this.TimeNow = '更新時間:' + ReSetTime
       this.selected = []
+    },
+    ReResult () {
+      const a = document.getElementById('GetResultBTN')
+      a.click()
     },
     querytoolcontrol  () {
       this.QueryToolOn = !this.QueryToolOn
@@ -184,8 +189,20 @@ export default {
       const code = this.OperatorList.filter((item) => item.OperatorName === this.selected[0].OperatorName)
       this.$refs.edit.selected_DrivermanagementLogParameter.OperatorCode = code[0].OperatorCode
       this.$refs.edit.OperatorList = this.OperatorList
-      // 帶入報修項目清單
-      this.$refs.edit.ItemList = this.ItemList
+      // 設定報修項目清單
+      const a = this.ItemList
+      const b = this.selected[0].item
+      b.map((num) => {
+        a.map((item) => {
+          if (item.item === num) {
+            item.ischoice = true
+          }
+        })
+      })
+      this.$refs.edit.ItemList = a
+      // 設定報修項目
+      this.$refs.edit.ChoiceItemList = this.selected[0].item
+      this.$refs.edit.ChoiceItemName = this.selected[0].item_name
       // 設定照片預覽
       const PicNameList = this.selected[0].picture_filename.split(',')
       const PicUrl = this.selected[0].DownloadURL

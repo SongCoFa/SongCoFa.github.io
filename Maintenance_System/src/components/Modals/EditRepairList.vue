@@ -51,11 +51,14 @@
               <span>
                 報修項目：
               </span>
-              <div class="must" v-if="selected_DrivermanagementLogParameter.item === ''">(*必填)</div>
+              <div v-if="ChoiceItemName.length !== 0">
+                <div class="item_text" v-for="item in ChoiceItemName" :key='item'>{{item}}</div>
+              </div>
+              <div class="must" v-if="ChoiceItemName.length === 0">(*必填)</div>
               <div class="form-group input-group">
-                <select class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.item === ''}" v-model="selected_DrivermanagementLogParameter.item">
+                <select class="form-control w-100" :class="{mustborder: ChoiceItemName.length === 0}" v-model="ChoiceItem">
                     <option value="" disabled>請選擇報修項目</option>
-                    <option v-for="item in ItemList" :value="item.item" :key='item.name'>{{item.name}}</option>
+                    <option v-for="item in ItemList" :class="{itemChoice: item.ischoice}" :value="item.item" :key='item.name'>{{item.name}}</option>
                 </select>
               </div>
             </div>
@@ -160,10 +163,43 @@ export default {
       },
       OperatorList: [],
       ItemList: [],
+      ChoiceItem: '',
+      ChoiceItemList: [],
+      ChoiceItemName: [],
       preview_list: [],
       image_list: [],
       picURL_list: [],
       picName_list: []
+    }
+  },
+  watch: {
+    ChoiceItem (newitem) {
+      if (this.ChoiceItem === '') {
+        return
+      }
+      this.ItemList.map((item) => {
+        if (item.item === newitem && item.ischoice === false) {
+          if (this.ChoiceItemList.length >= 3) {
+            alert('報修項目不可複選超過3項')
+            return
+          }
+          item.ischoice = true
+        } else if (item.item === newitem && item.ischoice === true) {
+          item.ischoice = false
+        }
+      })
+      this.ChoiceItemName = []
+      this.ChoiceItemList = []
+      const Choice = this.ItemList.filter(item => item.ischoice === true)
+      if (Choice.length !== 0) {
+        Choice.map((item) => {
+          const newName = `${item.name}`
+          const newlist = item.item
+          this.ChoiceItemName = this.ChoiceItemName.concat(newName)
+          this.ChoiceItemList = this.ChoiceItemList.concat(newlist)
+        })
+      }
+      this.ChoiceItem = ''
     }
   },
   methods: {
@@ -180,6 +216,9 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
+      const a = JSON.stringify({ item: this.ChoiceItemList })
+      this.selected_DrivermanagementLogParameter.item = a
+      this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
       if (!check) {
         alert('必填項目不得為空')
@@ -191,6 +230,7 @@ export default {
           // console.log(response)
             if (response.data[0].ReturnMessage === '成功') {
               alert('編輯報修單成功')
+              this.$emit('getResult')
             } else {
               alert('編輯報修單失敗，請稍後確認填入資料正確後再嘗試')
             }
@@ -218,6 +258,12 @@ export default {
         start_datetime: null,
         picture_filename: null
       }
+      this.ItemList.map((item) => {
+        item.ischoice = false
+      })
+      this.ChoiceItem = ''
+      this.ChoiceItemList = []
+      this.ChoiceItemName = []
       this.picURL_list = []
       this.picName_list = []
     },
@@ -277,8 +323,7 @@ export default {
       }
     },
     inspection (item) {
-      // console.log(item)
-      if (item.bus_no === '' || item.item === '') {
+      if (item.bus_no === '' || this.ChoiceItemList.length === 0) {
         return false
       } else {
         return true
@@ -296,6 +341,11 @@ export default {
   .title{
     font-weight: bold;
     height: 22px;
+  }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 14px;
   }
   #closs_btn{
     position: absolute;
@@ -336,6 +386,11 @@ export default {
   .title{
     font-weight: bold;
     height: 36px;
+  }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 17px;
   }
   #closs_btn{
     position: absolute;
@@ -388,6 +443,10 @@ export default {
 .mustborder{
   border: 0.5px solid red;
   border-radius: 5px;
+}
+.itemChoice{
+  background-color: rgb(97, 37, 138);
+  color: whitesmoke;
 }
 /* .pic_btn :hover{
   background-color: rgb(233, 27, 27);

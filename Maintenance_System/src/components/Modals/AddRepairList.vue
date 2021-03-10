@@ -200,7 +200,7 @@ export default {
       if (Choice.length !== 0) {
         Choice.map((item) => {
           const newName = `${item.name}`
-          const newlist = `${item.item}`
+          const newlist = item.item
           this.ChoiceItemName = this.ChoiceItemName.concat(newName)
           this.ChoiceItemList = this.ChoiceItemList.concat(newlist)
         })
@@ -222,7 +222,8 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
-      this.selected_DrivermanagementLogParameter.item = this.ChoiceItemList
+      const a = JSON.stringify({ item: this.ChoiceItemList })
+      this.selected_DrivermanagementLogParameter.item = a
       this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
       if (!check) {
@@ -233,7 +234,6 @@ export default {
         this.$axios
           .post('/api/Repair/RepairMaster', this.selected_DrivermanagementLogParameter)
           .then((response) => {
-            // console.log(response)
             if (response.data[0].ReturnMessage === '成功') {
               alert(`新增報修單成功，報修單號為: ${response.data[0].repair_no}`)
             } else {
@@ -285,7 +285,6 @@ export default {
           this.image_list.push(input.files[index])
           reader.readAsDataURL(input.files[index])
           index++
-          // console.log(this.preview_list, this.image_list)
         }
       }
       this.uploadpicture()
@@ -295,9 +294,6 @@ export default {
       for (var i = 0; i < this.image_list.length; i++) {
         formData.append(i, this.image_list[i])
       }
-      // Object.keys(this.image_list).forEach((item) => {
-      //   formData.append(item, this.image_list[`${item}`])
-      // })
       this.$axios
         .post('/api/Repair/PictureUpload', formData, {
           headers: {
@@ -305,7 +301,6 @@ export default {
           }
         })
         .then((response) => {
-          // console.log(response)
           const name = response.data.fileNames
           const url = response.data.fileURLs
           this.picName_list = this.picName_list.concat(name)
@@ -328,8 +323,7 @@ export default {
       }
     },
     inspection (item) {
-      // console.log(item)
-      if (item.bus_no === '' || item.item.length === 0) {
+      if (item.bus_no === '' || this.ChoiceItemList.length === 0) {
         return false
       } else {
         return true

@@ -173,6 +173,7 @@ export default {
   mounted () {
     this.$axios.get('/api/Repair/RepairPart')// 取得零件列表RepairList
       .then((response) => {
+        // console.log(response)
         this.RepairList = response.data
       })
       .catch(function (error) {

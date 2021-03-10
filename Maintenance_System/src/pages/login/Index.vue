@@ -15,13 +15,13 @@ export default {
         name: null,
         OperatorCode: null
       },
-      isTest: true
+      isTest: false
     }
   },
   mounted () {
     if (this.isTest) {
-      window.sessionStorage.setItem('Number', '90001')
-      window.sessionStorage.setItem('Name', '楊德祥')
+      window.sessionStorage.setItem('Number', '90018')
+      window.sessionStorage.setItem('Name', 'Song')
       window.sessionStorage.setItem('Vender', 'Bolymin')
     }
     this.User.id = window.sessionStorage.getItem('Number')

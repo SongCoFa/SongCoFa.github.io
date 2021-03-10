@@ -102,7 +102,7 @@ export default {
       }
       this.Query.end_datetime = today.getFullYear() + '-' + month + '-' + startday
       this.Query.start_datetime = today.getFullYear() + '-' + month + '-' + endday
-      console.log(this.Query.end_datetime, this.Query.start_datetime)
+      // console.log(this.Query.end_datetime, this.Query.start_datetime)
     }
   },
   methods: {
@@ -116,9 +116,24 @@ export default {
         .then((response) => {
           // console.log(response)
           response.data.map((item) => {
-            if (item.duration_hour !== null) {
-              item.usetime = `${item.duration_day}D${item.duration_hour}H`
+            const vm = item
+            // 使用時間
+            if (vm.duration_hour !== null) {
+              vm.usetime = `${vm.duration_day}D${vm.duration_hour}H`
             }
+            // 報修項目
+            const a = JSON.parse(vm.item)
+            let x = []
+            let y = []
+            a[0].item.map((num) => {
+              x = x.concat(num)
+            })
+            vm.item = x
+            const b = JSON.parse(item.item_name)
+            b[0].item_name.map((num) => {
+              y = y.concat(num)
+            })
+            vm.item_name = y
           })
           const result = response.data
           this.$emit('querytool', result, ReSetTime)
