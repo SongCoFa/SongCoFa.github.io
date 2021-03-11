@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="homevideo text-center">
-      <youtube :video-id="homevideo" ref="youtube" @playing="playing"></youtube>
+      <youtube :video-id="homevideo" ref="youtube" @playing="playVideo()"></youtube>
       <!-- <button @click="playVideo">play</button> -->
     </section>
   </div>
