@@ -198,6 +198,7 @@ export default {
       isReport: false,
       isCheck: false,
       isBolymin: false,
+      RepairList: [],
       picURL_list: [],
       picName_list: [],
       User: {
@@ -232,6 +233,18 @@ export default {
     this.User.id = window.sessionStorage.getItem('Number')
     this.User.name = window.sessionStorage.getItem('Name')
     this.User.OperatorCode = window.sessionStorage.getItem('Vender')
+    // 取得零件列表RepairList
+    this.$axios.get('/api/Repair/RepairPart')
+      .then((response) => {
+        // console.log(response)
+        this.RepairList = response.data
+        this.RepairList.map((item) => {
+          item.ischoice = false
+        })
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
     // 設定回覆報修單權限
     if (this.User.OperatorCode === 'Bolymin') {
       this.isBolymin = true
@@ -283,6 +296,7 @@ export default {
       const today = new Date()
       const timer = new Date().toLocaleTimeString('it-IT')
       this.$refs.report.persistent = !this.$refs.report.persistent
+      this.$refs.report.RepairList = this.RepairList
       this.$refs.report.selected_DrivermanagementLogParameter.OperatorName = this.maindata[0].OperatorName
       this.$refs.report.selected_DrivermanagementLogParameter.repair_no = this.maindata[0].repair_no
       this.$refs.report.selected_DrivermanagementLogParameter.item_name = this.maindata[0].item_name
@@ -308,7 +322,16 @@ export default {
       const input = `?repair_no=${this.maindata[0].repair_no}`
       this.$axios.get(`/api/Repair/RepairDetailConfirmationList/${input}`)
         .then((response) => {
-          // console.log(response)
+          response.data.map((item) => {
+            const vm = item
+            // 零件項目
+            const a = JSON.parse(vm.repairing_parts)
+            let x = []
+            a.repairing_parts.map((num) => {
+              x = x.concat(num)
+            })
+            vm.repairing_parts = x
+          })
           // response.data.map((item) => {
           //   if (item.duration_hour !== null) {
           //     item.usetime = `${item.duration_day}D${item.duration_hour}H`

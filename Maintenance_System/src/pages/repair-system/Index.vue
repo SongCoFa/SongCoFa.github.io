@@ -89,7 +89,9 @@ export default {
       QueryToolOn: true,
       pagination: {
         page: 1,
-        rowsPerPage: 10
+        rowsPerPage: 10,
+        sortBy: '報修時間',
+        descending: true
       },
       rowsPerPageOptions: [5, 10],
       columns: [

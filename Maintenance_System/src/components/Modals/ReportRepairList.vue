@@ -79,7 +79,7 @@
               <div class="form-group input-group">
                 <!-- <input class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.attribution === null}" type="text" placeholder="請選擇責任歸屬" v-model="selected_DrivermanagementLogParameter.attribution"> -->
                 <select class="form-control w-100" v-model="selected_DrivermanagementLogParameter.attribution">
-                    <option v-for="item in AttributionList" :value="item.name" :key='item.name'>{{item.name}}</option>
+                    <option v-for="item in AttributionList" :class="{itemChoice: item.ischoice}" :value="item.name" :key='item.name'>{{item.name}}</option>
                 </select>
               </div>
             </div>
@@ -89,11 +89,14 @@
               <span>
                 更換零件：
               </span>
+              <div v-if="ChoicePartsName.length !== 0">
+                <div class="item_text" v-for="item in ChoicePartsName" :key='item'>{{item}}</div>
+              </div>
               <div class="form-group input-group">
                 <!-- <input class="form-control w-100" type="text" placeholder="請輸入更換零件" v-model.trim="selected_DrivermanagementLogParameter.repairing_parts"> -->
-                <select class="form-control w-100" v-model="selected_DrivermanagementLogParameter.repairing_parts">
+                <select class="form-control w-100" v-model="ChoiceParts">
                     <option value="" disabled>請選擇更換零件</option>
-                    <option v-for="item in RepairList" :value="item.item" :key='item.name'>{{item.name}}</option>
+                    <option v-for="item in RepairList" :class="{itemChoice: item.ischoice}" :value="item.item" :key='item.name'>{{item.name}}</option>
                 </select>
               </div>
             </div>
@@ -164,21 +167,44 @@ export default {
         repairing_parts: '',
         description: ''
       },
+      ChoiceParts: '',
+      ChoicePartsList: [],
+      ChoicePartsName: [],
       preview_list: [],
       image_list: [],
       picURL_list: [],
       picName_list: []
     }
   },
-  mounted () {
-    this.$axios.get('/api/Repair/RepairPart')// 取得零件列表RepairList
-      .then((response) => {
-        // console.log(response)
-        this.RepairList = response.data
+  watch: {
+    ChoiceParts (newpart) {
+      if (this.ChoiceParts === '') {
+        return
+      }
+      this.RepairList.map((item) => {
+        if (item.item === newpart && item.ischoice === false) {
+          if (this.ChoicePartsList.length >= 5) {
+            alert('零件項目不可複選超過5項')
+            return
+          }
+          item.ischoice = true
+        } else if (item.item === newpart && item.ischoice === true) {
+          item.ischoice = false
+        }
       })
-      .catch(function (error) {
-        console.log(error)
-      })
+      this.ChoicePartsName = []
+      this.ChoicePartsList = []
+      const Choice = this.RepairList.filter(item => item.ischoice === true)
+      if (Choice.length !== 0) {
+        Choice.map((item) => {
+          const newName = `${item.name}`
+          const newlist = item.item
+          this.ChoicePartsName = this.ChoicePartsName.concat(newName)
+          this.ChoicePartsList = this.ChoicePartsList.concat(newlist)
+        })
+      }
+      this.ChoiceParts = ''
+    }
   },
   methods: {
     cleanAll () {
@@ -195,6 +221,12 @@ export default {
         repairing_parts: '',
         description: ''
       }
+      this.RepairList.map((item) => {
+        item.ischoice = false
+      })
+      this.ChoiceParts = ''
+      this.ChoicePartsList = []
+      this.ChoicePartsName = []
       this.picURL_list = []
       this.picName_list = []
     },
@@ -208,6 +240,10 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
+      // 零件項目轉換json
+      const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
+      this.selected_DrivermanagementLogParameter.repairing_parts = a
+      // 設定完修
       this.selected_DrivermanagementLogParameter.result = true
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
       if (!check) {
@@ -243,24 +279,27 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
-      // console.log(this.selected_DrivermanagementLogParameter)
+      // 零件項目轉換json
+      const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
+      this.selected_DrivermanagementLogParameter.repairing_parts = a
       this.selected_DrivermanagementLogParameter.fix_hour = parseInt(this.selected_DrivermanagementLogParameter.fix_hour)// 轉換字串成數字
-      this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
-        .then((response) => {
-          // console.log(response)
-          this.$emit('Report')
-          if (response.data[0].ReturnMessage === '成功') {
-            const close = document.getElementById('closs_btn')
-            alert('回覆報修單成功')
-            close.click()
-          } else {
-            alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
-          }
-        })
-        .catch(function (error) {
-          console.log(error)
-          alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
-        })
+      console.log(this.selected_DrivermanagementLogParameter)
+      // this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
+      //   .then((response) => {
+      //     // console.log(response)
+      //     this.$emit('Report')
+      //     if (response.data[0].ReturnMessage === '成功') {
+      //       const close = document.getElementById('closs_btn')
+      //       alert('回覆報修單成功')
+      //       close.click()
+      //     } else {
+      //       alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //     alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
+      //   })
     },
     previewMultiImage (event) {
       var input = event.target
@@ -338,6 +377,11 @@ export default {
     font-weight: bold;
     height: 22px;
   }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 14px;
+  }
   #closs_btn{
     position: absolute;
     top: 0;
@@ -384,6 +428,11 @@ export default {
   .title{
     font-weight: bold;
     height: 36px;
+  }
+  .item_text{
+    clear: both;
+    font-weight: normal;
+    font-size: 17px;
   }
   #closs_btn{
     position: absolute;
@@ -442,5 +491,9 @@ export default {
 .mustborder{
   border: 0.5px solid red;
   border-radius: 5px;
+}
+.itemChoice{
+  background-color: rgb(97, 37, 138);
+  color: whitesmoke;
 }
 </style>

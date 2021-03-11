@@ -139,6 +139,14 @@ export default {
               }
               item.picurllist = PicUrlList
             }
+            const vm = item
+            // 零件項目
+            const a = JSON.parse(vm.repairing_parts)
+            let x = []
+            a.repairing_parts.map((num) => {
+              x = x.concat(num)
+            })
+            vm.repairing_parts = x
           })
           this.historydata = response.data
         })

@@ -54,6 +54,7 @@ export default {
       width: 225px;
       bottom: 2px;
       left: 9px;
+      color: whitesmoke;
     }
     .version{
       position: absolute;
@@ -78,6 +79,7 @@ export default {
       bottom: 2px;
       right: 15px;
       font-size: 15px;
+      color: whitesmoke;
     }
     .version{
       position: absolute;
