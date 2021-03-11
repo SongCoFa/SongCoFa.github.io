@@ -1,6 +1,6 @@
 <template>
     <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
-      <q-card class="bg_pink" style="width: 700px; max-width: 80vw;">
+      <q-card class="bg_pink outside_box" style="min-width:230px;">
         <q-card-section>
           <div class="text_big title">新增報修單</div>
           <q-btn id="closs_btn" flat @click="cleanAll" v-close-popup />
