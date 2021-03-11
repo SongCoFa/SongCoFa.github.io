@@ -283,23 +283,22 @@ export default {
       const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
       this.selected_DrivermanagementLogParameter.repairing_parts = a
       this.selected_DrivermanagementLogParameter.fix_hour = parseInt(this.selected_DrivermanagementLogParameter.fix_hour)// 轉換字串成數字
-      console.log(this.selected_DrivermanagementLogParameter)
-      // this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
-      //   .then((response) => {
-      //     // console.log(response)
-      //     this.$emit('Report')
-      //     if (response.data[0].ReturnMessage === '成功') {
-      //       const close = document.getElementById('closs_btn')
-      //       alert('回覆報修單成功')
-      //       close.click()
-      //     } else {
-      //       alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
-      //     }
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error)
-      //     alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
-      //   })
+      this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
+        .then((response) => {
+          // console.log(response)
+          this.$emit('Report')
+          if (response.data[0].ReturnMessage === '成功') {
+            const close = document.getElementById('closs_btn')
+            alert('回覆報修單成功')
+            close.click()
+          } else {
+            alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
+          }
+        })
+        .catch(function (error) {
+          console.log(error)
+          alert('回覆報修單失敗，請稍後確認填入資料正確後再嘗試')
+        })
     },
     previewMultiImage (event) {
       var input = event.target
