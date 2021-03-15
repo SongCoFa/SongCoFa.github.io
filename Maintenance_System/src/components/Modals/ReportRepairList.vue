@@ -241,8 +241,12 @@ export default {
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
       // 零件項目轉換json
-      const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
-      this.selected_DrivermanagementLogParameter.repairing_parts = a
+      if (this.ChoicePartsList.length === 0) {
+        this.selected_DrivermanagementLogParameter.repairing_parts = JSON.stringify({})
+      } else {
+        const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
+        this.selected_DrivermanagementLogParameter.repairing_parts = a
+      }
       // 設定完修
       this.selected_DrivermanagementLogParameter.result = true
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
@@ -250,7 +254,10 @@ export default {
         alert('必填項目不得為空')
       } else {
         const close = document.getElementById('closs_btn')
-        this.selected_DrivermanagementLogParameter.fix_hour = parseInt(this.selected_DrivermanagementLogParameter.fix_hour)// 轉換字串成數字
+        // 轉換字串成數字
+        let num = parseFloat(this.selected_DrivermanagementLogParameter.fix_hour)
+        num = num.toFixed(1)
+        this.selected_DrivermanagementLogParameter.fix_hour = num
         this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
           .then((response) => {
           // console.log(response)
@@ -280,9 +287,17 @@ export default {
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
       // 零件項目轉換json
-      const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
-      this.selected_DrivermanagementLogParameter.repairing_parts = a
-      this.selected_DrivermanagementLogParameter.fix_hour = parseInt(this.selected_DrivermanagementLogParameter.fix_hour)// 轉換字串成數字
+      if (this.ChoicePartsList.length === 0) {
+        this.selected_DrivermanagementLogParameter.repairing_parts = JSON.stringify({})
+      } else {
+        const a = JSON.stringify({ repairing_parts: this.ChoicePartsList })
+        this.selected_DrivermanagementLogParameter.repairing_parts = a
+      }
+      // 轉換字串成數字
+      let num = parseFloat(this.selected_DrivermanagementLogParameter.fix_hour)
+      num = num.toFixed(1)
+      this.selected_DrivermanagementLogParameter.fix_hour = num
+      // console.log(num)
       this.$axios.post('/api/Repair/RepairDetail', this.selected_DrivermanagementLogParameter)
         .then((response) => {
           // console.log(response)

@@ -325,18 +325,23 @@ export default {
           response.data.map((item) => {
             const vm = item
             // 零件項目
-            const a = JSON.parse(vm.repairing_parts)
-            let x = []
-            a.repairing_parts.map((num) => {
-              x = x.concat(num)
-            })
-            vm.repairing_parts = x
+            if (vm.type === 'detail' && vm.repairing_parts !== '{}') {
+              const a = JSON.parse(vm.repairing_parts)
+              let x = []
+              a.repairing_parts.map((num) => {
+                x = x.concat(num)
+              })
+              vm.repairing_parts = x
+            } else {
+              vm.repairing_parts = null
+            }
           })
           // response.data.map((item) => {
           //   if (item.duration_hour !== null) {
           //     item.usetime = `${item.duration_day}D${item.duration_hour}H`
           //   }
           // })
+          // console.log(response.data)
           this.historydata = response.data
         })
         .catch(function (error) {

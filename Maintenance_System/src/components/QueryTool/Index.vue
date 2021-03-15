@@ -73,8 +73,9 @@ export default {
     }
   },
   mounted () {
-    // 判斷有無查詢紀錄，如果有則沿用
+    // 設定查詢客運業者權限
     this.Query.OperatorCode = window.sessionStorage.getItem('Vender')
+    // 判斷有無查詢紀錄，如果有則沿用
     const querySD = window.sessionStorage.getItem('start_datetime')
     if (querySD !== null) {
       const queryED = window.sessionStorage.getItem('end_datetime')
