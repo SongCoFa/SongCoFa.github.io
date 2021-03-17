@@ -141,12 +141,16 @@ export default {
             }
             const vm = item
             // 零件項目
-            const a = JSON.parse(vm.repairing_parts)
-            let x = []
-            a.repairing_parts.map((num) => {
-              x = x.concat(num)
-            })
-            vm.repairing_parts = x
+            if (vm.type === 'detail' && vm.repairing_parts !== '{}') {
+              const a = JSON.parse(vm.repairing_parts)
+              let x = []
+              a.repairing_parts.map((num) => {
+                x = x.concat(num)
+              })
+              vm.repairing_parts = x
+            } else {
+              vm.repairing_parts = null
+            }
           })
           this.historydata = response.data
         })

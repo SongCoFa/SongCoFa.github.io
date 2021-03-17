@@ -48,7 +48,7 @@
           </q-td>
           <q-td class="summarylabel iconlabel">
             <div class="colum-shadow"></div>
-            <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon ListIcon" />
+            <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" @click.native="goDescription" class="checkIcon ListIcon" />
             <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
           </q-td>
         </q-tr>
@@ -109,7 +109,7 @@
               </q-td>
               <q-td class="summarylabel" :class="[props.cols[6].value === 'detail' ? 'detailList' : 'confirmationList']">
                 <div class="colum-shadow"></div>
-                <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" class="checkIcon ListIcon" />
+                <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" @click.native="goDescription" class="checkIcon ListIcon" />
                 <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
               </q-td>
             </q-tr>
@@ -291,6 +291,9 @@ export default {
       const today = new Date()
       const timer = new Date().toLocaleTimeString('it-IT')
       this.TimeNow = '更新時間:' + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + 'T ' + timer
+    },
+    goDescription () {
+      this.$refs.description.persistent = !this.$refs.description.persistent
     },
     goReport () {
       const today = new Date()

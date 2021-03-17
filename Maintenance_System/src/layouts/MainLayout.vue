@@ -96,6 +96,11 @@ export default {
     gotoRepairSystem () {
       this.$router.push('/repair-system')
     }
+  },
+  beforeDestroy () {
+    window.sessionStorage.removeItem('Number')
+    window.sessionStorage.removeItem('Name')
+    window.sessionStorage.removeItem('Vender')
   }
 }
 </script>
