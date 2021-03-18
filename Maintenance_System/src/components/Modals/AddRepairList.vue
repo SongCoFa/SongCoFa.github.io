@@ -100,7 +100,7 @@
                 問題摘要：
               </span>
               <div class="form-group input-group">
-                <input class="form-control w-100" type="text" placeholder="請輸入問題摘要" v-model="selected_DrivermanagementLogParameter.summary">
+                <input class="form-control w-100" type="text" placeholder="問題發生時間或班次" v-model="selected_DrivermanagementLogParameter.summary">
               </div>
             </div>
             <div class="col col_box">
