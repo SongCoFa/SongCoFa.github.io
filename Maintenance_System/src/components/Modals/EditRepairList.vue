@@ -145,8 +145,24 @@ export default {
   data () {
     return {
       persistent: false,
-      repair_no: '',
       selected_DrivermanagementLogParameter: {
+        repair_no: '',
+        OperatorCode: '',
+        initiator_tel: null,
+        initiator_id: '',
+        initiator_name: '',
+        driver_tel: null,
+        driver_id: null,
+        driver_name: null,
+        bus_no: '',
+        item: '',
+        summary: null,
+        description: null,
+        start_datetime: null,
+        picture_filename: null
+      },
+      original_DrivermanagementLogParameter: {
+        repair_no: '',
         OperatorCode: '',
         initiator_tel: null,
         initiator_id: '',
@@ -204,6 +220,11 @@ export default {
   },
   methods: {
     Add () {
+      const change = this.haveChange(this.selected_DrivermanagementLogParameter)
+      if (!change) {
+        alert('表單未更動請直接點選右上關閉')
+        return false
+      }
       const today = new Date()
       const timer = new Date().toLocaleTimeString('it-IT')
       this.selected_DrivermanagementLogParameter.start_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
@@ -219,6 +240,7 @@ export default {
       const a = JSON.stringify({ item: this.ChoiceItemList })
       this.selected_DrivermanagementLogParameter.item = a
       this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
+      // console.log(this.selected_DrivermanagementLogParameter)
       const check = this.inspection(this.selected_DrivermanagementLogParameter)
       if (!check) {
         alert('必填項目不得為空')
@@ -244,6 +266,7 @@ export default {
     },
     cleanAll () {
       this.selected_DrivermanagementLogParameter = {
+        repair_no: '',
         OperatorCode: '',
         initiator_tel: null,
         initiator_id: '',
@@ -327,6 +350,33 @@ export default {
         return false
       } else {
         return true
+      }
+    },
+    haveChange (item) {
+      if (item.initiator_tel !== this.original_DrivermanagementLogParameter.initiator_tel) {
+        return true
+      } else if (item.bus_no !== this.original_DrivermanagementLogParameter.bus_no) {
+        return true
+      } else if (item.driver_name !== this.original_DrivermanagementLogParameter.driver_name) {
+        return true
+      } else if (item.driver_tel !== this.original_DrivermanagementLogParameter.driver_tel) {
+        return true
+      } else if (item.description !== this.original_DrivermanagementLogParameter.description) {
+        return true
+      } else if (item.summary !== this.original_DrivermanagementLogParameter.summary) {
+        return true
+      } else if (item.picture_filename !== this.original_DrivermanagementLogParameter.picture_filename) {
+        return true
+      } else if (item.item.length === this.ChoiceItemList.length && item.item.length !== 0) {
+        for (let n = 0; n < item.item.length; n++) {
+          if (item.item[n] !== this.original_DrivermanagementLogParameter.item[n]) {
+            return true
+          }
+        }
+      } else if (item.item.length !== this.ChoiceItemList.length) {
+        return true
+      } else {
+        return false
       }
     }
   }

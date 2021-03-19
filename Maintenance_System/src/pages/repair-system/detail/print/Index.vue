@@ -15,7 +15,7 @@
               <th class="text_sm text-left">報修項目</th>
               <th class="text_sm text-left">問題摘要</th>
               <th class="text_sm text-left">狀態</th>
-              <th class="text_sm text-left">使用時間</th>
+              <th class="text_sm text-left">處理時間</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +54,7 @@
               <th class="text_sm text-left">維修工時(小時)</th>
               <th class="text_sm text-left">責任歸屬</th>
               <th class="text_sm text-left">更換零件</th>
-              <th class="text_sm text-left">車務訂單</th>
+              <!-- <th class="text_sm text-left">車務訂單</th> -->
             </tr>
           </thead>
           <tbody>
@@ -65,7 +65,7 @@
               <td class="text_sm text-left">{{item.fix_hour}}</td>
               <td class="text_sm text-left">{{item.attribution}}</td>
               <td class="text_sm text-left">{{item.repairing_parts}}</td>
-              <td class="text_sm text-left">{{item.BB}}</td>
+              <!-- <td class="text_sm text-left">{{item.BB}}</td> -->
               <div class="detailbox">
                 <div class="descriptionBox text_sm text-left">
                   <div class="desTitle">描述:</div>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="pictureBox container">
                   <div class="row" v-if="item.picture_filename !== null">
-                    <img class="col" v-for="(pic, index) in item.picurllist" :key="index" :src="pic">
+                    <img style="max-width:325px;" class="col" v-for="(pic, index) in item.picurllist" :key="index" :src="pic">
                   </div>
                 </div>
               </div>

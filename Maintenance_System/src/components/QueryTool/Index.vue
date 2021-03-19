@@ -139,11 +139,35 @@ export default {
           const result = response.data
           this.$emit('querytool', result, ReSetTime)
           this.setQuery()
+          // -----------------------
+          // const a = 12345
+          // let b = a.toString().split('').reverse().splice(1, 3).join('')
+          // b = parseInt(b)
+          // console.log(b)
+          // document.write('金字塔<br/>')
+          // const n = 6
+          // for (let i = 1; i <= n; i++) {
+          //   this.front(i, n)
+          //   document.write('*')
+          //   this.back(i)
+          //   document.write('<br/>')
+          // }
         })
         .catch(function (error) {
           console.log(error)
         })
     },
+    // front (now, total) {
+    //   for (let j = 0; j < (total - now); j++) {
+    //     document.write('&ensp;')
+    //   }
+    // },
+    // back (now) {
+    //   for (let k = 0; k < (now - 1); k++) {
+    //     document.write('&ensp;')
+    //     document.write('*')
+    //   }
+    // },
     setQuery () {
       const SD = this.Query.start_datetime
       const ED = this.Query.end_datetime

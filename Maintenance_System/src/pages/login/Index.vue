@@ -15,7 +15,7 @@ export default {
         name: null,
         OperatorCode: null
       },
-      isTest: false
+      isTest: true
     }
   },
   mounted () {

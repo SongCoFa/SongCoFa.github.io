@@ -102,7 +102,7 @@ export default {
         { name: '報修項目', align: 'left', label: '報修項目', field: 'item_name', sortable: true },
         { name: '問題摘要', align: 'left', label: '問題摘要', field: 'summary', sortable: true },
         { name: '狀態', align: 'left', label: '狀態', field: 'status', sortable: true },
-        { name: '使用時間', align: 'left', label: '使用時間', field: 'usetime', sortable: true }
+        { name: '處理時間', align: 'left', label: '處理時間', field: 'usetime', sortable: true }
       ],
       maindata: null,
       ItemList: [],
@@ -216,7 +216,7 @@ export default {
       // console.log(PicNameList)
       this.$refs.edit.picName_list = PicNameList
       this.$refs.edit.picURL_list = PicUrlList
-      // console.log(this.selected[0], PicUrlList)
+      this.$refs.edit.original_DrivermanagementLogParameter = this.$refs.edit.selected_DrivermanagementLogParameter
       this.$refs.edit.persistent = !this.$refs.edit.persistent
       this.selected = []
     }

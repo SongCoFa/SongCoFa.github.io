@@ -178,7 +178,7 @@ export default {
         { name: '報修項目', align: 'left', label: '報修項目', field: 'item_name', sortable: true },
         { name: '問題摘要', align: 'left', label: '問題摘要', field: 'summary', sortable: true },
         { name: '狀態', align: 'left', label: '狀態', field: 'status', sortable: true },
-        { name: '使用時間', align: 'left', label: '使用時間', field: 'usetime', sortable: true }
+        { name: '處理時間', align: 'left', label: '處理時間', field: 'usetime', sortable: true }
       ],
       maindata: [],
       historycolumns: [
@@ -188,7 +188,7 @@ export default {
         { name: '維修工時(小時)', align: 'left', label: '維修工時(小時)', field: 'fix_hour', sortable: true },
         { name: '責任歸屬', align: 'left', label: '責任歸屬', field: 'attribution', sortable: true },
         { name: '更換零件', align: 'left', label: '更換零件', field: 'repairing_parts', sortable: true },
-        { name: '車務訂單', align: 'left', label: '車務訂單', field: 'BB', sortable: true },
+        { name: ' ', align: 'left', label: ' ', field: 'BB', sortable: true },
         { name: '結果', align: 'right', label: '結果', field: 'type', sortable: true }
       ],
       historydata: [],
@@ -219,6 +219,7 @@ export default {
     this.maindata[0].reply_datetime = this.maindata[0].start_datetime
     // 設定照片與描述內容顯示
     this.selected = this.maindata
+    this.$refs.description.persistent = !this.$refs.description.persistent
     // 判別報修單狀態，藉此設定上方回覆報修單項目
     if (this.maindata[0].status === '處理中' || this.maindata[0].status === '新案件') {
       this.isReport = true
@@ -253,6 +254,14 @@ export default {
   watch: {
     selected (newvalue) {
       if (this.selected.length !== 0) {
+        // 設定種類
+        if (typeof newvalue[0].type === 'undefined') {
+          this.$refs.description.type = '報修主表'
+        } else if (newvalue[0].type === 'detail') {
+          this.$refs.description.type = '回覆'
+        } else if (newvalue[0].type === 'confirmation') {
+          this.$refs.description.type = '確認'
+        }
         // 照片欄位設定
         this.PictureNow = 0
         if (this.selected[0].picture_filename !== '' && this.selected[0].picture_filename !== null) {

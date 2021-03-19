@@ -78,29 +78,6 @@
               </div>
             </div>
           </div>
-          <div class="row w-100 text_sm mb_20">
-            <div class="col col_box">
-              <span>
-                上傳照片：
-              </span>
-              <div class="form-group input-group">
-                <input type="file" accept="image/*" multiple="multiple" @change="previewMultiImage" class="form-control-file" id="my-file">
-              </div>
-            </div>
-          </div>
-          <div class="row w-100 text_sm mb_20">
-            <div class="col col_box" v-if="0 < picURL_list.length">
-              <div>
-                照片預覽：上傳數量{{picURL_list.length}}
-              </div>
-              <div class="w-100" v-for="(item, index) in picURL_list" :key="index">
-                <q-btn class="pic_btn" flat @click="cleanPic(index)"/>
-                <img :src="item" class="img-fluid w-100" />
-                <p class="mb-0">名稱: {{ picName_list[index] }}</p>
-                <!-- <p>size: {{ image_list[index].size/1024 }}KB</p> -->
-              </div>
-            </div>
-          </div>
         </q-card-section>
 
         <q-card-actions align="center" class="text-teal" style="height:60px;">
@@ -129,11 +106,7 @@ export default {
         item_name: null,
         repairing_parts: null,
         remark: null
-      },
-      preview_list: [],
-      image_list: [],
-      picURL_list: [],
-      picName_list: []
+      }
     }
   },
   mounted () {
@@ -164,20 +137,9 @@ export default {
         repairing_parts: null,
         remark: null
       }
-      this.picURL_list = []
-      this.picName_list = []
     },
     Finish () {
       this.selected_DrivermanagementLogParameter.result = true
-      let picname = ''
-      for (var i = 0; i < this.picName_list.length; i++) {
-        if (i === 0) {
-          picname = `${this.picName_list[i]}`
-        } else {
-          picname = `${picname}` + ',' + `${this.picName_list[i]}`
-        }
-      }
-      this.selected_DrivermanagementLogParameter.picture_filename = picname
       this.$axios.post('/api/Repair/RepairConfirmation', this.selected_DrivermanagementLogParameter)
         .then((response) => {
           // console.log(response)
@@ -197,16 +159,6 @@ export default {
     },
     Report () {
       this.selected_DrivermanagementLogParameter.result = false
-      let picname = ''
-      for (var i = 0; i < this.picName_list.length; i++) {
-        if (i === 0) {
-          picname = `${this.picName_list[i]}`
-        } else {
-          picname = `${picname}` + ',' + `${this.picName_list[i]}`
-        }
-      }
-      this.selected_DrivermanagementLogParameter.picture_filename = picname
-      // console.log(this.selected_DrivermanagementLogParameter)
       this.$axios.post('/api/Repair/RepairConfirmation', this.selected_DrivermanagementLogParameter)
         .then((response) => {
           // console.log(response)
@@ -223,61 +175,6 @@ export default {
           console.log(error)
           alert('確認報修單失敗，請稍後確認填入資料正確後再嘗試')
         })
-    },
-    previewMultiImage (event) {
-      var input = event.target
-      var count = input.files.length
-      var index = 0
-      if (input.files) {
-        while (count--) {
-          var reader = new FileReader()
-          reader.onload = (e) => {
-            this.preview_list.push(e.target.result)
-          }
-          this.image_list.push(input.files[index])
-          reader.readAsDataURL(input.files[index])
-          index++
-          // console.log(this.preview_list, this.image_list)
-        }
-      }
-      this.uploadpicture()
-    },
-    uploadpicture () {
-      const formData = new FormData()
-      for (var i = 0; i < this.image_list.length; i++) {
-        formData.append(i, this.image_list[i])
-      }
-      // Object.keys(this.image_list).forEach((item) => {
-      //   formData.append(item, this.image_list[`${item}`])
-      // })
-      this.$axios
-        .post('/api/Repair/PictureUpload', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        })
-        .then((response) => {
-          // console.log(response)
-          const name = response.data.fileNames
-          const url = response.data.fileURLs
-          this.picName_list = this.picName_list.concat(name)
-          this.picURL_list = this.picURL_list.concat(url)
-        })
-        .catch(function (error) {
-          console.log(error)
-          alert('上傳照片失敗，請稍後再嘗試')
-        })
-      this.preview_list = []
-      this.image_list = []
-    },
-    cleanPic (i) {
-      if (i === 0) {
-        this.picName_list.shift()
-        this.picURL_list.shift()
-      } else {
-        this.picName_list.splice(i, i)
-        this.picURL_list.splice(i, i)
-      }
     }
   }
 }

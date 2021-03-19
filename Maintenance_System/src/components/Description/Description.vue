@@ -25,9 +25,11 @@
             <div class="detail mid-card">
               <div class="mid-card-header">
                 <img src="~/assets/ICON/Description.png" />
-                <div class="card-title text_sm">描述:</div>
+                <div v-if="type === '報修主表'" class="card-title text_sm">描述:</div>
+                <div v-if="type === '回覆'" class="card-title text_sm">故障原因或處理方式:</div>
+                <div v-if="type === '確認'" class="card-title text_sm">意見:</div>
               </div>
-              <div class="mid-card-body text_sm box">
+              <div class="mid-card-body text_sm box" style="display:block;">
                 {{ ShowDescription }}
               </div>
             </div>
@@ -46,7 +48,8 @@ export default {
       picName_list: [],
       ShowDescription: '請返回報修系統重新選擇報修主表',
       ShowPicture: '',
-      PictureNow: 0
+      PictureNow: 0,
+      type: null
     }
   },
   methods: {
