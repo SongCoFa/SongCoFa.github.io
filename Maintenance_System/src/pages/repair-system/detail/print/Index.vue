@@ -59,17 +59,18 @@
           </thead>
           <tbody>
             <tr class="q-tr" v-for="item in this.historydata" :key="item.reply_datetime" :class="[item.type === 'detail' ? 'detailList' : 'confirmationList']">
-              <td class="text_sm text-left">{{item.reply_datetime}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.reply_datetime}}</td>
               <!-- <td class="text_sm text-left">{{item.usetime}}</td> -->
-              <td class="text_sm text-left">{{item.reply_person_name}}</td>
-              <td class="text_sm text-left">{{item.fix_hour}}</td>
-              <td class="text_sm text-left">{{item.attribution}}</td>
-              <td class="text_sm text-left">{{item.repairing_parts}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.reply_person_name}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.fix_hour}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.attribution}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.repairing_parts}}</td>
               <!-- <td class="text_sm text-left">{{item.BB}}</td> -->
               <div class="detailbox">
                 <div class="descriptionBox text_sm text-left">
-                  <div class="desTitle">描述:</div>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.description}}
+                  <div v-if="item.type === 'detail'" class="desTitle">故障原因或處理方式:</div>
+                  <div v-else-if="item.type === 'confirmation'" class="desTitle">意見:</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.description}}</div>
                 </div>
                 <div class="pictureBox container">
                   <div class="row" v-if="item.picture_filename !== null">
@@ -211,8 +212,11 @@ export default {
     tbody{
       tr{
         position: relative;
-        td{
-          padding-bottom: 200px;
+        .havepic{
+          padding-bottom: 310px;
+        }
+        .nopic{
+          padding-bottom: 120px;
         }
       }
     }
@@ -224,23 +228,26 @@ export default {
     padding-top: 42px;
     width: 100%;
     height: 242px;
-    border: 0.5px solid gray;
     .descriptionBox{
       float: left;
-      width: 23%;
-      height: 100%;
-    // border: 0.5px solid gray;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      max-height: 120px;
+      width: 100%;
+      overflow-y: hidden;
       .desTitle{
-        height: 50px;
-        padding: 7px 14px;
+        height: 40px;
+        padding: 7px 14px 7px;
       }
     }
     .pictureBox{
+      clear: both;
       float: left;
-      width: 77%;
+      width: 100%;
       height: 100%;
+      max-width: 270px;
       img{
-        max-height: 197px;
+        max-height: 175px;
       }
     }
   }
@@ -310,8 +317,11 @@ export default {
     tbody{
       tr{
         position: relative;
-        td{
-          padding-bottom: 200px;
+        .havepic{
+          padding-bottom: 350px;
+        }
+        .nopic{
+          padding-bottom: 150px;
         }
       }
     }
@@ -322,21 +332,22 @@ export default {
     left: 0;
     padding-top: 42px;
     width: 100%;
-    height: 242px;
-    border: 0.5px solid gray;
     .descriptionBox{
       float: left;
-      width: 23%;
-      height: 100%;
-    // border: 0.5px solid gray;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      max-height: 150px;
+      width: 100%;
+      overflow-y: hidden;
       .desTitle{
-        height: 50px;
-        padding: 7px 14px;
+        height: 40px;
+        padding: 7px 14px 7px;
       }
     }
     .pictureBox{
+      clear: both;
       float: left;
-      width: 77%;
+      width: 100%;
       height: 100%;
       img{
         max-height: 197px;

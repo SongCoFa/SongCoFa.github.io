@@ -106,7 +106,7 @@
               </span>
               <div class="must" v-if="selected_DrivermanagementLogParameter.description === ''">(*完修必填)</div>
               <div class="form-group input-group">
-                <input class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.description === ''}" type="text" placeholder="請輸入故障原因或處理方式" v-model.trim="selected_DrivermanagementLogParameter.description">
+                <input class="form-control w-100" :class="{mustborder: selected_DrivermanagementLogParameter.description === ''}" type="text" placeholder="請輸入故障原因或處理方式" v-model.trim="selected_DrivermanagementLogParameter.description" maxlength="200">
               </div>
             </div>
           </div>

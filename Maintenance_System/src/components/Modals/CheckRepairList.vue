@@ -74,7 +74,7 @@
                 意見：
               </span>
               <div class="form-group input-group">
-                <input class="form-control w-100" type="text" placeholder="請輸入意見" v-model.trim="selected_DrivermanagementLogParameter.remark">
+                <input class="form-control w-100" type="text" placeholder="請輸入意見" v-model.trim="selected_DrivermanagementLogParameter.remark" maxlength="200">
               </div>
             </div>
           </div>

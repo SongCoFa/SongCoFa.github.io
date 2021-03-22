@@ -100,7 +100,7 @@
                 問題摘要：
               </span>
               <div class="form-group input-group">
-                <input class="form-control w-100" type="text" placeholder="問題發生時間或班次" v-model="selected_DrivermanagementLogParameter.summary">
+                <input class="form-control w-100" type="text" placeholder="問題發生時間或班次" v-model="selected_DrivermanagementLogParameter.summary" maxlength="30">
               </div>
             </div>
             <div class="col col_box">
@@ -108,7 +108,7 @@
                 問題描述：
               </span>
               <div class="form-group input-group">
-                <input class="form-control w-100" type="text" placeholder="請輸入問題描述" v-model="selected_DrivermanagementLogParameter.description">
+                <input class="form-control w-100" type="text" placeholder="請輸入問題描述" v-model="selected_DrivermanagementLogParameter.description" maxlength="200">
               </div>
             </div>
           </div>
