@@ -216,18 +216,35 @@ export default {
         })
       }
       this.ChoiceItem = ''
+    },
+    persistent () {
+      if (this.original_DrivermanagementLogParameter.bus_no === '') {
+        this.original_DrivermanagementLogParameter.repair_no = this.selected_DrivermanagementLogParameter.repair_no
+        this.original_DrivermanagementLogParameter.OperatorCode = this.selected_DrivermanagementLogParameter.OperatorCode
+        this.original_DrivermanagementLogParameter.initiator_tel = this.selected_DrivermanagementLogParameter.initiator_tel
+        this.original_DrivermanagementLogParameter.initiator_id = this.selected_DrivermanagementLogParameter.initiator_id
+        this.original_DrivermanagementLogParameter.initiator_name = this.selected_DrivermanagementLogParameter.initiator_name
+        this.original_DrivermanagementLogParameter.driver_tel = this.selected_DrivermanagementLogParameter.driver_tel
+        this.original_DrivermanagementLogParameter.driver_id = this.selected_DrivermanagementLogParameter.driver_id
+        this.original_DrivermanagementLogParameter.driver_name = this.selected_DrivermanagementLogParameter.driver_name
+        this.original_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no
+        this.original_DrivermanagementLogParameter.item = this.selected_DrivermanagementLogParameter.item
+        this.original_DrivermanagementLogParameter.summary = this.selected_DrivermanagementLogParameter.summary
+        this.original_DrivermanagementLogParameter.description = this.selected_DrivermanagementLogParameter.description
+        let picname = ''
+        for (var i = 0; i < this.picName_list.length; i++) {
+          if (i === 0) {
+            picname = `${this.picName_list[i]}`
+          } else {
+            picname = `${picname}` + ',' + `${this.picName_list[i]}`
+          }
+        }
+        this.original_DrivermanagementLogParameter.picture_filename = picname
+      }
     }
   },
   methods: {
     Add () {
-      const change = this.haveChange(this.selected_DrivermanagementLogParameter)
-      if (!change) {
-        alert('表單未更動請直接點選右上關閉')
-        return false
-      }
-      const today = new Date()
-      const timer = new Date().toLocaleTimeString('it-IT')
-      this.selected_DrivermanagementLogParameter.start_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
       let picname = ''
       for (var i = 0; i < this.picName_list.length; i++) {
         if (i === 0) {
@@ -237,6 +254,14 @@ export default {
         }
       }
       this.selected_DrivermanagementLogParameter.picture_filename = picname
+      const change = this.haveChange(this.selected_DrivermanagementLogParameter)
+      if (!change) {
+        alert('表單未更動請直接點選右上關閉')
+        return false
+      }
+      const today = new Date()
+      const timer = new Date().toLocaleTimeString('it-IT')
+      this.selected_DrivermanagementLogParameter.start_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
       const a = JSON.stringify({ item: this.ChoiceItemList })
       this.selected_DrivermanagementLogParameter.item = a
       this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
@@ -289,6 +314,7 @@ export default {
       this.ChoiceItemName = []
       this.picURL_list = []
       this.picName_list = []
+      this.original_DrivermanagementLogParameter.bus_no = ''
     },
     previewMultiImage (event) {
       var input = event.target

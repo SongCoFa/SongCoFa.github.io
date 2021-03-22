@@ -216,7 +216,6 @@ export default {
       // console.log(PicNameList)
       this.$refs.edit.picName_list = PicNameList
       this.$refs.edit.picURL_list = PicUrlList
-      this.$refs.edit.original_DrivermanagementLogParameter = this.$refs.edit.selected_DrivermanagementLogParameter
       this.$refs.edit.persistent = !this.$refs.edit.persistent
       this.selected = []
     }
