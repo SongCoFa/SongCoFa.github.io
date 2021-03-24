@@ -259,9 +259,6 @@ export default {
         alert('表單未更動請直接點選右上關閉')
         return false
       }
-      const today = new Date()
-      const timer = new Date().toLocaleTimeString('it-IT')
-      this.selected_DrivermanagementLogParameter.start_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
       const a = JSON.stringify({ item: this.ChoiceItemList })
       this.selected_DrivermanagementLogParameter.item = a
       this.selected_DrivermanagementLogParameter.bus_no = this.selected_DrivermanagementLogParameter.bus_no.toUpperCase()
@@ -350,10 +347,12 @@ export default {
         })
         .then((response) => {
           // console.log(response)
-          const name = response.data.fileNames
-          const url = response.data.fileURLs
-          this.picName_list = this.picName_list.concat(name)
-          this.picURL_list = this.picURL_list.concat(url)
+          if (response.data !== '') {
+            const name = response.data.fileNames
+            const url = response.data.fileURLs
+            this.picName_list = this.picName_list.concat(name)
+            this.picURL_list = this.picURL_list.concat(url)
+          }
         })
         .catch(function (error) {
           console.log(error)

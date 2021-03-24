@@ -27,7 +27,7 @@
           >
             {{ col.label }}
           </q-th>
-          <q-th class="text_sm" style="text-align:right;">描述/照片</q-th>
+          <q-th class="text_sm summarylabel" style="text-align:right;position:relative">描述/照片</q-th>
           <q-th class="text_sm summarylabel">
             <div class="colum-shadow"></div>
             描述/照片
@@ -98,7 +98,7 @@
           </template>
 
           <template v-slot:body="props">
-            <q-tr :props="props" :class="[props.cols[6].value === 'detail' ? 'detailList' : 'confirmationList']">
+            <q-tr :props="props" :class="[props.cols[5].value === 'detail' ? 'detailList' : 'confirmationList']">
               <q-td
               v-for="col in props.cols"
               :key="col.name"
@@ -107,7 +107,7 @@
               >
               {{ col.value }}
               </q-td>
-              <q-td class="summarylabel" :class="[props.cols[6].value === 'detail' ? 'detailList' : 'confirmationList']">
+              <q-td class="summarylabel" :class="[props.cols[5].value === 'detail' ? 'detailList' : 'confirmationList']">
                 <div class="colum-shadow"></div>
                 <q-btn :props="props" v-if="nowselected.length !== 0 && props.cols[0].value === nowselected[0].reply_datetime" @click.native="goDescription" class="checkIcon ListIcon" />
                 <q-btn v-else @click.native="props.selected = !props.selected;" class="choiceIcon ListIcon" />
@@ -167,7 +167,9 @@ export default {
       ],
       pagination: {
         page: 1,
-        rowsPerPage: 6
+        rowsPerPage: 6,
+        sortBy: '紀錄時間',
+        descending: true
       },
       rowsPerPageOptions: [4],
       maincolumns: [
@@ -178,7 +180,11 @@ export default {
         { name: '報修項目', align: 'left', label: '報修項目', field: 'item_name', sortable: true },
         { name: '問題摘要', align: 'left', label: '問題摘要', field: 'summary', sortable: true },
         { name: '狀態', align: 'left', label: '狀態', field: 'status', sortable: true },
-        { name: '處理時間', align: 'left', label: '處理時間', field: 'usetime', sortable: true }
+        { name: '處理時間', align: 'left', label: '處理時間', field: 'usetime', sortable: true },
+        { name: '報修人員', align: 'left', label: '報修人員', field: 'initiator_name', sortable: true },
+        { name: '報修人員電話', align: 'left', label: '報修人員電話', field: 'initiator_tel', sortable: true },
+        { name: '司機姓名', align: 'left', label: '司機姓名', field: 'driver_name', sortable: true },
+        { name: '司機聯絡電話', align: 'left', label: '司機聯絡電話', field: 'driver_tel', sortable: true }
       ],
       maindata: [],
       historycolumns: [
@@ -188,7 +194,7 @@ export default {
         { name: '維修工時(小時)', align: 'left', label: '維修工時(小時)', field: 'fix_hour', sortable: true },
         { name: '責任歸屬', align: 'left', label: '責任歸屬', field: 'attribution', sortable: true },
         { name: '更換零件', align: 'left', label: '更換零件', field: 'repairing_parts', sortable: true },
-        { name: ' ', align: 'left', label: ' ', field: 'BB', sortable: true },
+        // { name: ' ', align: 'left', label: ' ', field: 'BB', sortable: true },
         { name: '結果', align: 'right', label: '結果', field: 'type', sortable: true }
       ],
       historydata: [],
@@ -391,9 +397,10 @@ export default {
     position: absolute;
     right:0;
     text-align: center;
-    width: 90px;
-    max-width: 120px;
-    height: 56px;
+    width: 100px;
+    max-width: 100px;
+    height: 49px;
+    padding-bottom: 0;
   }
   .ListIcon{
     width: 20px;
@@ -460,8 +467,9 @@ export default {
     position: absolute;
     right:0;
     text-align: center;
-    width: 155px;
-    max-width: 155px;
+    width: 135px;
+    max-width: 135px;
+    height: 49px;
   }
   .ListIcon{
     width: 25px;
@@ -481,6 +489,9 @@ export default {
     .historyTitle{
       float: left;
       padding: 7px 0 0 9px;
+    }
+    .text-right{
+      max-width: 20px;
     }
   }
   .colorcard{

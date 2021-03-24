@@ -348,11 +348,12 @@ export default {
           }
         })
         .then((response) => {
-          // console.log(response)
-          const name = response.data.fileNames
-          const url = response.data.fileURLs
-          this.picName_list = this.picName_list.concat(name)
-          this.picURL_list = this.picURL_list.concat(url)
+          if (response.data !== '') {
+            const name = response.data.fileNames
+            const url = response.data.fileURLs
+            this.picName_list = this.picName_list.concat(name)
+            this.picURL_list = this.picURL_list.concat(url)
+          }
         })
         .catch(function (error) {
           console.log(error)

@@ -16,6 +16,10 @@
               <th class="text_sm text-left">問題摘要</th>
               <th class="text_sm text-left">狀態</th>
               <th class="text_sm text-left">處理時間</th>
+              <th class="text_sm text-left">報修人員</th>
+              <th class="text_sm text-left">報修人員電話</th>
+              <th class="text_sm text-left">司機姓名</th>
+              <th class="text_sm text-left">司機聯絡電話</th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +32,10 @@
               <td class="text_sm text-left">{{item.summary}}</td>
               <td class="text_sm text-left">{{item.status}}</td>
               <td class="text_sm text-left">{{item.usetime}}</td>
+              <td class="text_sm text-left">{{item.initiator_name}}</td>
+              <td class="text_sm text-left">{{item.initiator_tel}}</td>
+              <td class="text_sm text-left">{{item.driver_name}}</td>
+              <td class="text_sm text-left">{{item.driver_tel}}</td>
             </tr>
           </tbody>
         </table>
@@ -58,6 +66,7 @@
             </tr>
           </thead>
           <tbody>
+            <tr class="q-tr" v-if="this.historydata.length === 0"><td class="text_sm">目前尚無歷史紀錄</td></tr>
             <tr class="q-tr" v-for="item in this.historydata" :key="item.reply_datetime" :class="[item.type === 'detail' ? 'detailList' : 'confirmationList']">
               <td class="text_sm text-left" :class="[item.picture_filename !== null ? 'havepic' : 'nopic']">{{item.reply_datetime}}</td>
               <!-- <td class="text_sm text-left">{{item.usetime}}</td> -->

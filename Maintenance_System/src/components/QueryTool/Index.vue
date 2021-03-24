@@ -137,7 +137,9 @@ export default {
             vm.item_name = y
           })
           const result = response.data
+          const nowstatus = this.Query.status
           this.$emit('querytool', result, ReSetTime)
+          this.$emit('setStatus', nowstatus)
           this.setQuery()
           // -----------------------
           // const a = 12345

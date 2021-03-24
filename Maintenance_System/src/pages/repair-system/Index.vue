@@ -5,7 +5,7 @@
       <img src="~/assets/ICON/search.png" @click="querytoolcontrol" />
       <img src="~/assets/ICON/Add.png" @click="goAdd" />
     </div>
-    <QueryTool v-if="QueryToolOn" :query="PageNowAt" :querytoolon="QueryToolOn" class="querytool" @querytool="GetResult" />
+    <QueryTool v-if="QueryToolOn" :query="PageNowAt" :querytoolon="QueryToolOn" class="querytool" @querytool="GetResult"  @setStatus="getStatus" />
     <div class="dataTable" v-if="this.maindata !== null">
       <div class="q-pa-md">
         <div class="text_big">{{TimeNow}}</div>
@@ -30,8 +30,8 @@
           >
             {{ col.label }}
           </q-th>
-          <q-th class="text_sm" style="width:170px">編輯/明細/列印</q-th>
-          <q-th class="text_sm summarylabel" style="background-color: #38302C;">
+          <q-th class="text_sm summarylabel" style="text-align: right; position:relative;">編輯/明細/列印</q-th>
+          <q-th class="text_sm summarylabel" style="background-color: #38302C">
             <div class="colum-shadow"></div>
             編輯/明細/列印
           </q-th>
@@ -112,12 +112,8 @@ export default {
         name: null,
         OperatorCode: null
       },
-      isBolymin: false
-      // User: {
-      //   id: '90001',
-      //   name: '測試員',
-      //   OperatorCode: 'Bolymin'
-      // }
+      isBolymin: false,
+      status: null
     }
   },
   mounted () {
@@ -154,6 +150,9 @@ export default {
       this.maindata = result
       this.TimeNow = '更新時間:' + ReSetTime
       this.selected = []
+    },
+    getStatus (nowstatus) {
+      this.status = nowstatus
     },
     ReResult () {
       const a = document.getElementById('GetResultBTN')
@@ -241,7 +240,7 @@ export default {
       right:0;
       text-align: center;
       width: 125px;
-      max-width: 170px;
+      max-width: 125px;
       padding: 12px 16px;
     }
     .ListIcon{
