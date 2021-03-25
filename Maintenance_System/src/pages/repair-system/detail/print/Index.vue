@@ -24,18 +24,29 @@
           </thead>
           <tbody>
             <tr class="q-tr" v-for="item in this.maindata" :key="item.start_datetime">
-              <td class="text_sm text-left">{{item.start_datetime}}</td>
-              <td class="text_sm text-left">{{item.repair_no}}</td>
-              <td class="text_sm text-left">{{item.OperatorName}}</td>
-              <td class="text_sm text-left">{{item.bus_no}}</td>
-              <td class="text_sm text-left">{{item.item_name}}</td>
-              <td class="text_sm text-left">{{item.summary}}</td>
-              <td class="text_sm text-left">{{item.status}}</td>
-              <td class="text_sm text-left">{{item.usetime}}</td>
-              <td class="text_sm text-left">{{item.initiator_name}}</td>
-              <td class="text_sm text-left">{{item.initiator_tel}}</td>
-              <td class="text_sm text-left">{{item.driver_name}}</td>
-              <td class="text_sm text-left">{{item.driver_tel}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.start_datetime}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.repair_no}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.OperatorName}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.bus_no}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.item_name}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.summary}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.status}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.usetime}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.initiator_name}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.initiator_tel}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.driver_name}}</td>
+              <td class="text_sm text-left" :class="[item.picture_filename !== '' ? 'havepic' : 'nopic']">{{item.driver_tel}}</td>
+              <div class="detailbox">
+                <div class="descriptionBox text_sm text-left">
+                  <div class="desTitle">問題描述:</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.description}}</div>
+                </div>
+                <div class="pictureBox container">
+                  <div class="row" v-if="item.picture_filename !== ''">
+                    <img style="max-width:325px;" class="col" v-for="(pic, index) in item.picurllist" :key="index" :src="pic">
+                  </div>
+                </div>
+              </div>
             </tr>
           </tbody>
         </table>
@@ -122,6 +133,18 @@ export default {
     // 清除store暫存避免影響明細選擇進入功能
     this.$store.commit('CleanRepairSystemSelected')
     this.setTime()
+    console.log(this.maindata)
+    // 設定報修主表照片
+    if (this.maindata[0].picture_filename !== null && this.maindata[0].picture_filename !== '') {
+      const PicNameList = this.maindata[0].picture_filename.split(',')
+      const PicUrl = this.maindata[0].DownloadURL
+      const PicUrlList = []
+      for (var i = 0; i < PicNameList.length; i++) {
+        const url = PicUrl + '/' + PicNameList[i]
+        PicUrlList[i] = url
+      }
+      this.maindata[0].picurllist = PicUrlList
+    }
     this.getHistoryList()
   },
   methods: {
@@ -198,10 +221,20 @@ export default {
     overflow-y: hidden;
   }
   .mainTable{
-    height: 110px;
     width: calc(100vw - 50px);
     margin:0px 25px 0 25px;
     border:0.5px solid gray;
+    tbody{
+      tr{
+        position: relative;
+        .havepic{
+          padding-bottom: 310px;
+        }
+        .nopic{
+          padding-bottom: 120px;
+        }
+      }
+    }
   }
   .historyTitleBox{
     position: relative;
@@ -303,10 +336,20 @@ export default {
     overflow-y: hidden;
   }
   .mainTable{
-    height: 110px;
     width: calc(100vw - 75px);
     margin:5px 25px 0 25px;
     border:0.5px solid gray;
+    tbody{
+      tr{
+        position: relative;
+        .havepic{
+          padding-bottom: 350px;
+        }
+        .nopic{
+          padding-bottom: 150px;
+        }
+      }
+    }
   }
   .historyTitleBox{
     position: relative;

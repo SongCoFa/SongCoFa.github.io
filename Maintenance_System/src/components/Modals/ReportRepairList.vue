@@ -102,7 +102,7 @@
             </div>
             <div class="col col_box">
               <span>
-                故障原因或處理方式：
+                故障原因或處理方式：&nbsp;&nbsp;&nbsp;&nbsp;
               </span>
               <div class="must" v-if="selected_DrivermanagementLogParameter.description === ''">(*完修必填)</div>
               <div class="form-group input-group">

@@ -314,6 +314,12 @@ export default {
       this.original_DrivermanagementLogParameter.bus_no = ''
     },
     previewMultiImage (event) {
+      if (this.picName_list[0] === '') {
+        this.picName_list.splice(0, 1)
+      }
+      if (this.picURL_list[0] === 'http://211.75.191.178:20020/uploadImgs/') {
+        this.picURL_list.splice(0, 1)
+      }
       var input = event.target
       var count = input.files.length
       var index = 0
@@ -326,7 +332,6 @@ export default {
           this.image_list.push(input.files[index])
           reader.readAsDataURL(input.files[index])
           index++
-          // console.log(this.preview_list, this.image_list)
         }
       }
       this.uploadpicture()
@@ -336,9 +341,6 @@ export default {
       for (var i = 0; i < this.image_list.length; i++) {
         formData.append(i, this.image_list[i])
       }
-      // Object.keys(this.image_list).forEach((item) => {
-      //   formData.append(item, this.image_list[`${item}`])
-      // })
       this.$axios
         .post('/api/Repair/PictureUpload', formData, {
           headers: {
@@ -346,7 +348,6 @@ export default {
           }
         })
         .then((response) => {
-          // console.log(response)
           if (response.data !== '') {
             const name = response.data.fileNames
             const url = response.data.fileURLs

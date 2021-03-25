@@ -89,11 +89,11 @@ export default {
       QueryToolOn: true,
       pagination: {
         page: 1,
-        rowsPerPage: 10,
+        rowsPerPage: 9,
         sortBy: '報修時間',
         descending: true
       },
-      rowsPerPageOptions: [5, 10],
+      rowsPerPageOptions: [9, 13],
       columns: [
         { name: '報修時間', align: 'left', label: '報修時間', field: 'start_datetime', sortable: true },
         { name: '報修單號', align: 'left', label: '報修單號', field: 'repair_no', sortable: true },
@@ -212,7 +212,6 @@ export default {
         const url = PicUrl + '/' + PicNameList[i]
         PicUrlList[i] = url
       }
-      // console.log(PicNameList)
       this.$refs.edit.picName_list = PicNameList
       this.$refs.edit.picURL_list = PicUrlList
       this.$refs.edit.persistent = !this.$refs.edit.persistent
