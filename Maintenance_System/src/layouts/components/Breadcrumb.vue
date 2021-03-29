@@ -21,11 +21,12 @@
   </div>
   <div v-else-if="nowat === 'RepairSystemDetailPrint'">
     <q-breadcrumbs
-      style="position: absolute; top:65px; left:25px; width:190px; height:55px;"
+      style="position: absolute; top:65px; left:25px; width:265px; height:55px;"
       class="font-weight-bold text_big"
       separator="/"
     >
       <q-breadcrumbs-el :label="local.RepairSystem.main" to="/" />
+      <q-breadcrumbs-el :label="local.RepairSystem.detail" to="/repair-system/detail" />
       <q-breadcrumbs-el :label="local.RepairSystem.print" to="/" />
     </q-breadcrumbs>
   </div>

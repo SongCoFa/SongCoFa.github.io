@@ -131,7 +131,7 @@ export default {
     }
     this.maindata = this.$store.state.repair_system.selected
     // 清除store暫存避免影響明細選擇進入功能
-    this.$store.commit('CleanRepairSystemSelected')
+    // this.$store.commit('CleanRepairSystemSelected')
     this.setTime()
     console.log(this.maindata)
     // 設定報修主表照片

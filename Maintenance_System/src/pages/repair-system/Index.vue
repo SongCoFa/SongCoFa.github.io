@@ -30,10 +30,10 @@
           >
             {{ col.label }}
           </q-th>
-          <q-th class="text_sm summarylabel" style="text-align: right; position:relative;">編輯/明細/列印</q-th>
+          <q-th class="text_sm summarylabel" style="text-align: right; position:relative;">編輯/明細/回覆</q-th>
           <q-th class="text_sm summarylabel" style="background-color: #38302C">
             <div class="colum-shadow"></div>
-            編輯/明細/列印
+            編輯/明細/回覆
           </q-th>
           <!-- <q-th auto-width /> -->
         </q-tr>
@@ -53,7 +53,8 @@
             <div class="colum-shadow"></div>
             <q-btn class="editIcon ListIcon" @click.native="props.selected = !props.selected; goEdit()" />
             <q-btn class="detailIcon ListIcon" @click.native="props.selected = !props.selected; getrowData()" />
-            <q-btn class="printIcon ListIcon" @click.native="props.selected = !props.selected; goPrint()" />
+            <q-btn class="RenewIcon ListIcon" v-if="props.cols[6].value === '處理中' || props.cols[6].value === '新案件'" @click.native="props.selected = !props.selected; goReport()" />
+            <q-btn class="RenewIcon ListIcon" v-if="props.cols[6].value === '待確認' || props.cols[6].value === '結案'" @click.native="props.selected = !props.selected; goCheck()" />
           </q-td>
         </q-tr>
         </template>
@@ -63,6 +64,8 @@
     </div>
     <Add ref="add" />
     <Edit ref="edit" @getResult="ReResult" />
+    <Report ref="report" @Report="ReResult" />
+    <Check ref="check" />
   </q-page>
 </template>
 
@@ -71,6 +74,8 @@ import QueryTool from 'components/QueryTool/Index.vue'
 import Breadcrumb from 'layouts/components/Breadcrumb.vue'
 import Add from 'components/Modals/AddRepairList.vue'
 import Edit from 'components/Modals/EditRepairList.vue'
+import Report from 'components/Modals/ReportRepairList.vue'
+import Check from 'components/Modals/CheckRepairList.vue'
 
 export default {
   name: 'RepairSystem',
@@ -78,7 +83,9 @@ export default {
     QueryTool,
     Breadcrumb,
     Add,
-    Edit
+    Edit,
+    Report,
+    Check
   },
   data () {
     return {
@@ -105,6 +112,7 @@ export default {
         { name: '處理時間', align: 'left', label: '處理時間', field: 'usetime', sortable: true }
       ],
       maindata: null,
+      RepairList: [],
       ItemList: [],
       OperatorList: [],
       User: {
@@ -117,6 +125,7 @@ export default {
     }
   },
   mounted () {
+    this.$store.commit('CleanRepairSystemSelected')
     this.User.id = window.sessionStorage.getItem('Number')
     this.User.name = window.sessionStorage.getItem('Name')
     this.User.OperatorCode = window.sessionStorage.getItem('Vender')
@@ -140,6 +149,18 @@ export default {
     this.$axios.get('/api/Repair/OperatorCodeList')// 取得客運業者列表OperatorList
       .then((response) => {
         this.OperatorList = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    // 取得零件列表RepairList
+    this.$axios.get('/api/Repair/RepairPart')
+      .then((response) => {
+        // console.log(response)
+        this.RepairList = response.data
+        this.RepairList.map((item) => {
+          item.ischoice = false
+        })
       })
       .catch(function (error) {
         console.log(error)
@@ -215,6 +236,34 @@ export default {
       this.$refs.edit.picName_list = PicNameList
       this.$refs.edit.picURL_list = PicUrlList
       this.$refs.edit.persistent = !this.$refs.edit.persistent
+      this.selected = []
+    },
+    goReport () {
+      const today = new Date()
+      const timer = new Date().toLocaleTimeString('it-IT')
+      this.$refs.report.persistent = !this.$refs.report.persistent
+      this.$refs.report.RepairList = this.RepairList
+      this.$refs.report.selected_DrivermanagementLogParameter.OperatorName = this.selected[0].OperatorName
+      this.$refs.report.selected_DrivermanagementLogParameter.repair_no = this.selected[0].repair_no
+      this.$refs.report.selected_DrivermanagementLogParameter.item_name = this.selected[0].item_name
+      this.$refs.report.selected_DrivermanagementLogParameter.bus_no = this.selected[0].bus_no
+      this.$refs.report.selected_DrivermanagementLogParameter.reply_person_name = this.User.name
+      this.$refs.report.selected_DrivermanagementLogParameter.reply_person_id = this.User.id
+      this.$refs.report.selected_DrivermanagementLogParameter.reply_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
+      this.selected = []
+    },
+    goCheck () {
+      const today = new Date()
+      const timer = new Date().toLocaleTimeString('it-IT')
+      this.$refs.check.persistent = !this.$refs.check.persistent
+      this.$refs.check.selected_DrivermanagementLogParameter.OperatorCode = this.User.OperatorCode
+      this.$refs.check.selected_DrivermanagementLogParameter.repair_no = this.selected[0].repair_no
+      this.$refs.check.selected_DrivermanagementLogParameter.item_name = this.selected[0].item_name
+      this.$refs.check.selected_DrivermanagementLogParameter.bus_no = this.selected[0].bus_no
+      this.$refs.check.selected_DrivermanagementLogParameter.confirm_person_name = this.User.name
+      this.$refs.check.selected_DrivermanagementLogParameter.confirm_person_id = this.User.id
+      this.$refs.check.selected_DrivermanagementLogParameter.remark = null
+      this.$refs.check.selected_DrivermanagementLogParameter.confirm_datetime = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + timer
       this.selected = []
     }
   }
@@ -300,8 +349,8 @@ export default {
     background-position: center center;
     margin-left: 10px;
   }
-  .printIcon{
-    background-image: url(../../assets/ICON/Print.png);
+  .RenewIcon{
+    background-image: url(../../assets/ICON/Renew.png);
     background-color: rgb(204, 125, 35);
     background-size: cover;
     background-repeat: no-repeat;

@@ -2,6 +2,7 @@
   <q-page>
     <Breadcrumb :nowat="PageNowAt" />
     <div class="title">
+        <img style="cursor: pointer;" src="~/assets/ICON/Print.png" @click="goPrint" />
         <img v-if="isReport && isBolymin" style="cursor: pointer;" src="~/assets/ICON/Report.png" @click="goReport" />
         <img v-else-if="isCheck" style="cursor: pointer;" src="~/assets/ICON/Report.png" @click="goCheck" />
     </div>
@@ -306,6 +307,11 @@ export default {
       const today = new Date()
       const timer = new Date().toLocaleTimeString('it-IT')
       this.TimeNow = '更新時間:' + today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + 'T ' + timer
+    },
+    goPrint () {
+      const nowSelect = this.maindata
+      this.$store.commit('SetRepairSystemSelected', nowSelect)
+      this.$router.push('/repair-system/print')
     },
     goDescription () {
       this.$refs.description.persistent = !this.$refs.description.persistent
