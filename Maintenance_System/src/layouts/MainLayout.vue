@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar
-        class="header_img"
+        class="header_img noprint"
       >
 
         <q-toolbar-title>
@@ -150,6 +150,11 @@ export default {
       height: 45px;
       top: 10px;
       left: 260px;
+    }
+  }
+  @media print {
+    .noprint{
+      display: none;
     }
   }
   a{

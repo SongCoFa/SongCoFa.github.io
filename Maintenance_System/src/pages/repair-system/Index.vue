@@ -65,7 +65,7 @@
     <Add ref="add" />
     <Edit ref="edit" @getResult="ReResult" />
     <Report ref="report" @Report="ReResult" />
-    <Check ref="check" />
+    <Check ref="check" @Report="ReResult"/>
   </q-page>
 </template>
 

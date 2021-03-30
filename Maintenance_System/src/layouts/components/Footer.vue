@@ -1,6 +1,6 @@
 <template>
   <q-footer elevated>
-      <q-toolbar class="footer_img">
+      <q-toolbar class="footer_img noprint">
         <q-toolbar-title>
           <span
             class="mr-2 timer"
@@ -103,9 +103,15 @@ export default {
       padding-right: 30px;
     }
   }
+  @media print {
+    .noprint{
+      display: none;
+    }
+  }
   a{
     cursor: pointer;
     text-decoration: none;
+    color: white;
   }
   a:visited{
     color: white;

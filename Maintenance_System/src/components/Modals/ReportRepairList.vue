@@ -262,6 +262,7 @@ export default {
           .then((response) => {
           // console.log(response)
             if (response.data[0].ReturnMessage === '成功') {
+              this.$emit('Report')
               close.click()
               alert('報修單完修，請等待客戶驗收確認')
               this.$router.push('/repair-system')

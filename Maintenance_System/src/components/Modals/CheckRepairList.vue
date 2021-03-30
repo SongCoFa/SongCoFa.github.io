@@ -145,6 +145,7 @@ export default {
           // console.log(response)
           if (response.data[0].ReturnMessage === '成功') {
             const close = document.getElementById('closs_btn')
+            this.$emit('Report')
             close.click()
             alert('確認成功，此報修單結案')
             this.$router.push('/repair-system')
@@ -164,6 +165,7 @@ export default {
           // console.log(response)
           if (response.data[0].ReturnMessage === '成功') {
             const close = document.getElementById('closs_btn')
+            this.$emit('Report')
             alert('成功回報未修復，請等待維修人員再次確認')
             close.click()
             this.$router.push('/repair-system')

@@ -119,7 +119,7 @@
       </div>
     </div>
     <Report ref="report" @Report="getHistoryList" />
-    <Check ref="check" />
+    <Check ref="check" @Report="getHistoryList"/>
     <Description ref="description" />
   </q-page>
 </template>
