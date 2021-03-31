@@ -6,7 +6,7 @@
       >
 
         <q-toolbar-title>
-          <a  href="http://www.fmsbolymin.com.tw/"><img src="../assets/ICON/Logo.png" class="logo_img" /></a>
+          <a href="http://www.fmsbolymin.com.tw/" @click="cleansession"><img src="../assets/ICON/Logo.png" class="logo_img" /></a>
           <img src="../assets/ICON/User.png" class="user_img" />
           <div class="user_title text_big" style="cursor: pointer; color:#E3D0E6;">[{{User.id}}]{{User.name}}</div>
         </q-toolbar-title>
@@ -95,12 +95,23 @@ export default {
   methods: {
     gotoRepairSystem () {
       this.$router.push('/repair-system')
+    },
+    cleansession () {
+      window.sessionStorage.removeItem('Number')
+      window.sessionStorage.removeItem('Name')
+      window.sessionStorage.removeItem('Vender')
+      window.localStorage.removeItem('Number')
+      window.localStorage.removeItem('Name')
+      window.localStorage.removeItem('Vender')
     }
   },
   beforeDestroy () {
     window.sessionStorage.removeItem('Number')
     window.sessionStorage.removeItem('Name')
     window.sessionStorage.removeItem('Vender')
+    window.localStorage.removeItem('Number')
+    window.localStorage.removeItem('Name')
+    window.localStorage.removeItem('Vender')
   }
 }
 </script>

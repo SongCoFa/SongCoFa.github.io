@@ -15,7 +15,7 @@ export default {
         name: null,
         OperatorCode: null
       },
-      isTest: true
+      isTest: false
     }
   },
   mounted () {
@@ -86,6 +86,12 @@ export default {
       window.sessionStorage.removeItem('end_datetime')
       window.sessionStorage.removeItem('status')
       window.sessionStorage.removeItem('bus_no')
+      window.sessionStorage.removeItem('Number')
+      window.sessionStorage.removeItem('Name')
+      window.sessionStorage.removeItem('Vender')
+      window.localStorage.removeItem('Number')
+      window.localStorage.removeItem('Name')
+      window.localStorage.removeItem('Vender')
     }
   }
 }

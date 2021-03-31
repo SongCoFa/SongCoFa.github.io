@@ -55,6 +55,9 @@
             <q-btn class="detailIcon ListIcon" @click.native="props.selected = !props.selected; getrowData()" />
             <q-btn class="RenewIcon ListIcon" v-if="props.cols[6].value === '處理中' || props.cols[6].value === '新案件'" @click.native="props.selected = !props.selected; goReport()" />
             <q-btn class="RenewIcon ListIcon" v-if="props.cols[6].value === '待確認' || props.cols[6].value === '結案'" @click.native="props.selected = !props.selected; goCheck()" />
+            <div class="ListIcon btncover" v-if="props.cols[6].value === '結案'"></div>
+            <div class="ListIcon btncover" v-else-if="props.cols[6].value === '新案件' && User.OperatorCode !== 'Bolymin'"></div>
+            <div class="ListIcon btncover" v-else-if="props.cols[6].value === '處理中' && User.OperatorCode !== 'Bolymin'"></div>
           </q-td>
         </q-tr>
         </template>
@@ -295,6 +298,13 @@ export default {
       width: 20px;
       height: 20px;
     }
+    .btncover{
+      background-color: gray;
+      opacity: 0.8;
+      position: absolute;
+      top: 12px;
+      right: 22px;
+    }
   }
   @media (min-width: 501px){
     .title{
@@ -318,6 +328,13 @@ export default {
     .ListIcon{
       width: 25px;
       height: 25px;
+    }
+    .btncover{
+      background-color: gray;
+      opacity: 0.8;
+      position: absolute;
+      top: 7px;
+      right: 37px;
     }
   }
   img{

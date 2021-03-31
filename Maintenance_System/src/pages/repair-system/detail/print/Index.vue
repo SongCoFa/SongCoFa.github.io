@@ -28,12 +28,12 @@
           </thead>
           <tbody>
             <tr class="q-tr">
-              <td class="text_sm text-left" >{{this.maindata[0].start_datetime}}</td>
-              <td class="text_sm text-left" >{{this.maindata[0].repair_no}}</td>
-              <td class="text_sm text-left" >{{this.maindata[0].OperatorName}}</td>
-              <td class="text_sm text-left" >{{this.maindata[0].bus_no}}</td>
-              <td class="text_sm text-left" >{{this.maindata[0].item_name}}</td>
-              <td class="text_sm text-left" >{{this.maindata[0].usetime}}</td>
+              <td class="text_sm text-left" >{{maindata[0].start_datetime}}</td>
+              <td class="text_sm text-left" >{{maindata[0].repair_no}}</td>
+              <td class="text_sm text-left" >{{maindata[0].OperatorName}}</td>
+              <td class="text_sm text-left" >{{maindata[0].bus_no}}</td>
+              <td class="text_sm text-left" >{{maindata[0].item_name}}</td>
+              <td class="text_sm text-left" >{{maindata[0].usetime}}</td>
             </tr>
           </tbody>
           <thead>
@@ -135,7 +135,21 @@ export default {
     return {
       PageNowAt: 'RepairSystemDetailPrint',
       TimeNow: null,
-      maindata: [],
+      maindata: [{
+        OperatorCode: '',
+        initiator_tel: null,
+        initiator_id: '',
+        initiator_name: '',
+        driver_tel: null,
+        driver_id: null,
+        driver_name: null,
+        bus_no: '',
+        item: '',
+        summary: null,
+        description: null,
+        start_datetime: null,
+        picture_filename: null
+      }],
       historydata: []
     }
   },
@@ -150,7 +164,6 @@ export default {
     // 清除store暫存避免影響明細選擇進入功能
     // this.$store.commit('CleanRepairSystemSelected')
     this.setTime()
-    console.log(this.maindata)
     // 設定報修主表照片
     if (this.maindata[0].picture_filename !== null && this.maindata[0].picture_filename !== '') {
       const PicNameList = this.maindata[0].picture_filename.split(',')

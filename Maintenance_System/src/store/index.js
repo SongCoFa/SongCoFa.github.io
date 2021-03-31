@@ -18,7 +18,7 @@ Vue.use(Vuex)
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     state: {
-      nowVersion: '0.00.06',
+      nowVersion: '0.00.07',
       repair_system: {
         selected: null
       }
