@@ -125,6 +125,10 @@ import ConsolationMoney from '@/components/InputTool/Extend/Salary/ConsolationMo
 import Tip from '@/components/InputTool/Extend/Salary/Tip.vue';
 import TravelAllowance from '@/components/InputTool/Extend/Salary/TravelAllowance.vue';
 import EducationAllowance from '@/components/InputTool/Extend/Salary/EducationAllowance.vue';
+import SeverancePay from '@/components/InputTool/Extend/Salary/SeverancePay.vue';
+import TravelPrice from '@/components/InputTool/Extend/Salary/TravelPrice.vue';
+import Other1 from '@/components/InputTool/Extend/Salary/Other1.vue';
+import Other2 from '@/components/InputTool/Extend/Salary/Other2.vue';
 import Loan from '@/components/InputTool/Extend/Salary/Loan.vue';
 import IncomeTax from '@/components/InputTool/Extend/Salary/IncomeTax.vue';
 import MiscellaneousFee from '@/components/InputTool/Extend/Salary/MiscellaneousFee.vue';
@@ -241,6 +245,10 @@ export default {
     Tip,
     TravelAllowance,
     EducationAllowance,
+    TravelPrice,
+    SeverancePay,
+    Other1,
+    Other2,
     Loan,
     IncomeTax,
     MiscellaneousFee,

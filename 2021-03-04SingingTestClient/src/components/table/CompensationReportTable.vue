@@ -21,6 +21,10 @@
           <b-th class="text-center"></b-th>
           <b-th class="text-center"></b-th>
           <b-th class="text-center"></b-th>
+          <b-th class="text-center"></b-th>
+          <b-th class="text-center"></b-th>
+          <b-th class="text-center"></b-th>
+          <b-th class="text-center"></b-th>
           <b-th class="text-center align-middle" rowspan="2">合計</b-th>
           <b-th class="text-center align-middle" rowspan="2">伙食津貼</b-th>
           <b-th class="text-center align-middle" rowspan="2">應領金額</b-th>
@@ -50,6 +54,10 @@
           <b-th data-item="" class="text-center">教育補助費</b-th>
           <b-th data-item="" class="text-center">年終獎金</b-th>
           <b-th data-item="" class="text-center">慰問金</b-th>
+          <b-th data-item="" class="text-center">資遣費</b-th>
+          <b-th data-item="" class="text-center">旅遊代金</b-th>
+          <b-th data-item="" class="text-center">其他一</b-th>
+          <b-th data-item="" class="text-center">其他二</b-th>
           <b-th data-item="" class="text-center">事假</b-th>
           <b-th data-item="" class="text-center">病假</b-th>
           <b-th data-item="" class="text-center">曠職</b-th>
@@ -81,6 +89,10 @@
             <b-td data-item="" class="text-right">{{ item.教育補助費 | thousandsComma }}</b-td>
             <b-td data-item="" class="text-right">{{ item.年終獎金 | thousandsComma }}</b-td>
             <b-td data-item="" class="text-right">{{ item.慰問金 | thousandsComma }}</b-td>
+            <b-td data-item="" class="text-right">{{ item.資遣費 | thousandsComma }}</b-td>
+            <b-td data-item="" class="text-right">{{ item.旅遊代金 | thousandsComma }}</b-td>
+            <b-td data-item="" class="text-right">{{ item.其他一 | thousandsComma }}</b-td>
+            <b-td data-item="" class="text-right">{{ item.其他二 | thousandsComma }}</b-td>
             <b-td data-item="" class="text-right">{{ item.事假金額 | thousandsComma }}</b-td>
             <b-td data-item="" class="text-right">{{ item.病假金額 | thousandsComma }}</b-td>
             <b-td data-item="" class="text-right">{{ item.曠職金額 | thousandsComma }}</b-td>
@@ -117,6 +129,10 @@
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['教育補助費'], 0) | thousandsComma }}</b-td>
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['年終獎金'], 0) | thousandsComma }}</b-td>
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['慰問金'], 0) | thousandsComma }}</b-td>
+          <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['資遣費'], 0) | thousandsComma }}</b-td>
+          <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['旅遊代金'], 0) | thousandsComma }}</b-td>
+          <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['其他一'], 0) | thousandsComma }}</b-td>
+          <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['其他二'], 0) | thousandsComma }}</b-td>
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['事假金額'], 0) | thousandsComma }}</b-td>
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['病假金額'], 0) | thousandsComma }}</b-td>
           <b-td variant="secondary" data-item="" class="text-right">{{ pageTable.reduce((a, b) => a + b['曠職金額'], 0) | thousandsComma }}</b-td>
